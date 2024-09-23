@@ -12,9 +12,8 @@ dotenv.config();  // Load the environment variables
 const app = express();
 app.use(cors())
 
-
-app.use('/blogs', blogRoutes);
-app.use('/projects', projectRoutes);
+app.use('/api/blogs', blogRoutes);
+app.use('/api/projects', projectRoutes);
 app.use(bodyParser.json({ limit: '30mb', extended: true }));
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 
