@@ -29,8 +29,7 @@ const ProjectDetailed = () => {
             </Box>
         );
     }
-    const tmpId = typeof projectId === 'string' ? parseInt(projectId, 10) : projectId;
-    const project = projects.find(project => project.id === tmpId);
+    const project = projects.find(project => project._id === projectId);
     
     if (!project) {
         console.log('No project data available.');

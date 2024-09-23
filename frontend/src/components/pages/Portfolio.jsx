@@ -63,7 +63,7 @@ function Portfolio() {
                                 alignItems: 'center' 
                             }}
                         >
-                            <PortfolioCard item={item} onClickCardClicked={() => handleOnCardClick(item.id)} />
+                            <PortfolioCard item={item} onClickCardClicked={() => handleOnCardClick(item._id)} />
                         </Grid>
                     ))
                 ) : (
