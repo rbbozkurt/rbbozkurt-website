@@ -32,7 +32,7 @@ function Blog() {
             </Box>
         );
     }
-
+    console.log('Component rendered with state:', { blogs, loading, error });
     if (error) {
         return (
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
@@ -66,7 +66,7 @@ function Blog() {
                                 alignItems: 'center' 
                             }}
                         >
-                            <BlogCard item={item} onClickCardClicked={() => handleOnCardClick(item.id)} />
+                            <BlogCard item={item} onClickCardClicked={() => handleOnCardClick(item._id)} />
                         </Grid>
                     ))
                 ) : (

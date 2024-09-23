@@ -9,7 +9,7 @@ function BlogCard({ item, onClickCardClicked }) {
     function hashtify(list) {
         return list.map((item) => `#${item}`).join(' ');
     }
-
+    console.log(` The id of item is ${item._id}`)
     return (
         <Card
             onClick={() => onClickCardClicked(item.id)}

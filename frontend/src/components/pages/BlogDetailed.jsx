@@ -29,9 +29,10 @@ const BlogDetailed = () => {
             </Box>
         );
     }
-    const tmpBlogId = typeof blogId === 'string' ? parseInt(blogId, 10) : blogId;
+    console.log(`The selected id is ${blogId} and is equal to ${typeof blogId}`);
+    console.log(`There is a match: ${blogs.find(blog => blog.id === blogId)}`);
 
-    const currentBlog = blogs.find(blog => blog.id === tmpBlogId);
+    const currentBlog = blogs.find(blog => blog._id === blogId);
 
     if (!currentBlog) {
         console.log('No project data available.');
