@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap');
+
+
+/* Styling for the list items */
+.sidebar-item {
+  text-align: center;
+  font-size: 1.5rem;
+  /* Default font size for unselected items */
+  font-weight: light;
+  /* Default font weight */
+  color: #6b6b6b;
+  /* Default color for light mode */
+}
+
+.sidebar-item-dark {
+  color: #fff;
+  /* Color for dark mode */
+}
+
+.sidebar-item-selected {
+  font-family: "Playwrite CU", system-ui;
+  font-size: 2.5rem;
+  /* Font size for selected item */
+}
+
+.sidebar-item:hover {
+  background-color: #ddd;
+  /* Light mode hover */
+}
+
+.sidebar-item-dark:hover {
+  background-color: #3d3d3d;
+  /* Dark mode hover */
+}
+
+/* Optional divider styling */
+.sidebar-divider {
+  margin: 0 16px;
+  /* Optional margin for dividers */
+}
