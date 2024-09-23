@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Link } from '@mui/material';
+import { Box} from '@mui/material';
 import { RoleText, Turkey, Berlin, SubText, Paragraph, Section } from '../text-components';
 import {  MasonryImageList } from '../view-components';
 

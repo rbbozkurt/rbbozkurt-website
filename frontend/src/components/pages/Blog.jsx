@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Box, Typography, Grid, CircularProgress } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
 import { SearchBar, BlogCard } from '../view-components';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -8,7 +7,7 @@ import { useSelector } from 'react-redux';
 
 function Blog() {
     const [searchTerm, setSearchTerm] = useState('');
-    const theme = useTheme();
+    //    const theme = useTheme();
     const { blogs, loading, error } = useSelector(state => state.blogs); // Accessing blogs state
     const navigate = useNavigate();
 

@@ -14,7 +14,7 @@ const initialState = {
     error: null,
 };
 
-export default (state = initialState, action) => {
+const projects = (state = initialState, action) => {
     switch(action.type){
         case FETCH_PROJECTS:
             return { ...state, loading: true, error: null };
@@ -32,3 +32,5 @@ export default (state = initialState, action) => {
             return state;
     }
 }
+
+export default projects;

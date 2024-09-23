@@ -88,13 +88,6 @@ const colorMap = {
 };
 
 
-// Function to get a random color pair from the map
-const getRandomColorPair = () => {
-    const keys = Object.keys(colorMap);
-    const randomKey = keys[Math.floor(Math.random() * keys.length)];
-    return colorMap[randomKey];
-};
-
 const getColor = (index) => {
     const keys = Object.keys(colorMap);
     const key = keys[index % keys.length];

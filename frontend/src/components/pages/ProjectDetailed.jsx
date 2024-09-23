@@ -1,15 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
-import { getProject } from '../../actions/projects';
 import { Paragraph, Section } from '../text-components';
 import { ProjectHeader } from '../view-components';
 
 const ProjectDetailed = () => {
     const { projectId } = useParams(); // Get the projectId from the route
-    const dispatch = useDispatch();
     const { projects, loading, error } = useSelector((state) => state.projects);
     const navigate = useNavigate();
 ;

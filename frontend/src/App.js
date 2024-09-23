@@ -1,12 +1,12 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import { Box, Container, Divider, Grid } from '@mui/material';
+import { Container, Divider, Grid } from '@mui/material';
 import { Header, Home, TopMenu, About, Portfolio, Blog, Error, ProjectDetailed, BlogDetailed } from './components';
 import theme from './theme';
 import { ThemeProvider } from '@mui/material/styles';
-import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { INITIAL_PAGE } from './constants.js';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { getBlogs } from './actions/blogs'; // Assuming you have an action to fetch blogs
 import { getProjects } from './actions/projects'; // Assuming you have an action to fetch projects
 
