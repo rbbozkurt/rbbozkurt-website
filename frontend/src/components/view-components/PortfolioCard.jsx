@@ -8,16 +8,12 @@ import TocIcon from '@mui/icons-material/Toc';
 function PortfolioCard({ item, onClickCardClicked }) {
     const theme = useTheme();
 
-    //function puts # at the beginning of each item in list and returns a string
-    function hashtify(list) {
-        return list.map((item) => `#${item}`).join(' ');
-    }
     console.log(`Technology : ${item.technology} and type : ${typeof item.technology}`)
     return (
         <Card
             onClick={() => onClickCardClicked(item.id)}
             sx={{
-                width: 600,
+                width: '100%',
                 height: 300,
                 display: 'flex',
                 flexDirection: 'column',
@@ -30,7 +26,7 @@ function PortfolioCard({ item, onClickCardClicked }) {
                 cursor: 'pointer',
                 position: 'relative', // Needed for overlay positioning
                 '&:hover': {
-                    transform: 'scale(1.1)',
+                    transform: 'scale(1.02)',
                 },
                 '&:hover .overlay': {
                     opacity: 1,

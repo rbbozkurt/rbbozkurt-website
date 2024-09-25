@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import {Paragraph, Section } from '../text-components';
-
+import { SensitiveContent } from '../view-components';
+import me from '../../images/me.jpeg';
 
 const title1 = "me";
 const title2 = "what I am working on";
@@ -32,6 +33,23 @@ const About = () => {
 
     return (
         <Box direction='column'>
+            <SensitiveContent content={
+                <Box
+                component="img"
+                alt={'me'}
+                src={me}
+                sx={
+                    {
+                        width: '100%',
+                        height: 300,
+                        objectFit: 'cover',
+                        borderRadius: 2,
+                    }
+                }
+               
+
+            />
+            }/>
             {sections.map((section, index) => (
                 <Section key={index} title={section.title}>
                     {section.paragraphs.map((paragraph, index) => (

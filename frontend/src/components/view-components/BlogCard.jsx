@@ -49,7 +49,7 @@ function BlogCard({ item, onClickCardClicked }) {
             <Box
                 sx={{
                     width: '60%', // Content takes 60% of the card width
-                    padding: 2,
+                    paddingX: 2,
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',

@@ -2,6 +2,8 @@ import React from 'react';
 import { Box} from '@mui/material';
 import { RoleText, Turkey, Berlin, SubText, Paragraph, Section } from '../text-components';
 import {  MasonryImageList } from '../view-components';
+import { BlogPreview, PortfolioPreview } from '../view-components/preview';
+import { useNavigate } from 'react-router-dom';
 
 const title1 = "whoami";
 const title2 = "what am I working on?";
@@ -18,7 +20,16 @@ const paragraphs2 = [
 
 
 const Home = () => {
+    const navigate = useNavigate();
 
+    const onBlogClick = (id) => {
+        navigate(`/blog/${id}`);
+    }
+
+    const onProjectClick = (id) => {
+        navigate(`/portfolio/${id}`);
+
+    }
 
     return (
         <Box direction="column">
@@ -65,8 +76,6 @@ const Home = () => {
                     {paragraphs1[2]}
                 </Paragraph>
             </Section>
-
-
             <Section title={title2}>
                 {paragraphs2.map((paragraph, index) => (
                     <Paragraph key={index}>
@@ -74,6 +83,8 @@ const Home = () => {
                     </Paragraph>
                 ))}
             </Section>
+            <PortfolioPreview title={"portfolio"} onItemClicked={onProjectClick}/>
+            <BlogPreview title={"blogs"} onItemClicked={onBlogClick}/>
 
 
         </Box>

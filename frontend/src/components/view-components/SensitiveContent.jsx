@@ -10,8 +10,14 @@ const SensitiveContent = ({ content }) => {
     };
 
     return (
-        <Box position="relative" display="inline-block" onClick={handleToggle}>
-            <Box>
+        <Box sx={
+            {
+                borderRadius: 2
+            }
+        } position="relative" display="inline-block" onClick={handleToggle}>
+            <Box sx={{
+                borderRadius: 2
+            }}>
                 {content}
             </Box>
             <Box
@@ -28,6 +34,7 @@ const SensitiveContent = ({ content }) => {
                 textAlign="center"
                 zIndex={1}
                 sx={{
+                    borderRadius: 2,
                     backdropFilter: 'blur(10px)', // Apply blur effect
                     backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
                     opacity: isContentHidden ? 1 : 0, // Control visibility with opacity
@@ -41,7 +48,7 @@ const SensitiveContent = ({ content }) => {
                     },
                 }}
             >
-                <Box display="flex" flexDirection="column" alignItems="center">
+                <Box display="flex" flexDirection="column" alignItems="center" padding={2}>
                     <VisibilityOffIcon
                         style={{ fontSize: 50, marginBottom: '10px' }}
                     />

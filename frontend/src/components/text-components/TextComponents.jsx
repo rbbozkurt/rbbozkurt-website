@@ -107,6 +107,12 @@ const Tags = ({ tags, isColorized = true, isHorizontalScrollable = false }) => {
                 flexWrap: isHorizontalScrollable ? 'nowrap' : 'wrap', 
                 gap: 1, 
                 overflowX: isHorizontalScrollable ? 'auto' : 'visible',
+                whiteSpace: isHorizontalScrollable ? 'nowrap' : 'normal', // Prevents wrapping in scrollable mode
+                '&::-webkit-scrollbar': {
+                    display: 'none', // Hides the scrollbar for webkit browsers (Chrome, Safari)
+                },
+                '-ms-overflow-style': 'none',  // Hides scrollbar for Internet Explorer and Edge
+                'scrollbar-width': 'none',     // Hides scrollbar for Firefox
             }} 
             role="text"
         >
