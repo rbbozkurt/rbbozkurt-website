@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 function Portfolio() {
     const [searchTerm, setSearchTerm] = useState('');
     const { projects, loading, error } = useSelector(state => state.projects);
-    // const theme = useTheme();
     const navigate = useNavigate();
     
     const handleSearchChange = (event) => {
@@ -22,24 +21,6 @@ function Portfolio() {
         item.title.toLowerCase().includes(searchTerm.toLowerCase())
     ) || [];
 
-    if (loading) {
-        return (
-            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-                <CircularProgress />
-            </Box>
-        );
-    }
-
-    if (error) {
-        return (
-            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-                <Typography variant="h6" color="error">
-                    {error}
-                </Typography>
-            </Box>
-        );
-    }
-
     return (
         <Box
             sx={{
@@ -50,28 +31,47 @@ function Portfolio() {
             }}
         >
             <SearchBar placeholderText={"Search Portfolio"} searchTerm={searchTerm} onSearchChange={handleSearchChange} />
-            <Grid container spacing={4} justifyContent="center" alignItems="stretch">
-                {filteredItems.length > 0 ? (
-                    filteredItems.map((item) => (
-                        <Grid 
-                            item 
-                            key={item.id} 
-                            xs={12} sm={6} md={4}
-                            sx={{ 
-                                display: 'flex', 
-                                justifyContent: 'center', 
-                                alignItems: 'center' 
-                            }}
-                        >
-                            <PortfolioCard item={item} onClickCardClicked={() => handleOnCardClick(item._id)} />
-                        </Grid>
-                    ))
-                ) : (
-                    <Typography variant="h6" color="textSecondary" sx={{ marginTop: '3rem', textAlign: 'center' }}>
-                        No projects found with the search term "{searchTerm}"
+            
+            {loading ? (
+                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+                    <CircularProgress />
+                </Box>
+            ) : error ? (
+                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+                    <Typography variant="h6" color="error">
+                        {error}
                     </Typography>
-                )}
-            </Grid>
+                </Box>
+            ) : projects.length === 0 ? (
+                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+                    <Typography variant="h6" color="textSecondary">
+                        No projects found.
+                    </Typography>
+                </Box>
+            ) : (
+                <Grid container spacing={4} justifyContent="center" alignItems="stretch">
+                    {filteredItems.length > 0 ? (
+                        filteredItems.map((item) => (
+                            <Grid 
+                                item 
+                                key={item.id} 
+                                xs={12} sm={6} md={4}
+                                sx={{ 
+                                    display: 'flex', 
+                                    justifyContent: 'center', 
+                                    alignItems: 'center' 
+                                }}
+                            >
+                                <PortfolioCard item={item} onClickCardClicked={() => handleOnCardClick(item._id)} />
+                            </Grid>
+                        ))
+                    ) : (
+                        <Typography variant="h6" color="textSecondary" sx={{ marginTop: '3rem', textAlign: 'center' }}>
+                            No projects found with the search term "{searchTerm}"
+                        </Typography>
+                    )}
+                </Grid>
+            )}
         </Box>
     );
 }

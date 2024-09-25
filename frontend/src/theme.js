@@ -52,7 +52,7 @@ const theme = createTheme({
             color: '#000'
         },
         body2: {
-            fontSize: '0.75rem',
+            fontSize: '0.9rem',
             color: '#3d3d3d'
         },
         button: {

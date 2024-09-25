@@ -1,5 +1,7 @@
 import React from 'react';
 import { Typography, Box, Link, Divider } from '@mui/material';
+import PropTypes from 'prop-types';
+import { useTheme } from '@mui/material/styles';
 
 const HighlightedText = ({ text, sx }) => (
     <Typography
@@ -95,28 +97,47 @@ const getColor = (index) => {
 }
 
 
-const Tags = ({ tags }) => {
+
+const Tags = ({ tags, isColorized = true, isHorizontalScrollable = false }) => {
+    const theme = useTheme();
     return (
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }} role="text">
-            {hashtify(tags).split(' ').map((item, index) => {
+        <Box 
+            sx={{ 
+                display: 'flex', 
+                flexWrap: isHorizontalScrollable ? 'nowrap' : 'wrap', 
+                gap: 1, 
+                overflowX: isHorizontalScrollable ? 'auto' : 'visible',
+            }} 
+            role="text"
+        >
+            {hashtify(tags).split(' ').map((tag, index) => {
                 const { color, backgroundColor } = getColor(index);
                 return (
                     <Typography
                         key={index}
                         sx={{
+                            borderRadius: '4px',
                             fontWeight: 'bold',
-                            color: color,
-                            backgroundColor: backgroundColor,
-                            padding: '2px 4px',
+                            color: isColorized ? color : theme.palette.secondary.dark,
+                            backgroundColor: isColorized ? backgroundColor : '#E5E5E5',
+                            padding: '1px 4px',
                         }}
                     >
-                        {item}
+                        {tag}
                     </Typography>
                 );
             })}
         </Box>
     );
 };
+
+Tags.propTypes = {
+    tags: PropTypes.string.isRequired,
+    isColorized: PropTypes.bool,
+    isHorizontalScrollable: PropTypes.bool,
+};
+
+export default Tags;
 
 
 export { Section, Paragraph, RoleText, Turkey, Berlin, SubText, Tags };

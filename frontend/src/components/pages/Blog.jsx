@@ -4,44 +4,22 @@ import { SearchBar, BlogCard } from '../view-components';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-
 function Blog() {
     const [searchTerm, setSearchTerm] = useState('');
-    //    const theme = useTheme();
-    const { blogs, loading, error } = useSelector(state => state.blogs); // Accessing blogs state
+    const { blogs, loading, error } = useSelector(state => state.blogs);
     const navigate = useNavigate();
-
-  
 
     const handleSearchChange = (event) => {
         setSearchTerm(event.target.value);
     };
 
     const handleOnCardClick = (id) => {
-        navigate(`/blog/${id}`); // Adjusted the route to blog
+        navigate(`/blog/${id}`);
     };
 
     const filteredItems = blogs?.filter((item) =>
         item.title.toLowerCase().includes(searchTerm.toLowerCase())
     ) || [];
-
-    if (loading) {
-        return (
-            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-                <CircularProgress />
-            </Box>
-        );
-    }
-    console.log('Component rendered with state:', { blogs, loading, error });
-    if (error) {
-        return (
-            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-                <Typography variant="h6" color="error">
-                    {error}
-                </Typography>
-            </Box>
-        );
-    }
 
     return (
         <Box
@@ -53,28 +31,57 @@ function Blog() {
             }}
         >
             <SearchBar placeholderText={"Search Blog"} searchTerm={searchTerm} onSearchChange={handleSearchChange} />
-            <Grid container spacing={4} justifyContent="center" alignItems="stretch">
-                {filteredItems.length > 0 ? (
-                    filteredItems.map((item) => (
-                        <Grid 
-                            item 
-                            key={item.id} 
-                            xs={12} sm={12} md={12}
+            
+            {loading ? (
+                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+                    <CircularProgress />
+                </Box>
+            ) : error ? (
+                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+                    <Typography variant="h6" color="error">
+                        {error}
+                    </Typography>
+                </Box>
+            ) : blogs.length === 0 ? (
+                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+                    <Typography variant="h6" color="textSecondary">
+                        No blogs found.
+                    </Typography>
+                </Box>
+            ) : (
+                <Grid container spacing={4} justifyContent="center" alignItems="stretch">
+                    {filteredItems.length > 0 ? (
+                        filteredItems.map((item) => (
+                            <Grid 
+                                item 
+                                key={item.id} 
+                                xs={12} sm={12} md={12}
+                                sx={{ 
+                                    display: 'flex', 
+                                    justifyContent: 'center', 
+                                    alignItems: 'center' 
+                                }}
+                            >
+                                <BlogCard item={item} onClickCardClicked={() => handleOnCardClick(item._id)} />
+                            </Grid>
+                        ))
+                    ) : (
+                        <Typography 
+                            variant="h6" 
+                            color="textSecondary" 
                             sx={{ 
-                                display: 'flex', 
-                                justifyContent: 'center', 
-                                alignItems: 'center' 
+                                marginTop: '3rem', 
+                                textAlign: 'center', 
+                                width: '100%',
+                                textOverflow: 'ellipsis',
+                                overflow: 'hidden'
                             }}
                         >
-                            <BlogCard item={item} onClickCardClicked={() => handleOnCardClick(item._id)} />
-                        </Grid>
-                    ))
-                ) : (
-                    <Typography variant="h6" color="textSecondary" sx={{ marginTop: '3rem', textAlign: 'center' }}>
-                        No blogs found with the search term "{searchTerm}"
-                    </Typography>
-                )}
-            </Grid>
+                            No blogs found with the search term "{searchTerm}"
+                        </Typography>
+                    )}
+                </Grid>
+            )}
         </Box>
     );
 }
