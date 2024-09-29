@@ -10,3 +10,20 @@ export const getProjects = async (req, res) => {
         res.status(404).json({ message: error.message });
     }
 }
+
+export const updateProject = async (req, res) => {
+    try{
+        const { id: _id } = req.params;
+        const project = req.body;
+
+        if (!mongoose.Types.ObjectId.isValid(_id)) {
+            return res.status(404).send('No project with that id');
+        }
+
+        const updatedProject = await ProjectMessage.findByIdAndUpdate(_id, { ...project, _id }, { new: true });
+        res.json(updatedProject);
+    }catch(error){
+        res.status(404).json({ message: error.message });
+    }
+    
+}
