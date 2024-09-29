@@ -46,3 +46,13 @@ export async function fetchBlog(id) {
         return { data: null };
     }
 }
+
+export async function updateProject(id, data) {
+    try {
+        const response = await axios.put(`${config.api.baseUrl}${config.paths.projects}/${id}`, data);
+        return { data: response.data };
+    } catch (error) {
+        console.error('Error updating project:', error);
+        return { data: null };
+    }
+}   

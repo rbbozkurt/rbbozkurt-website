@@ -5,7 +5,7 @@ import { Tags } from '../text-components';
 import { formatDate } from '../utils';
 import TocIcon from '@mui/icons-material/Toc';
 
-function PortfolioCard({ item, onClickCardClicked }) {
+function PortfolioCard({ item, onClickCardClicked, icon }) {
     const theme = useTheme();
 
     console.log(`Technology : ${item.technology} and type : ${typeof item.technology}`)
@@ -20,6 +20,8 @@ function PortfolioCard({ item, onClickCardClicked }) {
                 justifyContent: 'flex-end', // Align items towards the bottom of the card
                 boxShadow: 'none',
                 borderRadius: 2,
+                boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.6)', // Add a subtle shadow
+
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 transition: 'transform 0.3s, border 0.3s',
@@ -100,7 +102,7 @@ function PortfolioCard({ item, onClickCardClicked }) {
                 }}
             >
                 {/* Icon and VIEW text for the overlay */}
-                <TocIcon fontSize='large' />
+                {icon}
 
             </Box>
 

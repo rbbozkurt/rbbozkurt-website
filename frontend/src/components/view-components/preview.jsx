@@ -1,61 +1,59 @@
-import React, { useState, useEffect } from 'react';
-import { Grid, Typography } from '@mui/material';
+import React, { useEffect } from 'react';
+import { Box, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { BlogCard } from './BlogCard'; // Assuming BlogCard is already implemented
 import { PortfolioCard } from './PortfolioCard'; // Assuming PortfolioCard is already implemented
 import { Section } from '../text-components';
-import Grow from '@mui/material/Grow';
+import { useVisibleItems } from '../utils';
+import TocIcon from '@mui/icons-material/Toc';
+import KeyboardArrowLeftRoundedIcon from '@mui/icons-material/KeyboardArrowLeftRounded';
+import KeyboardArrowRightRoundedIcon from '@mui/icons-material/KeyboardArrowRightRounded';
+import KeyboardArrowUpRoundedIcon from '@mui/icons-material/KeyboardArrowUpRounded';
+import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 
 // Constants
-const FADE_OUT_DURATION = 500;
-const INTERVAL_DURATION = 8000;
-const TRANSITION_DURATION = '0.5s';
-const TRANSITION_TIMING_FUNCTION = 'ease-in-out';
 const LOADING_MESSAGE = 'Loading...';
 const ERROR_MESSAGE_PREFIX = 'Error: ';
 const NO_BLOGS_MESSAGE = 'No blogs available';
 const NO_PROJECTS_MESSAGE = 'No projects available';
-const GRID_HEIGHT = 300;
-const GRID_PADDING = '2rem';
+const SCALE_DURATION = 2000; // Duration for scaling effect (2 seconds)
 
 // The Preview component to handle layout and title
 function Preview({ title, children }) {
     return (
         <Section title={title}>
-            <Grid
-                container
+            <Box
+                display="flex"
                 justifyContent="center"
                 alignItems="center"
                 sx={{
-                    padding: GRID_PADDING,
+                    padding: '2rem',
                     width: '100%',
-                    height: GRID_HEIGHT, // Fixed height for consistency
+                    position: 'relative',
                 }}
             >
                 {children}
-            </Grid>
+            </Box>
         </Section>
     );
 }
 
-// The BlogPreview component with fade-in/fade-out effect
+/// BlogPreview Component using Box and Flexbox
 function BlogPreview({ title, onItemClicked }) {
     const { blogs, loading, error } = useSelector((state) => state.blogs);
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [fadeIn, setFadeIn] = useState(true);
+
+    // Use custom hook to manage visible items
+    const [prev, current, next, moveForward, moveBackward] = useVisibleItems(blogs);
 
     useEffect(() => {
         if (blogs.length > 0) {
             const interval = setInterval(() => {
-                setFadeIn(false); // Start fading out
-                setTimeout(() => {
-                    setCurrentIndex((prevIndex) => (prevIndex + 1) % blogs.length);
-                    setFadeIn(true); // Start fading in after the index changes
-                }, FADE_OUT_DURATION); // Transition out duration
-            }, INTERVAL_DURATION); // Change every 5 seconds
-            return () => clearInterval(interval);
+                moveForward(); // Move to the next item every 2 seconds
+            }, SCALE_DURATION);
+
+            return () => clearInterval(interval); // Cleanup the interval on unmount
         }
-    }, [blogs]);
+    }, [blogs, moveForward]);
 
     if (loading) {
         return <Typography>{LOADING_MESSAGE}</Typography>;
@@ -71,40 +69,91 @@ function BlogPreview({ title, onItemClicked }) {
 
     return (
         <Preview title={title}>
-            <Grid
-             justifyContent="center"
+            <Box
+                display="flex"
+                justifyContent="center"
+                flexDirection="column"
                 alignItems="center"
-                item
-                xs={12} // Ensure responsiveness for BlogCard
-                sx={{
-                    opacity: fadeIn ? 1 : 0, // Control opacity for fade effect
-                    transition: `opacity ${TRANSITION_DURATION} ${TRANSITION_TIMING_FUNCTION}`, // Smooth transition
-                }}
+                flexWrap="nowrap"
+                sx={{ width: '100%' }}
             >
-                <BlogCard item={blogs[currentIndex]} onClickCardClicked={() => onItemClicked(blogs[currentIndex]._id)} />
-            </Grid>
+                {/* Previous Card */}
+                <Box
+                    sx={{
+                        flexGrow: 1,
+                        flexShrink: 1,
+                        width: '80%',
+                    }}
+                >
+                    {prev && (
+                        <BlogCard
+                            item={prev}
+                            onClickCardClicked={() => moveBackward()}
+                            icon={<KeyboardArrowUpRoundedIcon fontSize='large' sx={{ fontSize: 80 }} />} // Add icon
+                        />
+                    )}
+                </Box>
+
+                {/* Current Card with marginX */}
+                <Box
+                    sx={{
+                        flexGrow: 1,
+                        flexShrink: 1,
+                        width: '80%',
+                        marginX: 2, // Adjust marginX
+                        transform: 'scale(1.2)', // Slightly scale the current card
+                        transition: 'transform 0.3s',
+                        zIndex: 1, // Ensure the current card is on top
+                    }}
+                >
+                    {current && (
+                        <BlogCard
+                            item={current}
+                            onClickCardClicked={() => onItemClicked(current._id)}
+                            icon={<TocIcon fontSize='large' />} // Add icon
+
+
+                        />
+                    )}
+                </Box>
+
+                {/* Next Card */}
+                <Box
+                    sx={{
+                        flexGrow: 1,
+                        flexShrink: 1,
+                        width: '80%',
+                    }}
+                >
+                    {next && (
+                        <BlogCard
+                            item={next}
+                            onClickCardClicked={() => moveForward()}
+                            icon={<KeyboardArrowDownRoundedIcon fontSize='large' sx={{ fontSize: 80 }} />} // Add icon
+
+                        />
+                    )}
+                </Box>
+            </Box>
         </Preview>
     );
 }
 
-// The PortfolioPreview component with fade-in/fade-out effect
+// PortfolioPreview Component using Box and Flexbox
 function PortfolioPreview({ title, onItemClicked }) {
     const { projects, loading, error } = useSelector((state) => state.projects);
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [fadeIn, setFadeIn] = useState(true);
 
+    // Use custom hook to manage visible items
+    const [prev, current, next, moveForward, moveBackward] = useVisibleItems(projects);
     useEffect(() => {
         if (projects.length > 0) {
             const interval = setInterval(() => {
-                setFadeIn(false); // Start fading out
-                setTimeout(() => {
-                    setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length);
-                    setFadeIn(true); // Start fading in after the index changes
-                }, FADE_OUT_DURATION); // Transition out duration
-            }, INTERVAL_DURATION); // Change every 5 seconds
-            return () => clearInterval(interval);
+                moveForward(); // Move to the next item every 2 seconds
+            }, SCALE_DURATION);
+
+            return () => clearInterval(interval); // Cleanup the interval on unmount
         }
-    }, [projects]);
+    }, [projects, moveForward]);
 
     if (loading) {
         return <Typography>{LOADING_MESSAGE}</Typography>;
@@ -120,23 +169,70 @@ function PortfolioPreview({ title, onItemClicked }) {
 
     return (
         <Preview title={title}>
-            <Grid
-             justifyContent="center"
-                item
-                alignItems='center'
-                alignContent='center'
-                xs={12} // Ensure responsiveness for PortfolioCard
-                sx={{
-                    width: '100%',
-                    opacity: fadeIn ? 1 : 0, // Control opacity for fade effect
-                    transition: `opacity ${TRANSITION_DURATION} ${TRANSITION_TIMING_FUNCTION}`, // Smooth transition
-                }}
+            <Box
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                flexWrap="nowrap"
+                sx={{ width: '100%' }}
             >
-                <PortfolioCard item={projects[currentIndex]} onClickCardClicked={() => onItemClicked(projects[currentIndex]._id)} />
-            </Grid>
+                {/* Previous Card */}
+                <Box
+                    sx={{
+                        flexGrow: 1,
+                        flexShrink: 1,
+                        width: '40%',
+                    }}
+                >
+                    {prev && (
+                        <PortfolioCard
+                            item={prev}
+                            onClickCardClicked={() => moveBackward()}
+                            icon={<KeyboardArrowLeftRoundedIcon fontSize='large' sx={{ fontSize: 80 }} />} // Add icon
+                        />
+                    )}
+                </Box>
+
+                {/* Current Card with marginX */}
+                <Box
+                    sx={{
+                        flexGrow: 1,
+                        flexShrink: 1,
+                        width: '40%',
+                        marginX: 0, // Add marginX
+
+                        transform: 'scale(1.2)', // Slightly scale the current card
+                        zIndex: 1, // Ensure the current card is on top
+                    }}
+                >
+                    {current  && (
+                        <PortfolioCard
+                            item={current}
+                            onClickCardClicked={() => onItemClicked(current._id)}
+                            icon={<TocIcon fontSize='large' />} // Add icon
+                        />
+                    )}
+                </Box>
+
+                {/* Next Card */}
+                <Box
+                    sx={{
+                        flexGrow: 1,
+                        flexShrink: 1,
+                        width: '40%',
+                    }}
+                >
+                    {next && (
+                        <PortfolioCard
+                            item={next}
+                            onClickCardClicked={() => moveForward()}
+                            icon={<KeyboardArrowRightRoundedIcon fontSize='large'  sx={{ fontSize: 80 }} />} // Add icon
+                        />
+                    )}
+                </Box>
+            </Box>
         </Preview>
     );
 }
 
 export { BlogPreview, PortfolioPreview };
-

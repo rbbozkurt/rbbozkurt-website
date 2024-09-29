@@ -3,7 +3,7 @@ import { Box, Typography, Grid, CircularProgress } from '@mui/material';
 import { SearchBar, PortfolioCard } from '../view-components';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-
+import TocIcon from '@mui/icons-material/Toc';
 function Portfolio() {
     const [searchTerm, setSearchTerm] = useState('');
     const { projects, loading, error } = useSelector(state => state.projects);
@@ -62,7 +62,7 @@ function Portfolio() {
                                     alignItems: 'center' 
                                 }}
                             >
-                                <PortfolioCard item={item} onClickCardClicked={() => handleOnCardClick(item._id)} />
+                                <PortfolioCard item={item} onClickCardClicked={() => handleOnCardClick(item._id)} icon={<TocIcon fontSize='large' />} />
                             </Grid>
                         ))
                     ) : (

@@ -1,25 +1,24 @@
 import React from 'react';
-import { Typography, Box, Card, Icon } from '@mui/material';
+import { Typography, Box, Card } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import TocIcon from '@mui/icons-material/Toc';
 import { Tags } from '../text-components';
 import { formatDate } from '../utils';
 
-function BlogCard({ item, onClickCardClicked }) {
+function BlogCard({ item, onClickCardClicked, icon }) {
     const theme = useTheme();
-
-    console.log(`The id of item is ${item._id}`);
 
     return (
         <Card
             onClick={() => onClickCardClicked(item.id)}
             sx={{
                 display: 'flex',
-                flexDirection: 'row',
+                flexDirection: 'column', // Stack content vertically
                 width: '100%', // Full width of the container
-                height: 200, // Fixed height
+                height: 200, // Adjust to the full height
                 boxShadow: 'none',
                 borderRadius: 2,
+                boxShadow: '0px 20px 20px rgba(0, 0, 0, 0.6)', // Add a subtle shadow
                 transition: 'transform 0.3s, border 0.3s',
                 cursor: 'pointer',
                 position: 'relative', // Needed for overlay positioning
@@ -28,77 +27,73 @@ function BlogCard({ item, onClickCardClicked }) {
                 },
                 '&:hover .overlay': {
                     opacity: 1,
+                    transition: 'opacity 0.5s',
+                    transform: 'scale(1.02)',
                 },
             }}
         >
-            {/* Image Section */}
-            <Box
-                component="img"
-                alt={item.title}
-                src={item.image}
-                sx={{
-                    width: '40%', // Image takes 40% of the card width
-                    height: '100%',
-                    objectFit: 'cover',
-                    borderTopLeftRadius: 2,
-                    borderBottomLeftRadius: 2,
-                }}
-            />
+            <Box sx={{ display: 'flex', flexDirection: 'row', height: '100%' }}>
+                {/* Image Section */}
+                <Box
+                    component="img"
+                    alt={item.title}
+                    src={item.image}
+                    sx={{
+                        width: '50%', // Image takes half the width
+                        height: '100%', // Full height of the card
+                        objectFit: 'cover',
+                        borderTopLeftRadius: 2,
+                        borderBottomLeftRadius: 2,
+                    }}
+                />
 
-            {/* Content Section */}
-            <Box
-                sx={{
-                    width: '60%', // Content takes 60% of the card width
-                    paddingX: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    gap: 1, // Add some spacing between the items
-                    backgroundColor: theme.palette.background.paper,
-                }}
-            >
-                <Box>
-                    <Typography
-                        variant="h6"
-                        sx={{ textAlign: 'left', color: theme.palette.primary.dark }}
-                    >
-                        {item.title} {/* Title at the top */}
-                    </Typography>
-                    <Typography
-                        variant="body1"
-                        sx={{ textAlign: 'left', color: theme.palette.primary.light }}
-                    >
-                        {item.author} {/* Author below the title */}
-                    </Typography>
-                </Box>
-
+                {/* Content Section */}
                 <Box
                     sx={{
-                        flexGrow: 1, // Takes up available space, pushing the date to the bottom
-                        overflowY: 'auto',
-                        width: '100%',
+                        width: '50%', // Content takes the remaining width
+                        paddingX: 2,
+                        paddingTop: 1,
+                        paddingBottom: 2,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                        gap: 1, // Add some spacing between the items
+                        backgroundColor: theme.palette.background.paper,
                     }}
                 >
-                    <Tags tags={item.tags} isColorized={false} isHorizontalScrollable={true} />
-                </Box>
+                    <Box>
+                        <Typography
+                            variant="h6"
+                            sx={{ textAlign: 'left', color: theme.palette.primary.dark }}
+                        >
+                            {item.title} {/* Title */}
+                        </Typography>
+                        <Typography
+                            variant="body1"
+                            sx={{ textAlign: 'left', color: theme.palette.primary.light }}
+                        >
+                            {item.author} {/* Author */}
+                        </Typography>
+                    </Box>
 
-                <Box>
-                    <Typography 
-                        variant="body2" 
-                        sx={{ textAlign: 'left', color: theme.palette.primary.dark }}
-                    >
-                        {item.estimatedReadTime} {/* Estimated read time above the date */}
-                    </Typography>
-                    <Typography
-                        variant="body2"
-                        sx={{
-                            textAlign: 'left',
-                            color: theme.palette.primary.light,
-                        }}
-                    >
-                                                {`${item.views} views • ${formatDate(item.date)}`} {/* Date at the bottom */}
+                    <Box sx={{ flexGrow: 1, overflowY: 'auto', width: '100%' }}>
+                        <Tags tags={item.tags} isColorized={false} isHorizontalScrollable={true} />
+                    </Box>
 
-                    </Typography>
+                    <Box>
+                        <Typography 
+                            variant="body2" 
+                            sx={{ textAlign: 'left', color: theme.palette.primary.dark }}
+                        >
+                            {item.estimatedReadTime} {/* Read Time */}
+                        </Typography>
+                        <Typography
+                            variant="body2"
+                            sx={{ textAlign: 'left', color: theme.palette.primary.light }}
+                        >
+                            {`${item.views} views • ${formatDate(item.date)}`} {/* Date */}
+                        </Typography>
+                    </Box>
                 </Box>
             </Box>
 
@@ -111,7 +106,7 @@ function BlogCard({ item, onClickCardClicked }) {
                     left: 0,
                     width: '100%',
                     height: '100%',
-                    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent black
+                    backgroundColor: 'rgba(0, 0, 0, 0.5)',
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
@@ -122,8 +117,8 @@ function BlogCard({ item, onClickCardClicked }) {
                     fontWeight: 'bold',
                 }}
             >
-                {/* Icon and VIEW text for the overlay */}
-                <TocIcon fontSize="large" />
+                {/* Icon and VIEW text */}
+                {icon}
             </Box>
         </Card>
     );
