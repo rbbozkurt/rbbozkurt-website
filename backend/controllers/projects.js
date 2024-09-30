@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import ProjectMessage from "../models/projectMessage.js";
 
 export const getProjects = async (req, res) => {
@@ -15,7 +16,7 @@ export const updateProject = async (req, res) => {
     try{
         const { id: _id } = req.params;
         const project = req.body;
-
+        
         if (!mongoose.Types.ObjectId.isValid(_id)) {
             return res.status(404).send('No project with that id');
         }
