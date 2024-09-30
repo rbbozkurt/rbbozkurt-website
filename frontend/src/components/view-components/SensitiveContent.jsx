@@ -12,11 +12,15 @@ const SensitiveContent = ({ content }) => {
     return (
         <Box sx={
             {
-                borderRadius: 2
+                borderRadius: 2,
+                '&:hover': {
+                    cursor: 'pointer'
+                }
             }
         } position="relative" display="inline-block" onClick={handleToggle}>
             <Box sx={{
-                borderRadius: 2
+                borderRadius: 2,
+                
             }}>
                 {content}
             </Box>

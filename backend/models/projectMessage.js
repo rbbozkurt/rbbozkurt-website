@@ -10,7 +10,8 @@ const ProjectSchema = new mongoose.Schema({
     views : { type: Number, required: true },
     estimatedReadTime: { type: String, required: true },
     tags: { type: [String], required: true },
-    details: { type: DetailsSchema, required: true }
+    details: { type: DetailsSchema, required: true },
+    link: { type: String, required: true },
 });
 
 // Export the model
