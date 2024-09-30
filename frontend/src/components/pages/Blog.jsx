@@ -3,10 +3,14 @@ import { Box, Typography, Grid, CircularProgress } from '@mui/material';
 import { SearchBar, BlogCard } from '../view-components';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { updateBlogView } from '../../actions/blogs';
 
 function Blog() {
     const [searchTerm, setSearchTerm] = useState('');
     const { blogs, loading, error } = useSelector(state => state.blogs);
+    const dispatch = useDispatch();
+
     const navigate = useNavigate();
 
     const handleSearchChange = (event) => {
@@ -14,6 +18,8 @@ function Blog() {
     };
 
     const handleOnCardClick = (id) => {
+        // update views count
+        dispatch(updateBlogView(id, blogs.find(blog => blog._id === id)));
         navigate(`/blog/${id}`);
     };
 

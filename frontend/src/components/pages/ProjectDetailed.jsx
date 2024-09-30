@@ -12,18 +12,13 @@ const ProjectDetailed = () => {
     const { projects, loading, error } = useSelector((state) => state.projects);
     const navigate = useNavigate();
 ;
-
-    console.log('Component rendered with state:', { projects, loading, error });
-
     // Handle error or invalid project
     if (error) {
-        console.error('Error fetching project:', error);
         navigate('/error'); // Redirect to the error page
     }
 
     // Show a loading indicator while data is being fetched
     if (loading) {
-        console.log('Loading project data...');
         return (
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
                 <CircularProgress />
@@ -33,11 +28,8 @@ const ProjectDetailed = () => {
     const project = projects.find(project => project._id === projectId);
     
     if (!project) {
-        console.log('No project data available.');
         return null;
     }
-
-    console.log('Project data:', project);
 
     return (
         <Box sx={{ padding: '2rem' }}>
@@ -47,6 +39,8 @@ const ProjectDetailed = () => {
                 estimatedReadTime={project.estimatedReadTime}
                 image={project.image}
                 tags={project.tags}
+                link={project.link}
+                views={project.views}
             />
             {project.details.sections.map((section, index) => (
                 <Section key={index} title={section.title}>

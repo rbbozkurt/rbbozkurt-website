@@ -5,7 +5,8 @@ import {
     FETCH_BLOG_FAILURE, 
     FETCH_BLOG_SUCCESS, 
     FETCH_BLOGS_FAILURE, 
-    FETCH_BLOGS_SUCCESS 
+    FETCH_BLOGS_SUCCESS ,
+    UPDATE_BLOG
 } from '../constants/actionTypes';
 
 // Action Creators
@@ -30,3 +31,14 @@ export const getBlog = (id) => async (dispatch) => {
         dispatch({ type: FETCH_BLOG_FAILURE, payload: error.message });
     }
 };
+
+export const updateBlogView = (id, blog) => async (dispatch) => {
+    try{
+        blog.views += 1;
+        console.log(`Updating blog with id ${id} views to ${blog}`);
+        const { data } = await api.updateBlog(id, blog);
+        dispatch({ type: UPDATE_BLOG, payload: data });
+    }catch(error){
+        console.error('Error updating blog:', error);
+    }
+}

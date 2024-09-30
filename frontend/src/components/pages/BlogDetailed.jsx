@@ -10,12 +10,6 @@ const BlogDetailed = () => {
     const { blogId } = useParams(); // Get the projectId from the route
     const { blogs, loading, error } = useSelector((state) => state.blogs);
     const navigate = useNavigate();
-
-
-
-
-    console.log('Component rendered with state:', { blogs, loading, error });
-
     // Handle error or invalid project
     if (error) {
         navigate('/error'); // Redirect to the error page
@@ -29,13 +23,10 @@ const BlogDetailed = () => {
             </Box>
         );
     }
-    console.log(`The selected id is ${blogId} and is equal to ${typeof blogId}`);
-    console.log(`There is a match: ${blogs.find(blog => blog.id === blogId)}`);
 
     const currentBlog = blogs.find(blog => blog._id === blogId);
 
     if (!currentBlog) {
-        console.log('No project data available.');
         return null;
     }
 
@@ -49,6 +40,7 @@ const BlogDetailed = () => {
                 estimatedReadTime={currentBlog.estimatedReadTime}
                 image={currentBlog.image}
                 tags={currentBlog.tags}
+                views={currentBlog.views}
             />
             {currentBlog.details.sections.map((section, index) => (
                 <Section key={index} title={section.title}>

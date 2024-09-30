@@ -49,10 +49,22 @@ export async function fetchBlog(id) {
 
 export async function updateProject(id, data) {
     try {
+        console.log('Updating project with id:', id);
+        console.log(`Sending request to ${config.api.baseUrl}${config.paths.projects}/${id}`);
+        console.log('data:', data);
         const response = await axios.put(`${config.api.baseUrl}${config.paths.projects}/${id}`, data);
+        console.log('response:', response);
         return { data: response.data };
     } catch (error) {
         console.error('Error updating project:', error);
-        return { data: null };
+        return { data: data };
     }
 }   
+export async function updateBlog(id, data) {
+    try {
+        const response = await axios.put(`${config.api.baseUrl}${config.paths.blogs}/${id}`, data);
+        return { data: response.data };
+    } catch (error) {
+        return { data: data };
+    }
+}

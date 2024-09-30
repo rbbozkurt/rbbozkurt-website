@@ -1,10 +1,11 @@
-import { 
-    FETCH_BLOGS, 
-    FETCH_BLOG, 
-    FETCH_BLOG_FAILURE, 
-    FETCH_BLOG_SUCCESS, 
-    FETCH_BLOGS_SUCCESS, 
-    FETCH_BLOGS_FAILURE 
+import {
+    FETCH_BLOGS,
+    FETCH_BLOG,
+    FETCH_BLOG_FAILURE,
+    FETCH_BLOG_SUCCESS,
+    FETCH_BLOGS_SUCCESS,
+    FETCH_BLOGS_FAILURE,
+    UPDATE_BLOG
 } from '../constants/actionTypes';
 
 const initialState = {
@@ -15,7 +16,7 @@ const initialState = {
 };
 
 const blogs = (state = initialState, action) => {
-    switch(action.type){
+    switch (action.type) {
         case FETCH_BLOGS:
             return { ...state, loading: true, error: null };
         case FETCH_BLOGS_SUCCESS:
@@ -28,6 +29,12 @@ const blogs = (state = initialState, action) => {
             return { ...state, loading: false, blog: action.payload };
         case FETCH_BLOG_FAILURE:
             return { ...state, loading: false, error: action.payload };
+        case UPDATE_BLOG:
+            return {
+                ...state,
+                blog: action.payload,  // Update the current viewed blog
+                blogs: state.blogs.map(b => b._id === action.payload._id ? action.payload : b) // Update the specific blog in blogs array
+            };
         default:
             return state;
     }

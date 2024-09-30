@@ -4,6 +4,12 @@ import { RoleText, Turkey, Berlin, SubText, Paragraph, Section } from '../text-c
 import {  MasonryImageList } from '../view-components';
 import { BlogPreview, PortfolioPreview } from '../view-components/preview';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { updateBlogView } from '../../actions/blogs';
+import { updateProjectView } from '../../actions/projects';
+
+
+
 
 const title1 = "whoami";
 const title2 = "what am I working on?";
@@ -21,19 +27,21 @@ const paragraphs2 = [
 
 const Home = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
-    const onBlogClick = (id) => {
+    const onBlogClick = (id, blog) => {
+        dispatch(updateBlogView(id, blog));
         navigate(`/blog/${id}`);
     }
 
-    const onProjectClick = (id) => {
+    const onProjectClick = (id, project) => {
+        dispatch(updateProjectView(id, project));
         navigate(`/portfolio/${id}`);
 
     }
 
     return (
         <Box direction="column">
-            <MasonryImageList />
             <Section title={title1}>
                 <Paragraph>
                     {paragraphs1[0]}
@@ -76,6 +84,8 @@ const Home = () => {
                     {paragraphs1[2]}
                 </Paragraph>
             </Section>
+            <PortfolioPreview title={"portfolio"} onItemClicked={onProjectClick}/>
+            <BlogPreview title={"blogs"} onItemClicked={onBlogClick}/>
             <Section title={title2}>
                 {paragraphs2.map((paragraph, index) => (
                     <Paragraph key={index}>
@@ -83,8 +93,6 @@ const Home = () => {
                     </Paragraph>
                 ))}
             </Section>
-            <PortfolioPreview title={"portfolio"} onItemClicked={onProjectClick}/>
-            <BlogPreview title={"blogs"} onItemClicked={onBlogClick}/>
 
 
         </Box>

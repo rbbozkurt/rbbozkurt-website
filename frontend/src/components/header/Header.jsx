@@ -53,10 +53,10 @@ function DarkModeToggleButton({ darkMode, toggleDarkMode }) {
 
 function SocialMediaButtons() {
     const socialMediaData = [
-        { icon: GitHubIcon, link: 'https://github.com/your-username', color : 'black' },
-        { icon: InstagramIcon, link: 'https://www.instagram.com/your-profile', color : '#FD00BA' },
-        { icon: LinkedInIcon, link: 'https://www.linkedin.com/in/your-profile', color : '#0A66C2' },
-        { icon: EmailIcon, link: 'mailto:your-email@example.com', color : '#C5221F' },
+        { icon: GitHubIcon, link: 'https://github.com/rbbozkurt/', color : 'black' },
+        { icon: InstagramIcon, link: 'https://www.instagram.com/rbbozkurt/', color : '#FD00BA' },
+        { icon: LinkedInIcon, link: 'https://www.linkedin.com/in/resit-berkay-bozkurt/', color : '#0A66C2' },
+        { icon: EmailIcon, link: 'mailto:resitberkaybozkurt@gmail.com', color : '#C5221F' },
     ];
 
     const handleButtonClick = (link) => {

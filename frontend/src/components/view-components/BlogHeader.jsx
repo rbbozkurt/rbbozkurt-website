@@ -4,18 +4,18 @@ import { Typography, Divider } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { Tags } from '../text-components';
 
-function BlogHeader({ blogTitle, author, createdAt, estimatedReadTime, image, tags }) {
+function BlogHeader({ blogTitle, author, createdAt, estimatedReadTime, image, tags, views }) {
     const theme = useTheme();
     return (
         <Box
             direction="column"
-            sx={{ padding: 'px 0 16px 0' }}>
+            sx={{ padding: '0 0 16px 0' }}>
 
             <Typography align="left" variant="h2">
                 {blogTitle}
             </Typography>
             <Typography
-                variant="body1" // Smaller variant for author
+                variant="body1"
                 align='left'
                 sx={{
                     color: theme.palette.primary.light,
@@ -24,30 +24,73 @@ function BlogHeader({ blogTitle, author, createdAt, estimatedReadTime, image, ta
             >
                 {author}
             </Typography>
-            <Typography
-                variant="body1"
-                align='left'
-                // put padding bottom
-
+            
+            <Box
                 sx={{
-                    color: theme.palette.primary.dark,
-                    
+                    display: 'flex',
+                    alignItems: 'center',
+                    flexDirection: 'row',
+                    width: '100%',
                 }}
             >
-                {`${createdAt} - ${estimatedReadTime} read`}
-            </Typography>
+                {/* Group read time and views */}
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <Typography
+                        variant="body1"
+                        align='left'
+                        sx={{
+                            color: theme.palette.primary.dark,
+                        }}
+                    >
+                        {`${estimatedReadTime} read `}
+                    </Typography>
+                    <Typography
+                        variant="body1"
+                        align='left'
+                        sx={{
+                            color: theme.palette.primary.light,
+                            paddingX : '12px',
+                        }}
+                    >
+                        {` • `}
+                    </Typography>
+                    <Typography
+                        variant="body1"
+                        align='left'
+                        sx={{
+                            color: theme.palette.primary.light,
+                        }}
+                    >
+                        {` ${views} views`}
+                    </Typography>
+                </Box>
+
+                {/* Right-aligned date */}
+                <Typography
+                    variant="body1"
+                    align='right'
+                    sx={{
+                        color: theme.palette.primary.light,
+                        marginLeft: 'auto',  // Pushes the date to the right
+                    }}
+                >
+                    {`${createdAt}`}
+                </Typography>
+            </Box>
 
             <Divider
                 orientation='horizontal'
                 sx={{
-                    backgroundColor: 'primary.light',
-                    height: '1px', // Adjust the thickness here
-                    margin: '4px 0 16px 0', // Add some space below the divider
-                }} />
-            <Tags tags={tags}></Tags>
+                    backgroundColor: theme.palette.primary.light,
+                    height: '1px',
+                    margin: '4px 0 16px 0',
+                }}
+            />
+            
+            <Tags tags={tags} />
 
             <Box sx={{ marginBottom: '1rem', marginTop: '1rem' }}>
-                <img src={image} alt={blogTitle} style={{ width: '100%', height: 'auto' }} />
+                <img src={image} alt={blogTitle} style={{ width: '100%', height: 'auto', borderRadius: '8px' }} />
             </Box>
 
         </Box>

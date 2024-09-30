@@ -44,6 +44,8 @@ const About = () => {
                         height: 300,
                         objectFit: 'cover',
                         borderRadius: 2,
+                        boxShadow: '0px 20px 20px rgba(0, 0, 0, 0.8)', // Add a subtle shadow
+
                     }
                 }
                

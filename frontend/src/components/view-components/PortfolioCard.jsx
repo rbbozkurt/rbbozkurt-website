@@ -8,7 +8,6 @@ import TocIcon from '@mui/icons-material/Toc';
 function PortfolioCard({ item, onClickCardClicked, icon }) {
     const theme = useTheme();
 
-    console.log(`Technology : ${item.technology} and type : ${typeof item.technology}`)
     return (
         <Card
             onClick={() => onClickCardClicked(item.id)}
@@ -59,7 +58,7 @@ function PortfolioCard({ item, onClickCardClicked, icon }) {
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'flex-end',
-                        gap: 1, // Add some spacing between the items
+                        gap: 2, // Add some spacing between the items
                     }}
                 >
                     <Typography

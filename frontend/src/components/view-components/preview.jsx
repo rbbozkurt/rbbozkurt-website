@@ -16,7 +16,7 @@ const LOADING_MESSAGE = 'Loading...';
 const ERROR_MESSAGE_PREFIX = 'Error: ';
 const NO_BLOGS_MESSAGE = 'No blogs available';
 const NO_PROJECTS_MESSAGE = 'No projects available';
-const SCALE_DURATION = 2000; // Duration for scaling effect (2 seconds)
+const SCALE_DURATION = 5000; // Duration for scaling effect (2 seconds)
 
 // The Preview component to handle layout and title
 function Preview({ title, children }) {
@@ -109,7 +109,7 @@ function BlogPreview({ title, onItemClicked }) {
                     {current && (
                         <BlogCard
                             item={current}
-                            onClickCardClicked={() => onItemClicked(current._id)}
+                            onClickCardClicked={() => onItemClicked(current._id, current)}
                             icon={<TocIcon fontSize='large' />} // Add icon
 
 
@@ -208,7 +208,7 @@ function PortfolioPreview({ title, onItemClicked }) {
                     {current  && (
                         <PortfolioCard
                             item={current}
-                            onClickCardClicked={() => onItemClicked(current._id)}
+                            onClickCardClicked={() => onItemClicked(current._id, current)}
                             icon={<TocIcon fontSize='large' />} // Add icon
                         />
                     )}

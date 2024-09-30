@@ -4,16 +4,22 @@ import { SearchBar, PortfolioCard } from '../view-components';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import TocIcon from '@mui/icons-material/Toc';
+import { updateProjectView } from '../../actions/projects';
+import { useDispatch } from 'react-redux';
+
+
 function Portfolio() {
     const [searchTerm, setSearchTerm] = useState('');
     const { projects, loading, error } = useSelector(state => state.projects);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     
     const handleSearchChange = (event) => {
         setSearchTerm(event.target.value);
     };
 
     const handleOnCardClick = (id) => {
+        dispatch(updateProjectView(id, projects.find(project => project._id === id)));
         navigate(`/portfolio/${id}`);
     };
 
