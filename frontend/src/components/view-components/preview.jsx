@@ -55,86 +55,76 @@ function BlogPreview({ title, onItemClicked }) {
         }
     }, [blogs, moveForward]);
 
-    if (loading) {
-        return <Typography>{LOADING_MESSAGE}</Typography>;
-    }
-
-    if (error) {
-        return <Typography>{ERROR_MESSAGE_PREFIX}{error}</Typography>;
-    }
-
-    if (blogs.length === 0) {
-        return <Typography>{NO_BLOGS_MESSAGE}</Typography>;
-    }
-
     return (
         <Preview title={title}>
-            <Box
-                display="flex"
-                justifyContent="center"
-                flexDirection="column"
-                alignItems="center"
-                flexWrap="nowrap"
-                sx={{ width: '100%' }}
-            >
-                {/* Previous Card */}
+            {loading && <Typography>{LOADING_MESSAGE}</Typography>}
+            {error && <Typography>{ERROR_MESSAGE_PREFIX}{error}</Typography>}
+            {!loading && !error && blogs.length === 0 && <Typography>{NO_BLOGS_MESSAGE}</Typography>}
+            {!loading && !error && blogs.length > 0 && (
                 <Box
-                    sx={{
-                        flexGrow: 1,
-                        flexShrink: 1,
-                        width: '80%',
-                    }}
+                    display="flex"
+                    justifyContent="center"
+                    flexDirection="column"
+                    alignItems="center"
+                    flexWrap="nowrap"
+                    sx={{ width: '100%' }}
                 >
-                    {prev && (
-                        <BlogCard
-                            item={prev}
-                            onClickCardClicked={() => moveBackward()}
-                            icon={<KeyboardArrowUpRoundedIcon fontSize='large' sx={{ fontSize: 80 }} />} // Add icon
-                        />
-                    )}
+                    {/* Previous Card */}
+                    <Box
+                        sx={{
+                            flexGrow: 1,
+                            flexShrink: 1,
+                            width: '80%',
+                        }}
+                    >
+                        {prev && (
+                            <BlogCard
+                                item={prev}
+                                onClickCardClicked={() => moveBackward()}
+                                icon={<KeyboardArrowUpRoundedIcon fontSize='large' sx={{ fontSize: 80 }} />} // Add icon
+                            />
+                        )}
+                    </Box>
+
+                    {/* Current Card with marginX */}
+                    <Box
+                        sx={{
+                            flexGrow: 1,
+                            flexShrink: 1,
+                            width: '80%',
+                            marginX: 2, // Adjust marginX
+                            transform: 'scale(1.2)', // Slightly scale the current card
+                            transition: 'transform 0.3s',
+                            zIndex: 1, // Ensure the current card is on top
+                        }}
+                    >
+                        {current && (
+                            <BlogCard
+                                item={current}
+                                onClickCardClicked={() => onItemClicked(current._id, current)}
+                                icon={<TocIcon fontSize='large' />} // Add icon
+                            />
+                        )}
+                    </Box>
+
+                    {/* Next Card */}
+                    <Box
+                        sx={{
+                            flexGrow: 1,
+                            flexShrink: 1,
+                            width: '80%',
+                        }}
+                    >
+                        {next && (
+                            <BlogCard
+                                item={next}
+                                onClickCardClicked={() => moveForward()}
+                                icon={<KeyboardArrowDownRoundedIcon fontSize='large' sx={{ fontSize: 80 }} />} // Add icon
+                            />
+                        )}
+                    </Box>
                 </Box>
-
-                {/* Current Card with marginX */}
-                <Box
-                    sx={{
-                        flexGrow: 1,
-                        flexShrink: 1,
-                        width: '80%',
-                        marginX: 2, // Adjust marginX
-                        transform: 'scale(1.2)', // Slightly scale the current card
-                        transition: 'transform 0.3s',
-                        zIndex: 1, // Ensure the current card is on top
-                    }}
-                >
-                    {current && (
-                        <BlogCard
-                            item={current}
-                            onClickCardClicked={() => onItemClicked(current._id, current)}
-                            icon={<TocIcon fontSize='large' />} // Add icon
-
-
-                        />
-                    )}
-                </Box>
-
-                {/* Next Card */}
-                <Box
-                    sx={{
-                        flexGrow: 1,
-                        flexShrink: 1,
-                        width: '80%',
-                    }}
-                >
-                    {next && (
-                        <BlogCard
-                            item={next}
-                            onClickCardClicked={() => moveForward()}
-                            icon={<KeyboardArrowDownRoundedIcon fontSize='large' sx={{ fontSize: 80 }} />} // Add icon
-
-                        />
-                    )}
-                </Box>
-            </Box>
+            )}
         </Preview>
     );
 }
@@ -155,82 +145,74 @@ function PortfolioPreview({ title, onItemClicked }) {
         }
     }, [projects, moveForward]);
 
-    if (loading) {
-        return <Typography>{LOADING_MESSAGE}</Typography>;
-    }
-
-    if (error) {
-        return <Typography>{ERROR_MESSAGE_PREFIX}{error}</Typography>;
-    }
-
-    if (projects.length === 0) {
-        return <Typography>{NO_PROJECTS_MESSAGE}</Typography>;
-    }
-
     return (
         <Preview title={title}>
-            <Box
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-                flexWrap="nowrap"
-                sx={{ width: '100%' }}
-            >
-                {/* Previous Card */}
+            {loading && <Typography>{LOADING_MESSAGE}</Typography>}
+            {error && <Typography>{ERROR_MESSAGE_PREFIX}{error}</Typography>}
+            {!loading && !error && projects.length === 0 && <Typography>{NO_PROJECTS_MESSAGE}</Typography>}
+            {!loading && !error && projects.length > 0 && (
                 <Box
-                    sx={{
-                        flexGrow: 1,
-                        flexShrink: 1,
-                        width: '40%',
-                    }}
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                    flexWrap="nowrap"
+                    sx={{ width: '100%' }}
                 >
-                    {prev && (
-                        <PortfolioCard
-                            item={prev}
-                            onClickCardClicked={() => moveBackward()}
-                            icon={<KeyboardArrowLeftRoundedIcon fontSize='large' sx={{ fontSize: 80 }} />} // Add icon
-                        />
-                    )}
-                </Box>
+                    {/* Previous Card */}
+                    <Box
+                        sx={{
+                            flexGrow: 1,
+                            flexShrink: 1,
+                            width: '40%',
+                        }}
+                    >
+                        {prev && (
+                            <PortfolioCard
+                                item={prev}
+                                onClickCardClicked={() => moveBackward()}
+                                icon={<KeyboardArrowLeftRoundedIcon fontSize='large' sx={{ fontSize: 80 }} />} // Add icon
+                            />
+                        )}
+                    </Box>
 
-                {/* Current Card with marginX */}
-                <Box
-                    sx={{
-                        flexGrow: 1,
-                        flexShrink: 1,
-                        width: '40%',
-                        marginX: 0, // Add marginX
+                    {/* Current Card with marginX */}
+                    <Box
+                        sx={{
+                            flexGrow: 1,
+                            flexShrink: 1,
+                            width: '40%',
+                            marginX: 0, // Add marginX
+                            transform: 'scale(1.2)', // Slightly scale the current card
+                            zIndex: 1, // Ensure the current card is on top
+                        }}
+                    >
+                        {current && (
+                            <PortfolioCard
+                                item={current}
+                                onClickCardClicked={() => onItemClicked(current._id, current)}
+                                icon={<TocIcon fontSize='large' />} // Add icon
+                            />
+                        )}
+                    </Box>
 
-                        transform: 'scale(1.2)', // Slightly scale the current card
-                        zIndex: 1, // Ensure the current card is on top
-                    }}
-                >
-                    {current  && (
-                        <PortfolioCard
-                            item={current}
-                            onClickCardClicked={() => onItemClicked(current._id, current)}
-                            icon={<TocIcon fontSize='large' />} // Add icon
-                        />
-                    )}
+                    {/* Next Card */}
+                    <Box
+                        sx={{
+                            flexGrow: 1,
+                            flexShrink: 1,
+                            width: '40%',
+                        }}
+                    >
+                        {next && (
+                            <PortfolioCard
+                                item={next}
+                                onClickCardClicked={() => moveForward()}
+                                icon={<KeyboardArrowRightRoundedIcon fontSize='large' sx={{ fontSize: 80 }} />} // Add icon
+                            />
+                        )}
+                    </Box>
                 </Box>
-
-                {/* Next Card */}
-                <Box
-                    sx={{
-                        flexGrow: 1,
-                        flexShrink: 1,
-                        width: '40%',
-                    }}
-                >
-                    {next && (
-                        <PortfolioCard
-                            item={next}
-                            onClickCardClicked={() => moveForward()}
-                            icon={<KeyboardArrowRightRoundedIcon fontSize='large'  sx={{ fontSize: 80 }} />} // Add icon
-                        />
-                    )}
-                </Box>
-            </Box>
+            )}
         </Preview>
     );
 }
