@@ -5,6 +5,7 @@ import config from '../config';  // Import the config file
 export async function fetchProjects() {
     try {
         const response = await axios.get(`${config.api.baseUrl}${config.paths.projects}`);
+        console.log('Fetched projects:', response.data);
         return { data: response.data };
     } catch (error) {
         console.error('Error fetching projects:', error);
@@ -15,11 +16,10 @@ export async function fetchProjects() {
 // Fetch a specific project by ID
 export async function fetchProject(id) {
     try {
-        console.log('Fetching project with id:', id);
         const response = await axios.get(`${config.api.baseUrl}${config.paths.projects}/${id}`);
+        console.log('Fetched projects:', response.data);
         return { data: response.data };
     } catch (error) {
-        console.error('Error fetching project:', error);
         return { data: null };
     }
 }
@@ -30,7 +30,6 @@ export async function fetchBlogs() {
         const response = await axios.get(`${config.api.baseUrl}${config.paths.blogs}`);
         return { data: response.data };
     } catch (error) {
-        console.error('Error fetching blogs:', error);
         return { data: [] };
     }
 }
@@ -38,25 +37,19 @@ export async function fetchBlogs() {
 // Fetch a specific blog by ID
 export async function fetchBlog(id) {
     try {
-        console.log('Fetching blog with id:', id);
         const response = await axios.get(`${config.api.baseUrl}${config.paths.blogs}/${id}`);
         return { data: response.data };
     } catch (error) {
-        console.error('Error fetching blog:', error);
         return { data: null };
     }
 }
 
 export async function updateProject(id, data) {
     try {
-        console.log('Updating project with id:', id);
-        console.log(`Sending request to ${config.api.baseUrl}${config.paths.projects}/${id}`);
-        console.log('data:', data);
+        console.log('Updating project:', data);
         const response = await axios.put(`${config.api.baseUrl}${config.paths.projects}/${id}`, data);
-        console.log('response:', response);
         return { data: response.data };
     } catch (error) {
-        console.error('Error updating project:', error);
         return { data: data };
     }
 }   

@@ -1,11 +1,12 @@
 import mongoose from 'mongoose';
-import { DetailsSchema, AWSImageSchema } from './commonSchemaUtils.js';
+import { DetailsSchema } from './commonSchemaUtils.js';
 
 // Create the main schema for the project
 const ProjectSchema = new mongoose.Schema({
     title: { type: String, required: true, maxlength: 100 },
     description: { type: String, required: true },
-    image: { type: AWSImageSchema, required: true },
+    imageS3Key: { type: String, required: true },
+    imageUrl: { type: String, required: true },
     date: { type: Date, required: true },
     views : { type: Number, required: true },
     estimatedReadTime: { type: String, required: true },

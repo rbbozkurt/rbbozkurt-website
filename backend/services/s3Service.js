@@ -32,3 +32,21 @@ export const generatePresignedUrl = async (key) => {
         throw error;
     }
 };
+
+// get image from s3 and convert it to base64
+export const getBase64ImageFromS3 = async (key) => {
+    const s3 = createS3client();  // Get the initialized S3 client here
+    const command = new GetObjectCommand({
+        Bucket: process.env.S3_BUCKET_NAME,
+        Key: key
+    });
+
+    try {
+        const image = await s3.send(command);
+        const base64Image = Buffer.from(image.Body).toString('base64');
+        return base64Image;
+    } catch (error) {
+        console.error('Error getting image from s3:', error);
+        throw error;
+    }
+}

@@ -37,7 +37,7 @@ const ProjectDetailed = () => {
                 projectTitle={project.title}
                 createdAt={formatDate(project.date)}
                 estimatedReadTime={project.estimatedReadTime}
-                image={project.image.presignedUrl}
+                image={project.imageUrl}
                 tags={project.tags}
                 link={project.link}
                 views={project.views}
