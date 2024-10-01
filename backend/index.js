@@ -1,13 +1,19 @@
+
+import dotenv from 'dotenv';
+dotenv.config();  // Load environment variables
+
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';  // Import dotenv
 
 import blogRoutes from './routes/blogs.js';
 import projectRoutes from './routes/projects.js';
 
-dotenv.config();  // Load the environment variables
+
+console.log("AWS Access Key:", process.env.AWS_ACCESS_KEY_ID);
+console.log("AWS Secret Access Key:", process.env.AWS_SECRET_ACCESS_KEY);
+console.log("AWS Region:", process.env.AWS_REGION);
 
 const app = express();
 app.use(cors())

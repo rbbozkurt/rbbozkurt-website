@@ -12,4 +12,11 @@ const DetailsSchema = new mongoose.Schema({
     sections: { type: [SectionSchema], required: true },
 });
 
-export {DetailsSchema, SectionSchema};
+const AWSImageSchema = new mongoose.Schema({
+    image: {
+        key: { type: String, required: true },  // S3 object key (e.g., 'picsblur_banner.png')
+        presignedUrl: { type: String },  // Optional field for the pre-signed URL, can be generated on the fly
+    }
+})
+
+export {DetailsSchema, SectionSchema, AWSImageSchema};

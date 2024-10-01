@@ -43,7 +43,7 @@ function PortfolioCard({ item, onClickCardClicked, icon }) {
                 <Box
                     component='img'
                     alt={item.title}
-                    src={item.image}
+                    src={item.image.presignedUrl}
                     sx={{
                         width: '100%',
                         height: '100%',
