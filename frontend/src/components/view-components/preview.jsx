@@ -12,11 +12,22 @@ import KeyboardArrowUpRoundedIcon from '@mui/icons-material/KeyboardArrowUpRound
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 
 // Constants
-const LOADING_MESSAGE = 'Loading...';
-const ERROR_MESSAGE_PREFIX = 'Error: ';
-const NO_BLOGS_MESSAGE = 'No blogs available';
-const NO_PROJECTS_MESSAGE = 'No projects available';
-const SCALE_DURATION = 5000; // Duration for scaling effect (2 seconds)
+const MESSAGES = {
+    LOADING: 'Loading...',
+    ERROR_PREFIX: 'Error: ',
+    NO_BLOGS: 'No blogs available',
+    NO_PROJECTS: 'No projects available',
+};
+
+const SCALE_DURATION = 5000; // Duration for scaling effect (5 seconds)
+const CARD_SCALE = 1.2;
+const ICON_SIZE = 80;
+const BOX_WIDTH = '80%';
+const PORTFOLIO_BOX_WIDTH = '40%';
+const MARGIN_X = 4;
+const MARGIN_Y = 4;
+const TRANSITION_DURATION = '0.3s';
+const PREV_NEXT_CARD_SCALE = 0.9; // Scale for previous and next cards
 
 // The Preview component to handle layout and title
 function Preview({ title, children }) {
@@ -48,7 +59,7 @@ function BlogPreview({ title, onItemClicked }) {
     useEffect(() => {
         if (blogs.length > 0) {
             const interval = setInterval(() => {
-                moveForward(); // Move to the next item every 2 seconds
+                moveForward(); // Move to the next item every 5 seconds
             }, SCALE_DURATION);
 
             return () => clearInterval(interval); // Cleanup the interval on unmount
@@ -57,9 +68,9 @@ function BlogPreview({ title, onItemClicked }) {
 
     return (
         <Preview title={title}>
-            {loading && <Typography>{LOADING_MESSAGE}</Typography>}
-            {error && <Typography>{ERROR_MESSAGE_PREFIX}{error}</Typography>}
-            {!loading && !error && blogs.length === 0 && <Typography>{NO_BLOGS_MESSAGE}</Typography>}
+            {loading && <Typography>{MESSAGES.LOADING}</Typography>}
+            {error && <Typography>{MESSAGES.ERROR_PREFIX}{error}</Typography>}
+            {!loading && !error && blogs.length === 0 && <Typography>{MESSAGES.NO_BLOGS}</Typography>}
             {!loading && !error && blogs.length > 0 && (
                 <Box
                     display="flex"
@@ -74,27 +85,28 @@ function BlogPreview({ title, onItemClicked }) {
                         sx={{
                             flexGrow: 1,
                             flexShrink: 1,
-                            width: '80%',
+                            width: BOX_WIDTH,
+                            transform: `scale(${PREV_NEXT_CARD_SCALE})`, // Use constant for scale
                         }}
                     >
                         {prev && (
                             <BlogCard
                                 item={prev}
                                 onClickCardClicked={() => moveBackward()}
-                                icon={<KeyboardArrowUpRoundedIcon fontSize='large' sx={{ fontSize: 80 }} />} // Add icon
+                                icon={<KeyboardArrowUpRoundedIcon fontSize='large' sx={{ fontSize: ICON_SIZE }} />} // Add icon
                             />
                         )}
                     </Box>
 
-                    {/* Current Card with marginX */}
+                    {/* Current Card with marginY */}
                     <Box
                         sx={{
                             flexGrow: 1,
                             flexShrink: 1,
-                            width: '80%',
-                            marginX: 2, // Adjust marginX
-                            transform: 'scale(1.2)', // Slightly scale the current card
-                            transition: 'transform 0.3s',
+                            width: BOX_WIDTH,
+                            marginY: MARGIN_Y, // Use constant for marginY
+                            transform: `scale(${CARD_SCALE})`, // Slightly scale the current card
+                            transition: `transform ${TRANSITION_DURATION}`,
                             zIndex: 1, // Ensure the current card is on top
                         }}
                     >
@@ -112,14 +124,15 @@ function BlogPreview({ title, onItemClicked }) {
                         sx={{
                             flexGrow: 1,
                             flexShrink: 1,
-                            width: '80%',
+                            width: BOX_WIDTH,
+                            transform: `scale(${PREV_NEXT_CARD_SCALE})`, // Use constant for scale
                         }}
                     >
                         {next && (
                             <BlogCard
                                 item={next}
                                 onClickCardClicked={() => moveForward()}
-                                icon={<KeyboardArrowDownRoundedIcon fontSize='large' sx={{ fontSize: 80 }} />} // Add icon
+                                icon={<KeyboardArrowDownRoundedIcon fontSize='large' sx={{ fontSize: ICON_SIZE }} />} // Add icon
                             />
                         )}
                     </Box>
@@ -138,7 +151,7 @@ function PortfolioPreview({ title, onItemClicked }) {
     useEffect(() => {
         if (projects.length > 0) {
             const interval = setInterval(() => {
-                moveForward(); // Move to the next item every 2 seconds
+                moveForward(); // Move to the next item every 5 seconds
             }, SCALE_DURATION);
 
             return () => clearInterval(interval); // Cleanup the interval on unmount
@@ -147,9 +160,9 @@ function PortfolioPreview({ title, onItemClicked }) {
 
     return (
         <Preview title={title}>
-            {loading && <Typography>{LOADING_MESSAGE}</Typography>}
-            {error && <Typography>{ERROR_MESSAGE_PREFIX}{error}</Typography>}
-            {!loading && !error && projects.length === 0 && <Typography>{NO_PROJECTS_MESSAGE}</Typography>}
+            {loading && <Typography>{MESSAGES.LOADING}</Typography>}
+            {error && <Typography>{MESSAGES.ERROR_PREFIX}{error}</Typography>}
+            {!loading && !error && projects.length === 0 && <Typography>{MESSAGES.NO_PROJECTS}</Typography>}
             {!loading && !error && projects.length > 0 && (
                 <Box
                     display="flex"
@@ -163,14 +176,15 @@ function PortfolioPreview({ title, onItemClicked }) {
                         sx={{
                             flexGrow: 1,
                             flexShrink: 1,
-                            width: '40%',
+                            width: PORTFOLIO_BOX_WIDTH,
+                            transform: `scale(${PREV_NEXT_CARD_SCALE})`, // Use constant for scale
                         }}
                     >
                         {prev && (
                             <PortfolioCard
                                 item={prev}
                                 onClickCardClicked={() => moveBackward()}
-                                icon={<KeyboardArrowLeftRoundedIcon fontSize='large' sx={{ fontSize: 80 }} />} // Add icon
+                                icon={<KeyboardArrowLeftRoundedIcon fontSize='large' sx={{ fontSize: ICON_SIZE }} />} // Add icon
                             />
                         )}
                     </Box>
@@ -180,9 +194,9 @@ function PortfolioPreview({ title, onItemClicked }) {
                         sx={{
                             flexGrow: 1,
                             flexShrink: 1,
-                            width: '40%',
-                            marginX: 0, // Add marginX
-                            transform: 'scale(1.2)', // Slightly scale the current card
+                            width: PORTFOLIO_BOX_WIDTH,
+                            marginX: MARGIN_X, // Use constant for marginX
+                            transform: `scale(${CARD_SCALE})`, // Slightly scale the current card
                             zIndex: 1, // Ensure the current card is on top
                         }}
                     >
@@ -200,14 +214,15 @@ function PortfolioPreview({ title, onItemClicked }) {
                         sx={{
                             flexGrow: 1,
                             flexShrink: 1,
-                            width: '40%',
+                            width: PORTFOLIO_BOX_WIDTH,
+                            transform: `scale(${PREV_NEXT_CARD_SCALE})`, // Use constant for scale
                         }}
                     >
                         {next && (
                             <PortfolioCard
                                 item={next}
                                 onClickCardClicked={() => moveForward()}
-                                icon={<KeyboardArrowRightRoundedIcon fontSize='large' sx={{ fontSize: 80 }} />} // Add icon
+                                icon={<KeyboardArrowRightRoundedIcon fontSize='large' sx={{ fontSize: ICON_SIZE }} />} // Add icon
                             />
                         )}
                     </Box>
