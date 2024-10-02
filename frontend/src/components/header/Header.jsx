@@ -43,7 +43,11 @@ function DarkModeToggleButton({ darkMode, toggleDarkMode }) {
         <Box>
             <IconButton
                 onClick={toggleDarkMode}
-                className= {darkMode ? 'light-mode-toggle' : 'dark-mode-toggle'}
+                sx={{
+                    color: darkMode ? '#FB940B' : '#2D3242',
+                    transition: 'transform 0.5s',
+                    transform: darkMode ? 'rotate(180deg)' : 'rotate(0deg)',
+                }}
             >
                 {darkMode ? <LightModeIcon /> : <DarkModeIcon />}
             </IconButton>
@@ -53,10 +57,10 @@ function DarkModeToggleButton({ darkMode, toggleDarkMode }) {
 
 function SocialMediaButtons() {
     const socialMediaData = [
-        { icon: GitHubIcon, link: 'https://github.com/rbbozkurt/', color : 'black' },
-        { icon: InstagramIcon, link: 'https://www.instagram.com/rbbozkurt/', color : '#FD00BA' },
-        { icon: LinkedInIcon, link: 'https://www.linkedin.com/in/resit-berkay-bozkurt/', color : '#0A66C2' },
-        { icon: EmailIcon, link: 'mailto:resitberkaybozkurt@gmail.com', color : '#C5221F' },
+        { icon: GitHubIcon, link: 'https://github.com/rbbozkurt/', color: 'black' },
+        { icon: InstagramIcon, link: 'https://www.instagram.com/rbbozkurt/', color: '#FD00BA' },
+        { icon: LinkedInIcon, link: 'https://www.linkedin.com/in/resit-berkay-bozkurt/', color: '#0A66C2' },
+        { icon: EmailIcon, link: 'mailto:resitberkaybozkurt@gmail.com', color: '#C5221F' }
     ];
 
     const handleButtonClick = (link) => {
@@ -64,13 +68,21 @@ function SocialMediaButtons() {
     };
 
     return (
-        <Box display="flex">
+        <Box
+            display="flex"
+            sx={{
+                justifyContent: { xs: 'space-between', sm: 'flex-start' },
+                width: '100%',
+                gap: { xs: 1.5, sm: 0.5 },
+            }}
+        >
             {socialMediaData.map((item, index) => (
                 <React.Fragment key={index}>
                     <IconButton
                         onClick={() => handleButtonClick(item.link)}
                         sx={{
                             color: 'primary.light',
+                            color: { xs: `${item.color}`, sm: 'primary.light' },
                             '&:hover': {
                                 color: `${item.color}`,
                             }
@@ -101,6 +113,7 @@ function Header({ darkMode = false, toggleDarkMode }) {
                         width: '100%', // Make header span full width
                         maxWidth: '100vw', // Avoid exceeding viewport width
                         display: 'flex',
+                        flexDirection: { xs: 'column', sm: 'row' },
                         justifyContent: 'space-between',
                         alignItems: 'center',
                         color: 'text.primary',
@@ -111,10 +124,11 @@ function Header({ darkMode = false, toggleDarkMode }) {
                     {/* Align Header Title to the Left */}
                     <HeaderTitle darkMode={darkMode} />
 
-                    {/* Align Dark Mode Toggle and Social Media Buttons to the Right */}
+                    {/* Align Dark Mode Toggle and Social Media Buttons */}
                     <Stack
                         spacing={2}
                         alignItems="center"
+                        sx={{ mt: { xs: 2, sm: 0 } }}
                     >
                         <DarkModeToggleButton darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
                         <SocialMediaButtons />
