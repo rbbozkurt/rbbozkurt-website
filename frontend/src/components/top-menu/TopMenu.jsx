@@ -1,9 +1,11 @@
 import { Container, ListItemButton, ListItemText, Box } from '@mui/material';
 import React, { useState, useEffect } from 'react';
+import { useTheme } from '@mui/material/styles';
 import './TopMenu.css';  // Import the CSS for the top menu
 import { Link, useLocation } from 'react-router-dom';
 
-function TopMenu({ darkMode = false, initialMenuItem, routes }) {
+function TopMenu({ initialMenuItem, routes }) {
+    const theme = useTheme();
     const location = useLocation();
     const menuList = Object.keys(routes).filter(item => item !== 'error'); // Exclude the error page
     const [selectedMenuItem, setSelectedMenuItem] = useState(() => {
@@ -27,8 +29,9 @@ function TopMenu({ darkMode = false, initialMenuItem, routes }) {
     };
 
     return (
-        <Container disableGutters={true} sx={{
+        <Container sx={{
             width: '100%', height: 'auto', padding: 2,
+            paddingX: { xs: 1, sm: 2 }, // No horizontal padding on xs screens
         }}>
             <Box
                 sx={{
@@ -36,32 +39,38 @@ function TopMenu({ darkMode = false, initialMenuItem, routes }) {
                     justifyContent: 'center', // Space out the items
                 }}
             >
-                {menuList.map((item, index) => (
-                    <ListItemButton
-                        key={index}
-                        onClick={() => handleMenuItemClick(item)}
-                        sx={{
-                            flexShrink: 0, // Ensure that the items do not shrink
-                            whiteSpace: 'nowrap' // Prevent text from wrapping
-                        }}
-                        component={Link}
-                        to={`${routes[item].path}`}
-                    >
-                        <ListItemText
-                            primary={item}
-                            disableTypography
+                {menuList.map((item, index) => {
+                    const isSelected = selectedMenuItem === item;
+                    return (
+                        <ListItemButton
+                            key={index}
+                            onClick={() => handleMenuItemClick(item)}
                             sx={{
-                                textAlign: 'center',
-                                fontFamily: 'Source Code Pro, monospace', // Monospace font for all text
-                                fontSize: (selectedMenuItem === item) ? '1.8rem' : '1.4rem',
-                                color: (selectedMenuItem === item) ? '' : '#6b6b6b',
-                                '&:hover': {
-                                    color: (selectedMenuItem === item) ? '' : '#FFC107',
-                                }
+                                flexShrink: 0, // Ensure that the items do not shrink
+                                whiteSpace: 'nowrap' // Prevent text from wrapping
                             }}
-                        />
-                    </ListItemButton>
-                ))}
+                            component={Link}
+                            to={`${routes[item].path}`}
+                        >
+                            <ListItemText
+                                primary={item}
+                                disableTypography
+                                sx={{
+                                    textAlign: 'center',
+                                    fontFamily: 'Source Code Pro, monospace', // Monospace font for all text
+                                    fontSize: {
+                                        xs: isSelected ? theme.custom.menuItem.fontSize.selected.xs : theme.custom.menuItem.fontSize.xs,
+                                        sm: isSelected ? theme.custom.menuItem.fontSize.selected.sm : theme.custom.menuItem.fontSize.sm,
+                                    },
+                                    color: isSelected ? theme.palette.primary.main : theme.custom.menuItem.color.default,
+                                    '&:hover': {
+                                        color: isSelected ? theme.palette.primary.main : theme.custom.menuItem.color.hover,
+                                    },
+                                }}
+                            />
+                        </ListItemButton>
+                    );
+                })}
             </Box>
         </Container>
     );

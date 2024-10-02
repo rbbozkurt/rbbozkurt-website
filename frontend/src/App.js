@@ -1,9 +1,9 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Container, Divider, Grid } from '@mui/material';
 import { Header, Home, TopMenu, About, Portfolio, Blog, Error, ProjectDetailed, BlogDetailed } from './components';
 import theme from './theme';
-import { ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider, CssBaseline } from '@mui/material';
 import { Routes, Route, Navigate } from "react-router-dom";
 import { INITIAL_PAGE } from './constants.js';
 import { useDispatch } from 'react-redux';
@@ -35,43 +35,45 @@ const PAGE_ROUTES = {
 
 function App() {
   const dispatch = useDispatch();
-
   const [darkMode, setDarkMode] = useState(false);
-
 
   useEffect(() => {
     dispatch(getBlogs()); // Dispatching action to fetch blogs
     dispatch(getProjects()); // Dispatching action to fetch projects
-}, [dispatch]);
+  }, [dispatch]);
 
   const handleDarkMode = () => {
     setDarkMode(!darkMode);
   };
+
+  const currentTheme = useMemo(() => theme(darkMode ? 'dark' : 'light'), [darkMode]);
+
   console.log(`selectedMenuItem: ${INITIAL_PAGE}`);
 
   return (
-    <ThemeProvider theme={theme}>
-        <div className='App'>
-          <Header darkMode={darkMode} toggleDarkMode={handleDarkMode} />
-          <Container>
-            <Grid container spacing={5}>
-              <Grid item xs={12} md={12}>
-                <TopMenu darkMode={darkMode} initialMenuItem={INITIAL_PAGE} routes={PAGE_ROUTES} />
-              </Grid>
-              <Divider orientation="vertical" flexItem />
-              <Grid item xs={12} md={12} marginBottom={4}>
-                <Routes>
-                  {Object.keys(PAGE_ROUTES).map((page) => (
-                    <Route key={page} path={PAGE_ROUTES[page].path} element={PAGE_ROUTES[page].component} />
-                  ))}
-                  <Route path="*" element={<Navigate to="/error" />} /> {/* Redirect invalid routes to the error page */}
-                  <Route path="/portfolio/:projectId" element={<ProjectDetailed />} />
-                  <Route path="/blog/:blogId" element={<BlogDetailed />} />
-                </Routes>
-              </Grid>
+    <ThemeProvider theme={currentTheme}>
+      <CssBaseline />
+      <div className='App'>
+        <Header toggleDarkMode={handleDarkMode} />
+        <Container>
+          <Grid container spacing={5}>
+            <Grid item xs={12} md={12}>
+              <TopMenu initialMenuItem={INITIAL_PAGE} routes={PAGE_ROUTES} />
             </Grid>
-          </Container>
-        </div>
+            <Divider orientation="vertical" flexItem />
+            <Grid item xs={12} md={12} marginBottom={4}>
+              <Routes>
+                {Object.keys(PAGE_ROUTES).map((page) => (
+                  <Route key={page} path={PAGE_ROUTES[page].path} element={PAGE_ROUTES[page].component} />
+                ))}
+                <Route path="*" element={<Navigate to="/error" />} /> {/* Redirect invalid routes to the error page */}
+                <Route path="/portfolio/:projectId" element={<ProjectDetailed />} />
+                <Route path="/blog/:blogId" element={<BlogDetailed />} />
+              </Routes>
+            </Grid>
+          </Grid>
+        </Container>
+      </div>
     </ThemeProvider>
   );
 }
