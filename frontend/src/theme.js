@@ -166,6 +166,58 @@ const lightMode = {
                 },
             },
         },
+        highlightedText: {
+            padding: '0 4px',
+            fontStyle: 'italic',
+            fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+            color: '#000',
+        },
+        roleText: {
+            padding: '0 4px',
+            fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+            color: '#000',
+        },
+        turkey: {
+            backgroundColor: 'red',
+            color: 'white',
+            fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+        },
+        berlin: {
+            backgroundImage: 'linear-gradient(90deg, black 33%, red 33%, red 66%, gold 66%)',
+            color: 'white',
+            fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+        },
+        subText: {
+            fontStyle: 'italic',
+            fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+            color: '#000',
+        },
+        paragraph: {
+            padding: '0 0 16px 0',
+            fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+            color: '#000',
+        },
+        section: {
+            padding: '64px 0 16px 0',
+            title: {
+                fontWeight: 600,
+                fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
+                color: '#000',
+            },
+            divider: {
+                backgroundColor: '#6b6b6b',
+                height: '1px',
+                margin: '4px 0 16px 0',
+            },
+        },
+        tags: {
+            borderRadius: '4px',
+            fontWeight: 'bold',
+            padding: '1px 4px',
+            fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+            color: '#000',
+            backgroundColor: '#E5E5E5',
+        },
     },
 };
 
@@ -267,6 +319,57 @@ const darkMode = {
                     hover: '#FFC107',
                 },
             },
+        },
+        highlightedText: {
+            padding: '0 4px',
+            fontStyle: 'italic',
+            fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+            color: '#fefefe',
+        },
+        roleText: {
+            padding: '0 4px',
+            fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+            color: '#fefefe',
+        },
+        turkey: {
+            backgroundColor: 'red',
+            color: 'white',
+            fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+        },
+        berlin: {
+            backgroundImage: 'linear-gradient(90deg, black 33%, red 33%, red 66%, gold 66%)',
+            color: 'white',
+            fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+        },
+        subText: {
+            fontStyle: 'italic',
+            fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+            color: '#fefefe',
+        },
+        paragraph: {
+            padding: '0 0 16px 0',
+            fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+            color: '#fefefe',
+        },
+        section: {
+            padding: '64px 0 16px 0',
+            title: {
+                fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
+                color: '#fefefe',
+            },
+            divider: {
+                backgroundColor: '#6b6b6b',
+                height: '1px',
+                margin: '4px 0 16px 0',
+            },
+        },
+        tags: {
+            borderRadius: '4px',
+            fontWeight: 'bold',
+            padding: '1px 4px',
+            fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+            color: '#fefefe',
+            backgroundColor: '#E5E5E5',
         },
     },
 };

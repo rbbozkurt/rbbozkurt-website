@@ -7,13 +7,9 @@ const HighlightedText = ({ text, sx }) => {
     const theme = useTheme();
     return (
         <Typography
-            variant="body1"
             component="span"
             sx={{
-                padding: '0 4px',
-                fontStyle: 'italic',
-                fontSize: theme.typography.body1.fontSize,
-                color: theme.typography.body1.color,
+                ...theme.custom.highlightedText,
                 ...sx
             }}
         >
@@ -26,12 +22,9 @@ const RoleText = ({ text, link, sx }) => {
     const theme = useTheme();
     return (
         <Typography
-            variant="body1"
             component="span"
             sx={{
-                padding: '0 4px',
-                fontSize: theme.typography.body1.fontSize,
-                color: theme.typography.body1.color,
+                ...theme.custom.roleText,
                 ...sx
             }}
         >
@@ -51,11 +44,7 @@ const Turkey = ({ text = "Turkey" }) => {
     return (
         <HighlightedText
             text={text}
-            sx={{
-                backgroundColor: 'red',
-                color: 'white',
-                fontSize: theme.typography.body1.fontSize,
-            }}
+            sx={theme.custom.turkey}
         />
     );
 };
@@ -65,11 +54,7 @@ const Berlin = ({ text = "Berlin" }) => {
     return (
         <HighlightedText
             text={text}
-            sx={{
-                backgroundImage: 'linear-gradient(90deg, black 33%, red 33%, red 66%, gold 66%)',
-                color: 'white',
-                fontSize: theme.typography.body1.fontSize,
-            }}
+            sx={theme.custom.berlin}
         />
     );
 };
@@ -79,11 +64,7 @@ const SubText = ({ text }) => {
     return (
         <HighlightedText
             text={text}
-            sx={{
-                fontStyle: 'italic',
-                fontSize: theme.typography.body1.fontSize,
-                color: theme.typography.body1.color,
-            }}
+            sx={theme.custom.subText}
         />
     );
 };
@@ -93,13 +74,8 @@ const Paragraph = ({ children }) => {
     return (
         <Typography
             align="left"
-            variant="body1"
             gutterBottom
-            sx={{
-                padding: '0 0 16px 0',
-                fontSize: theme.typography.body1.fontSize,
-                color: theme.typography.body1.color,
-            }}
+            sx={theme.custom.paragraph}
         >
             {children}
         </Typography>
@@ -109,20 +85,11 @@ const Paragraph = ({ children }) => {
 const Section = ({ title, children }) => {
     const theme = useTheme();
     return (
-        <Box direction="column"
-            sx={{
-                padding: '64px 0 16px 0'
-            }}>
-            <Typography align="left" variant="h2">
+        <Box direction="column" sx={theme.custom.section}>
+            <Typography align="left" sx={theme.custom.section.title}>
                 {title}
             </Typography>
-            <Divider
-                orientation='horizontal'
-                sx={{
-                    backgroundColor: theme.palette.primary.light,
-                    height: '1px', // Adjust the thickness here
-                    margin: '4px 0 16px 0', // Add some space below the divider
-                }} />
+            <Divider orientation='horizontal' sx={theme.custom.section.divider} />
             {children}
         </Box>
     );
@@ -172,12 +139,9 @@ const Tags = ({ tags, isColorized = true, isHorizontalScrollable = false }) => {
                     <Typography
                         key={index}
                         sx={{
-                            borderRadius: '4px',
-                            fontWeight: 'bold',
+                            ...theme.custom.tags,
                             color: isColorized ? color : theme.palette.secondary.dark,
-                            backgroundColor: isColorized ? backgroundColor : '#E5E5E5',
-                            padding: '1px 4px',
-                            fontSize: theme.typography.body1.fontSize,
+                            backgroundColor: isColorized ? backgroundColor : theme.custom.tags.backgroundColor,
                         }}
                     >
                         {tag}

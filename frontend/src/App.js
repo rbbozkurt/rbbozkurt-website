@@ -60,7 +60,6 @@ function App() {
             <Grid item xs={12} md={12}>
               <TopMenu initialMenuItem={INITIAL_PAGE} routes={PAGE_ROUTES} />
             </Grid>
-            <Divider orientation="vertical" flexItem />
             <Grid item xs={12} md={12} marginBottom={4}>
               <Routes>
                 {Object.keys(PAGE_ROUTES).map((page) => (
