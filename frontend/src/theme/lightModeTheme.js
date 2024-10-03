@@ -23,7 +23,6 @@ export const lightModeTheme = {
         },
     },
     custom: {
-
         preview: {
             container: {
                 padding: '2rem',
@@ -55,7 +54,64 @@ export const lightModeTheme = {
                 fontSize: 80, // Use constant for icon size
             },
         },
-
+        blogHeader: {
+            container: {
+                padding: '0 0 16px 0',
+            },
+            title: {
+                textAlign: 'left',
+                variant: 'h2',
+            },
+            author: {
+                color: 'primary.light',
+                paddingBottom: '1rem',
+                textAlign: 'left',
+                variant: 'body1',
+            },
+            infoContainer: {
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                width: '100%',
+            },
+            readTimeViewContainer: {
+                display: 'flex',
+                alignItems: 'center',
+            },
+            readTime: {
+                color: 'primary.dark',
+                textAlign: 'left',
+                variant: 'body1',
+            },
+            separator: {
+                color: 'primary.dark',
+                textAlign: 'left',
+                variant: 'body1',
+            },
+            views: {
+                color: 'primary.light',
+                textAlign: 'left',
+                variant: 'body1',
+            },
+            date: {
+                color: 'primary.light',
+                marginLeft: 'auto',
+                textAlign: 'right',
+                variant: 'body1',
+            },
+            divider: {
+                backgroundColor: 'primary.light',
+                height: '1px',
+                margin: '4px 0 16px 0',
+            },
+            image: {
+                width: '100%',
+                height: 'auto',
+                borderRadius: '8px',
+                marginBottom: '1rem',
+                marginTop: '1rem',
+            },
+        },
         blogCard: {
             display: 'flex',
             flexDirection: 'column',
@@ -173,6 +229,80 @@ export const lightModeTheme = {
                 color: 'white',
                 fontSize: '1.5rem',
                 fontWeight: 'bold',
+            },
+        },
+        projectHeader: {
+            container: {
+                padding: '0 0 16px 0',
+            },
+            title: {
+                fontSize: '2rem',
+                marginBottom: '1rem',
+            },
+            linkContainer: {
+                display: 'flex',
+                justifyContent: 'flex-start',
+                marginBottom: '1rem',
+            },
+            link: {
+                color: 'primary.dark',
+            },
+            infoContainer: {
+                display: 'flex',
+                alignItems: {
+                    xs: 'flex-start',
+                    sm: 'center',
+                },
+                flexDirection: {
+                    xs: 'column',
+                    sm: 'row',
+                },
+                width: '100%',
+            },
+            readTimeViewContainer: {
+                flexDirection : {
+                    xs : 'row',
+                    sm : 'row',
+                },
+                display: 'flex', 
+                alignItems: {
+                    xs: 'flex-start',
+                    sm: 'center',
+                }
+            },
+            readTime: {
+                color: 'primary.dark',
+            },
+            separator: {
+                color: 'primary.light',
+                paddingX: '12px',
+            },
+            views: {
+                color: 'primary.light',
+            },
+            date: {
+                textAlign :{
+                    xs: 'left',
+                    sm: 'right',
+                },
+                color: 'primary.light',
+                marginLeft: {
+                    xs : 0,
+                    sm : 'auto',
+                }
+            },
+            divider: {
+                backgroundColor: 'primary.light',
+                height: '1px',
+                margin: '4px 0 16px 0',
+            },
+            imageContainer: {
+                marginBottom: '1rem',
+                marginTop: '1rem',
+            },
+            image: {
+                width: '100%',
+                height: 'auto',
             },
         },
         header: {
