@@ -17,11 +17,11 @@ function ProjectHeader({ projectTitle, createdAt, estimatedReadTime, image, tags
             <Box sx={theme.custom.projectHeader.linkContainer}>
                 <Link 
                     href={link} 
-                    underline="hover"
-                    variant='h5'
+                    underline="always"
                     target="_blank"                // Opens the link in a new tab
                     rel="noopener noreferrer"      // Security best practice
                     sx={theme.custom.projectHeader.link}
+                    color = 'inherit'
                 >
                     Project Link
                 </Link>

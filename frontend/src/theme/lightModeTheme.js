@@ -23,35 +23,79 @@ export const lightModeTheme = {
         },
     },
     custom: {
-        preview: {
+        previewTheme: {
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: '100%',
+            padding: {
+                xs: '1rem',
+                sm: '1.5rem',
+                md: '3rem',
+            }
+        },
+        blogPreviewTheme: {
+            container: {
+                width: '100%',
+                position: 'relative',
+            },
+            card: {
+                prevNextCard: {
+                    flexGrow: 1,
+                    flexShrink: 1,
+                    height: '80%',
+                    transform: 'scale(0.9)',
+                },
+                currentCard: {
+                    flexGrow: 1,
+                    flexShrink: 1,
+                    height: '80%',
+                    marginY: {
+                        xs: 2,
+                        sm: 4,
+                        md: 6,
+                    },
+                    transform: 'scale(1.2)',
+                    transition: 'transform 0.3s',
+                    zIndex: 1,
+                },
+                iconSize: 80,
+                transitionDuration: '0.3s',
+                scaleDuration: 5000,
+                cardScale: 1.2,
+            },
+        },
+        portfolioPreviewTheme: {
             container: {
                 padding: '2rem',
                 width: '100%',
                 position: 'relative',
             },
-            blogContainer: {
-                width: '100%',
-            },
-            portfolioContainer: {
-                width: '100%',
-            },
-            prevNextCard: {
-                flexGrow: 1,
-                flexShrink: 1,
-                width: '80%',
-                transform: 'scale(0.9)', // Use constant for scale
-            },
-            currentCard: {
-                flexGrow: 1,
-                flexShrink: 1,
-                width: '80%',
-                marginY: 4, // Use constant for marginY
-                transform: 'scale(1.2)', // Slightly scale the current card
-                transition: 'transform 0.3s',
-                zIndex: 1, // Ensure the current card is on top
-            },
-            icon: {
-                fontSize: 80, // Use constant for icon size
+            card: {
+                prevNextCard: {
+                    flexGrow: 1,
+                    flexShrink: 1,
+                    width: '40%',
+                    transform: 'scale(0.9)',
+                },
+                currentCard: {
+                    flexGrow: 1,
+                    flexShrink: 1,
+                    width: '40%',
+                    marginX: {
+                        xs: 2,
+                        sm: 4,
+                        md: 6,
+                    },
+
+                    transform: 'scale(1.2)',
+                    transition: 'transform 0.3s',
+                    zIndex: 1,
+                },
+                iconSize: 80,
+                transitionDuration: '0.3s',
+                scaleDuration: 5000,
+                cardScale: 1.2,
             },
         },
         blogHeader: {
@@ -133,8 +177,15 @@ export const lightModeTheme = {
             display: 'flex',
             flexDirection: 'column',
             width: '100%',
-            height: 200,
-            boxShadow: '0px 20px 20px rgba(0, 0, 0, 0.6)',
+            height: {
+                xs: 120,
+                sm: 160,
+                md: 200,
+            },
+            boxShadow: {
+                xs: '0px 10px 10px rgba(0, 0, 0, 0.6)',
+                sm: '0px 10px 20px rgba(0, 0, 0, 0.6)',
+            },
             borderRadius: 1,
             transition: 'transform 0.3s, border 0.3s',
             cursor: 'pointer',
@@ -160,21 +211,47 @@ export const lightModeTheme = {
                 gap: 1,
             },
             title: {
-                fontSize: '1.5rem',
+                fontSize: {
+                    xs: '1rem',
+                    sm: '1.2rem',
+                    md: '1.6rem'
+                },
                 textAlign: 'left',
                 color: 'primary.dark',
             },
             author: {
+                fontSize: {
+                    xs: '0.8rem',
+                    sm: '1rem',
+                    md: '1.2rem'
+                },
                 textAlign: 'left',
                 color: 'primary.light',
             },
             readTime: {
+                fontSize: {
+                    xs: '0.5rem',
+                    sm: '0.8rem',
+                    md: '1rem'
+                },
                 textAlign: 'left',
                 color: 'primary.dark',
             },
             views: {
+                fontSize: {
+                    xs: '0.5rem',
+                    sm: '0.8rem',
+                    md: '1rem'
+                },
                 textAlign: 'left',
                 color: 'primary.light',
+            },
+            tag: {
+                fontSize: {
+                    xs: '0.5rem',
+                    sm: '0.8rem',
+                    md: '1rem'
+                }
             },
             overlay: {
                 position: 'absolute',
@@ -195,11 +272,11 @@ export const lightModeTheme = {
         },
         portfolioCard: {
             width: '100%',
-            height: { xs: 120, sm: 240, md: 360 },
+            height: { xs: 160, sm: 320, md: 360 },
             borderRadius: 2,
             boxShadow: {
                 xs: '0px 10px 10px rgba(0, 0, 0, 0.6)',
-                sm: '0px 20px 20px rgba(0, 0, 0, 0.6)',
+                sm: '0px 10px 20px rgba(0, 0, 0, 0.6)',
             },
             transition: 'transform 0.3s, border 0.3s',
             cursor: 'pointer',
@@ -223,7 +300,8 @@ export const lightModeTheme = {
                 justifyContent: 'flex-end',
                 gap: {
                     xs: 0.5,
-                    sm: 2,
+                    sm: 1,
+                    md: 2
                 }
             },
             title: {
@@ -235,6 +313,15 @@ export const lightModeTheme = {
                 textAlign: 'left',
                 color: 'secondary.dark',
             },
+            readTime: {
+                fontSize: {
+                    xs: '0.5rem',
+                    sm: '0.8rem',
+                    md: '1rem'
+                },
+                textAlign: 'left',
+                color: 'primary.dark',
+            },
             views: {
                 fontSize: {
                     xs: '0.5rem',
@@ -244,8 +331,8 @@ export const lightModeTheme = {
                 textAlign: 'left',
                 color: 'primary.light',
             },
-            tag : {
-                fontSize : {
+            tag: {
+                fontSize: {
                     xs: '0.5rem',
                     sm: '0.8rem',
                     md: '1rem'
@@ -282,7 +369,21 @@ export const lightModeTheme = {
                 marginBottom: '1rem',
             },
             link: {
-                color: 'primary.dark',
+                fontSize :
+                {
+                    xs : '1rem',
+                    sm : '1.2rem',
+                    md : '1.5rem'
+                },
+                '&:hover': {
+                    fontSize : {
+                        xs : '1.2rem',
+                        sm : '1.5rem',
+                        md : '1.8rem'
+                    }
+                } ,   
+                color: '#105ABF',
+                fontStyle : 'underline',
             },
             infoContainer: {
                 display: 'flex',
@@ -340,6 +441,8 @@ export const lightModeTheme = {
             image: {
                 width: '100%',
                 height: 'auto',
+                borderRadius: '8px',
+
             },
         },
         header: {

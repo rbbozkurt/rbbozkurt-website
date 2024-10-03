@@ -50,7 +50,7 @@ function BlogCard({ item, onClickCardClicked, icon, sx }) {
                     </Box>
 
                     <Box sx={{ flexGrow: 1, overflowY: 'auto', width: '100%' }}>
-                        <Tags tags={item.tags} isColorized={false} isHorizontalScrollable={true} />
+                        <Tags tags={item.tags} isColorized={false} isHorizontalScrollable={true} sx={theme.custom.portfolioCard.tag} />
                     </Box>
 
                     <Box>

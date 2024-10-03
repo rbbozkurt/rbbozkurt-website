@@ -47,7 +47,10 @@ function PortfolioCard({ item, onClickCardClicked, icon, sx }) {
 
                     <Tags tags={item.tags} isColorized={false} isHorizontalScrollable={true} sx={{
                         fontSize : theme.custom.portfolioCard.tag.fontSize}}/>
-
+                    <Typography
+                    sx = {theme.custom.portfolioCard.readTime}>
+                        {item.estimatedReadTime} {/* Description */}
+                    </Typography>
                     <Typography
                         sx={theme.custom.portfolioCard.views}
                     >
