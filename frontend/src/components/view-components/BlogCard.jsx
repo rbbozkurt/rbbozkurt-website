@@ -12,23 +12,9 @@ function BlogCard({ item, onClickCardClicked, icon }) {
         <Card
             onClick={() => onClickCardClicked(item.id)}
             sx={{
-                display: 'flex',
-                flexDirection: 'column', // Stack content vertically
-                width: '100%', // Full width of the container
-                height: 200, // Adjust to the full height
-                boxShadow: 'none',
-                borderRadius: 2,
-                boxShadow: '0px 20px 20px rgba(0, 0, 0, 0.6)', // Add a subtle shadow
-                transition: 'transform 0.3s, border 0.3s',
-                cursor: 'pointer',
-                position: 'relative', // Needed for overlay positioning
-                '&:hover': {
-                    transform: 'scale(1.02)',
-                },
+                ...theme.custom.blogCard,
                 '&:hover .overlay': {
                     opacity: 1,
-                    transition: 'opacity 0.5s',
-                    transform: 'scale(1.02)',
                 },
             }}
         >
@@ -39,38 +25,27 @@ function BlogCard({ item, onClickCardClicked, icon }) {
                     alt={item.title}
                     src={item.image}
                     sx={{
-                        width: '50%', // Image takes half the width
-                        height: '100%', // Full height of the card
-                        objectFit: 'cover',
-                        borderTopLeftRadius: 2,
-                        borderBottomLeftRadius: 2,
+                        ...theme.custom.blogCard.image,
                     }}
                 />
 
                 {/* Content Section */}
                 <Box
                     sx={{
-                        width: '50%', // Content takes the remaining width
-                        paddingX: 2,
-                        paddingTop: 1,
-                        paddingBottom: 2,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'space-between',
-                        gap: 1, // Add some spacing between the items
+                        ...theme.custom.blogCard.content,
                         backgroundColor: theme.palette.background.paper,
                     }}
                 >
                     <Box>
                         <Typography
                             variant="h6"
-                            sx={{ textAlign: 'left', color: theme.palette.primary.dark }}
+                            sx={theme.custom.blogCard.title}
                         >
                             {item.title} {/* Title */}
                         </Typography>
                         <Typography
                             variant="body1"
-                            sx={{ textAlign: 'left', color: theme.palette.primary.light }}
+                            sx={theme.custom.blogCard.author}
                         >
                             {item.author} {/* Author */}
                         </Typography>
@@ -83,13 +58,13 @@ function BlogCard({ item, onClickCardClicked, icon }) {
                     <Box>
                         <Typography 
                             variant="body2" 
-                            sx={{ textAlign: 'left', color: theme.palette.primary.dark }}
+                            sx={theme.custom.blogCard.readTime}
                         >
                             {item.estimatedReadTime} {/* Read Time */}
                         </Typography>
                         <Typography
                             variant="body2"
-                            sx={{ textAlign: 'left', color: theme.palette.primary.light }}
+                            sx={theme.custom.blogCard.views}
                         >
                             {`${item.views} views • ${formatDate(item.date)}`} {/* Date */}
                         </Typography>
@@ -101,20 +76,7 @@ function BlogCard({ item, onClickCardClicked, icon }) {
             <Box
                 className="overlay"
                 sx={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    opacity: 0,
-                    transition: 'opacity 0.3s',
-                    color: 'white',
-                    fontSize: '1.5rem',
-                    fontWeight: 'bold',
+                    ...theme.custom.blogCard.overlay,
                 }}
             >
                 {/* Icon and VIEW text */}
