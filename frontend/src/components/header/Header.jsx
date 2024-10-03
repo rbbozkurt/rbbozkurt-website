@@ -12,14 +12,12 @@ import './Header.css';
 
 function HeaderTitle() {
     const theme = useTheme();
-    const isDarkMode = theme.palette.mode === 'dark';
     return (
         <Box py={2}>
             <Typography
                 variant='h4'
                 sx={{
                     ...theme.custom.header.title,
-                    color: isDarkMode ? theme.palette.primary.contrastText : theme.custom.header.title.color,
                     px: 4,
                 }}
             >

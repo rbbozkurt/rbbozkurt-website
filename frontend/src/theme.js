@@ -210,14 +210,16 @@ const darkMode = {
         header: {
             title: {
                 fontFamily: '"Playwrite CU", cursive',
-                color: 'primary.contrastText',
-                fontSize: { xs: '1.2rem', sm: '1.5rem', md: '2rem' },
+                color: '#fefefe',
+                fontSize: { xs: '1.2rem', sm: '1.5rem', md: '1.5rem' },
             },
             subtitle: {
                 fontFamily: '"Source Code Pro", monospace',
-                hoverColor: '#FFC107',
-                fontSize: { xs: '1.2rem', sm: '1.5rem', md: '2rem' },
                 color: '#6b6b6b',
+                '&:hover': {
+                    color: '#FFC107',
+                },
+                fontSize: { xs: '1.5rem', sm: '1.5rem', md: '1.8rem' },
             },
             darkModeToggle: {
                 color: {
