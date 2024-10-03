@@ -92,6 +92,39 @@ const lightMode = {
         },
     },
     custom: {
+
+        preview: {
+            container: {
+                padding: '2rem',
+                width: '100%',
+                position: 'relative',
+            },
+            blogContainer: {
+                width: '100%',
+            },
+            portfolioContainer: {
+                width: '100%',
+            },
+            prevNextCard: {
+                flexGrow: 1,
+                flexShrink: 1,
+                width: '80%',
+                transform: 'scale(0.9)', // Use constant for scale
+            },
+            currentCard: {
+                flexGrow: 1,
+                flexShrink: 1,
+                width: '80%',
+                marginY: 4, // Use constant for marginY
+                transform: 'scale(1.2)', // Slightly scale the current card
+                transition: 'transform 0.3s',
+                zIndex: 1, // Ensure the current card is on top
+            },
+            icon: {
+                fontSize: 80, // Use constant for icon size
+            },
+        },
+
         blogCard: {
             display: 'flex',
             flexDirection: 'column',
@@ -348,6 +381,38 @@ const darkMode = {
         },
     },
     custom: {
+
+       preview: {
+            container: {
+                padding: '2rem',
+                width: '100%',
+                position: 'relative',
+            },
+            blogContainer: {
+                width: '100%',
+            },
+            portfolioContainer: {
+                width: '100%',
+            },
+            prevNextCard: {
+                flexGrow: 1,
+                flexShrink: 1,
+                width: '80%',
+                transform: 'scale(0.9)', // Use constant for scale
+            },
+            currentCard: {
+                flexGrow: 1,
+                flexShrink: 1,
+                width: '80%',
+                marginY: 4, // Use constant for marginY
+                transform: 'scale(1.2)', // Slightly scale the current card
+                transition: 'transform 0.3s',
+                zIndex: 1, // Ensure the current card is on top
+            },
+            icon: {
+                fontSize: 80, // Use constant for icon size
+            },
+        },
         blogCard: {
             display: 'flex',
             flexDirection: 'column',
