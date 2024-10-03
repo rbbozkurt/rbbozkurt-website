@@ -81,11 +81,11 @@ export const lightModeTheme = {
                 width: '100%',
             },
             readTimeViewContainer: {
-                flexDirection : {
-                    xs : 'row',
-                    sm : 'row',
+                flexDirection: {
+                    xs: 'row',
+                    sm: 'row',
                 },
-                display: 'flex', 
+                display: 'flex',
                 alignItems: {
                     xs: 'flex-start',
                     sm: 'center',
@@ -106,14 +106,14 @@ export const lightModeTheme = {
                 variant: 'body1',
             },
             date: {
-                textAlign :{
+                textAlign: {
                     xs: 'left',
                     sm: 'right',
                 },
                 color: 'primary.light',
                 marginLeft: {
-                    xs : 0,
-                    sm : 'auto',
+                    xs: 0,
+                    sm: 'auto',
                 }
             },
             divider: {
@@ -195,9 +195,12 @@ export const lightModeTheme = {
         },
         portfolioCard: {
             width: '100%',
-            height: { xs: 250, sm: 300, md: 350 },
+            height: { xs: 120, sm: 240, md: 360 },
             borderRadius: 2,
-            boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.6)',
+            boxShadow: {
+                xs: '0px 10px 10px rgba(0, 0, 0, 0.6)',
+                sm: '0px 20px 20px rgba(0, 0, 0, 0.6)',
+            },
             transition: 'transform 0.3s, border 0.3s',
             cursor: 'pointer',
             backgroundSize: 'cover',
@@ -211,25 +214,42 @@ export const lightModeTheme = {
                 objectFit: 'cover',
             },
             content: {
-                padding: 2, // Ensure padding is applied
+                padding: {
+                    xs: 0.6,
+                    sm: 2
+                },
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'flex-end',
-                gap: 2,
+                gap: {
+                    xs: 0.5,
+                    sm: 2,
+                }
             },
             title: {
-                fontSize : { 
-                    xs : '1.4rem',
-                    sm : '1.5rem',
-                    md : '1.6rem'
+                fontSize: {
+                    xs: '0.7rem',
+                    sm: '1.2rem',
+                    md: '1.6rem'
                 },
                 textAlign: 'left',
                 color: 'secondary.dark',
             },
             views: {
-                fontSize : '1rem',
+                fontSize: {
+                    xs: '0.5rem',
+                    sm: '0.8rem',
+                    md: '1rem'
+                },
                 textAlign: 'left',
                 color: 'primary.light',
+            },
+            tag : {
+                fontSize : {
+                    xs: '0.5rem',
+                    sm: '0.8rem',
+                    md: '1rem'
+                }
             },
             overlay: {
                 position: 'absolute',
@@ -277,11 +297,11 @@ export const lightModeTheme = {
                 width: '100%',
             },
             readTimeViewContainer: {
-                flexDirection : {
-                    xs : 'row',
-                    sm : 'row',
+                flexDirection: {
+                    xs: 'row',
+                    sm: 'row',
                 },
-                display: 'flex', 
+                display: 'flex',
                 alignItems: {
                     xs: 'flex-start',
                     sm: 'center',
@@ -298,14 +318,14 @@ export const lightModeTheme = {
                 color: 'primary.light',
             },
             date: {
-                textAlign :{
+                textAlign: {
                     xs: 'left',
                     sm: 'right',
                 },
                 color: 'primary.light',
                 marginLeft: {
-                    xs : 0,
-                    sm : 'auto',
+                    xs: 0,
+                    sm: 'auto',
                 }
             },
             divider: {
@@ -383,11 +403,11 @@ export const lightModeTheme = {
                         sm: 30,
                     }
                 },
-                fontStyle : {
-                    xs : 'normal',
-                    selected : 'bold',
+                fontStyle: {
+                    xs: 'normal',
+                    selected: 'bold',
                 },
-                color:  'rgb(21, 21, 21)',
+                color: 'rgb(21, 21, 21)',
                 '&:hover': {
                     color: '#FFC107',
                 }

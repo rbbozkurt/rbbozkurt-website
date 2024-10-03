@@ -115,7 +115,7 @@ const getColor = (index) => {
     return colorMap[key];
 };
 
-const Tags = ({ tags, isColorized = true, isHorizontalScrollable = false }) => {
+const Tags = ({ tags, isColorized = true, isHorizontalScrollable = false, sx }) => {
     const theme = useTheme();
     return (
         <Box 
@@ -140,8 +140,10 @@ const Tags = ({ tags, isColorized = true, isHorizontalScrollable = false }) => {
                         key={index}
                         sx={{
                             ...theme.custom.tags,
+                            ...sx,
                             color: isColorized ? color : theme.palette.secondary.dark,
                             backgroundColor: isColorized ? backgroundColor : theme.custom.tags.backgroundColor,
+                            
                         }}
                     >
                         {tag}

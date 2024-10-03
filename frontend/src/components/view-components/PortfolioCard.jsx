@@ -16,6 +16,7 @@ function PortfolioCard({ item, onClickCardClicked, icon, sx }) {
                     opacity: 1,
                 },
                 ...sx,
+
             }}
         >
             <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
@@ -44,7 +45,8 @@ function PortfolioCard({ item, onClickCardClicked, icon, sx }) {
                         {item.title} {/* Title */}
                     </Typography>
 
-                    <Tags tags={item.tags} isColorized={false} isHorizontalScrollable={true} />
+                    <Tags tags={item.tags} isColorized={false} isHorizontalScrollable={true} sx={{
+                        fontSize : theme.custom.portfolioCard.tag.fontSize}}/>
 
                     <Typography
                         sx={theme.custom.portfolioCard.views}
