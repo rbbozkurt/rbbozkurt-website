@@ -160,6 +160,7 @@ const lightMode = {
                     },
                 },
                 color: {
+                    selected : 'rgb(21, 21, 21)',
                     default: '#6b6b6b',
                     hover: '#FFC107',
                 },
@@ -261,6 +262,7 @@ const darkMode = {
                     },
                 },
                 color: {
+                    selected : '#fefefe',
                     default: '#fefefe',
                     hover: '#FFC107',
                 },

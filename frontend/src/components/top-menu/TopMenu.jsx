@@ -49,7 +49,7 @@ function TopMenu({ initialMenuItem, routes }) {
                                         xs: isSelected ? theme.custom.topMenuItem.text.fontSize.selected.xs : theme.custom.topMenuItem.text.fontSize.xs,
                                         sm: isSelected ? theme.custom.topMenuItem.text.fontSize.selected.sm : theme.custom.topMenuItem.text.fontSize.sm,
                                     },
-                                    color: isSelected ? theme.palette.primary.main : theme.custom.topMenuItem.text.color.default,
+                                    color: isSelected ? theme.custom.topMenuItem.text.color.selected : theme.custom.topMenuItem.text.color.default,
                                     '&:hover': {
                                         color: isSelected ? theme.palette.primary.main : theme.custom.topMenuItem.text.color.hover,
                                     },
