@@ -1,7 +1,6 @@
 import React from 'react';
 import { Typography, Box, Card } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import TocIcon from '@mui/icons-material/Toc';
 import { Tags } from '../text-components';
 import { formatDate } from '../utils';
 
@@ -38,13 +37,11 @@ function BlogCard({ item, onClickCardClicked, icon }) {
                 >
                     <Box>
                         <Typography
-                            variant="h6"
                             sx={theme.custom.blogCard.title}
                         >
                             {item.title} {/* Title */}
                         </Typography>
                         <Typography
-                            variant="body1"
                             sx={theme.custom.blogCard.author}
                         >
                             {item.author} {/* Author */}
@@ -57,13 +54,11 @@ function BlogCard({ item, onClickCardClicked, icon }) {
 
                     <Box>
                         <Typography 
-                            variant="body2" 
                             sx={theme.custom.blogCard.readTime}
                         >
                             {item.estimatedReadTime} {/* Read Time */}
                         </Typography>
                         <Typography
-                            variant="body2"
                             sx={theme.custom.blogCard.views}
                         >
                             {`${item.views} views • ${formatDate(item.date)}`} {/* Date */}

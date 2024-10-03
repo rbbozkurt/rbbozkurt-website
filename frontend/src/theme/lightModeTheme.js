@@ -1,4 +1,4 @@
-export const lightMode = {
+export const lightModeTheme = {
     palette: {
         mode: 'light',
         primary: {
@@ -62,7 +62,7 @@ export const lightMode = {
             width: '100%',
             height: 200,
             boxShadow: '0px 20px 20px rgba(0, 0, 0, 0.6)',
-            borderRadius: 2,
+            borderRadius: 1,
             transition: 'transform 0.3s, border 0.3s',
             cursor: 'pointer',
             position: 'relative',
@@ -87,6 +87,7 @@ export const lightMode = {
                 gap: 1,
             },
             title: {
+                fontSize: '1.5rem',
                 textAlign: 'left',
                 color: 'primary.dark',
             },
@@ -131,34 +132,47 @@ export const lightMode = {
             '&:hover': {
                 transform: 'scale(1.02)',
             },
-            overlay: {
-                backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                color: 'white',
-                fontSize: '1.5rem',
-                fontWeight: 'bold',
-                transition: 'opacity 0.3s',
+            image: {
+                width: '100%',
+                height: '50%',
+                objectFit: 'cover',
+            },
+            content: {
+                padding: 2, // Ensure padding is applied
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'flex-end',
+                gap: 2,
             },
             title: {
+                fontSize : { 
+                    xs : '1.4rem',
+                    sm : '1.5rem',
+                    md : '1.6rem'
+                },
                 textAlign: 'left',
                 color: 'secondary.dark',
             },
             views: {
+                fontSize : '1rem',
                 textAlign: 'left',
                 color: 'primary.light',
             },
-        },
-        menuItem: {
-            fontSize: {
-                xs: '1.2rem',
-                sm: '1.6rem',
-                selected: {
-                    xs: '1.4rem',
-                    sm: '1.8rem',
-                },
-            },
-            color: {
-                default: '#6b6b6b',
-                hover: '#FFC107',
+            overlay: {
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                opacity: 0,
+                transition: 'opacity 0.3s',
+                color: 'white',
+                fontSize: '1.5rem',
+                fontWeight: 'bold',
             },
         },
         header: {

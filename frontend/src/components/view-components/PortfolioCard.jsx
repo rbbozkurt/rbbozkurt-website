@@ -17,55 +17,50 @@ function PortfolioCard({ item, onClickCardClicked, icon }) {
                 },
             }}
         >
-            <Box sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'flex-end',
-                height: '100%',
-            }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                {/* Image Section */}
                 <Box
-                    component='img'
+                    component="img"
                     alt={item.title}
                     src={item.imageUrl}
                     sx={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
+                        ...theme.custom.portfolioCard.image,
                     }}
                 />
+
+                {/* Content Section */}
                 <Box
                     sx={{
-                        padding: 1.5,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'flex-end',
-                        gap: 2, // Add some spacing between the items
+                        ...theme.custom.portfolioCard.content,
+                        backgroundColor: theme.palette.background.paper,
                     }}
                 >
                     <Typography
-                        variant="h6"
-                        sx={theme.custom.portfolioCard.title}
+                        sx={{
+                            ...theme.custom.portfolioCard.title,
+                        }}
                     >
-                        {item.title} {/* Title at the top */}
+                        {item.title} {/* Title */}
                     </Typography>
 
                     <Tags tags={item.tags} isColorized={false} isHorizontalScrollable={true} />
 
                     <Typography
-                        variant="body2"
                         sx={theme.custom.portfolioCard.views}
                     >
-                        {`${item.views} views • ${formatDate(item.date)}`} {/* Date at the bottom */}
+                        {`${item.views} views • ${formatDate(item.date)}`} {/* Date */}
                     </Typography>
                 </Box>
             </Box>
+
+            {/* Overlay on Hover */}
             <Box
                 className="overlay"
                 sx={{
                     ...theme.custom.portfolioCard.overlay,
                 }}
             >
-                {/* Icon and VIEW text for the overlay */}
+                {/* Icon and VIEW text */}
                 {icon}
             </Box>
         </Card>

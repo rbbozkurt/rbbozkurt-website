@@ -10,7 +10,6 @@ import KeyboardArrowLeftRoundedIcon from '@mui/icons-material/KeyboardArrowLeftR
 import KeyboardArrowRightRoundedIcon from '@mui/icons-material/KeyboardArrowRightRounded';
 import KeyboardArrowUpRoundedIcon from '@mui/icons-material/KeyboardArrowUpRounded';
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
-import { useTheme } from '@mui/material/styles';
 
 // Constants
 const MESSAGES = {
@@ -21,17 +20,27 @@ const MESSAGES = {
 };
 
 const SCALE_DURATION = 5000; // Duration for scaling effect (5 seconds)
+const CARD_SCALE = 1.2;
+const ICON_SIZE = 80;
+const BOX_WIDTH = '80%';
+const PORTFOLIO_BOX_WIDTH = '40%';
+const MARGIN_X = 4;
+const MARGIN_Y = 4;
+const TRANSITION_DURATION = '0.3s';
 
 // The Preview component to handle layout and title
 function Preview({ title, children }) {
-    const theme = useTheme();
     return (
         <Section title={title}>
             <Box
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
-                sx={theme.custom.preview.container}
+                sx={{
+                    padding: '2rem',
+                    width: '100%',
+                    position: 'relative',
+                }}
             >
                 {children}
             </Box>
@@ -41,7 +50,6 @@ function Preview({ title, children }) {
 
 /// BlogPreview Component using Box and Flexbox
 function BlogPreview({ title, onItemClicked }) {
-    const theme = useTheme();
     const { blogs, loading, error } = useSelector((state) => state.blogs);
 
     // Use custom hook to manage visible items
@@ -69,21 +77,38 @@ function BlogPreview({ title, onItemClicked }) {
                     flexDirection="column"
                     alignItems="center"
                     flexWrap="nowrap"
-                    sx={theme.custom.preview.blogContainer}
+                    sx={{ width: '100%' }}
                 >
                     {/* Previous Card */}
-                    <Box sx={theme.custom.preview.prevNextCard}>
+                    <Box
+                        sx={{
+                            flexGrow: 1,
+                            flexShrink: 1,
+                            width: BOX_WIDTH,
+                            transform: 'scale(0.9)', // Rotate the card 180 degrees
+                        }}
+                    >
                         {prev && (
                             <BlogCard
                                 item={prev}
                                 onClickCardClicked={() => moveBackward()}
-                                icon={<KeyboardArrowUpRoundedIcon fontSize='large' sx={theme.custom.preview.icon} />} // Add icon
+                                icon={<KeyboardArrowUpRoundedIcon fontSize='large' sx={{ fontSize: ICON_SIZE }} />} // Add icon
                             />
                         )}
                     </Box>
 
                     {/* Current Card with marginY */}
-                    <Box sx={theme.custom.preview.currentCard}>
+                    <Box
+                        sx={{
+                            flexGrow: 1,
+                            flexShrink: 1,
+                            width: BOX_WIDTH,
+                            marginY: MARGIN_Y, // Use constant for marginY
+                            transform: `scale(${CARD_SCALE})`, // Slightly scale the current card
+                            transition: `transform ${TRANSITION_DURATION}`,
+                            zIndex: 1, // Ensure the current card is on top
+                        }}
+                    >
                         {current && (
                             <BlogCard
                                 item={current}
@@ -94,12 +119,20 @@ function BlogPreview({ title, onItemClicked }) {
                     </Box>
 
                     {/* Next Card */}
-                    <Box sx={theme.custom.preview.prevNextCard}>
+                    <Box
+                        sx={{
+                            flexGrow: 1,
+                            flexShrink: 1,
+                            width: BOX_WIDTH,
+                            transform: 'scale(0.9)', // Rotate the card 180 degrees
+
+                        }}
+                    >
                         {next && (
                             <BlogCard
                                 item={next}
                                 onClickCardClicked={() => moveForward()}
-                                icon={<KeyboardArrowDownRoundedIcon fontSize='large' sx={theme.custom.preview.icon} />} // Add icon
+                                icon={<KeyboardArrowDownRoundedIcon fontSize='large' sx={{ fontSize: ICON_SIZE }} />} // Add icon
                             />
                         )}
                     </Box>
@@ -111,7 +144,6 @@ function BlogPreview({ title, onItemClicked }) {
 
 // PortfolioPreview Component using Box and Flexbox
 function PortfolioPreview({ title, onItemClicked }) {
-    const theme = useTheme();
     const { projects, loading, error } = useSelector((state) => state.projects);
 
     // Use custom hook to manage visible items
@@ -137,21 +169,38 @@ function PortfolioPreview({ title, onItemClicked }) {
                     justifyContent="center"
                     alignItems="center"
                     flexWrap="nowrap"
-                    sx={theme.custom.preview.portfolioContainer}
+                    sx={{ width: '100%' }}
                 >
                     {/* Previous Card */}
-                    <Box sx={theme.custom.preview.prevNextCard}>
+                    <Box
+                        sx={{
+                            flexGrow: 1,
+                            flexShrink: 1,
+                            width: PORTFOLIO_BOX_WIDTH,
+                            transform: 'scale(0.9)', // Rotate the card 180 degrees
+
+                        }}
+                    >
                         {prev && (
                             <PortfolioCard
                                 item={prev}
                                 onClickCardClicked={() => moveBackward()}
-                                icon={<KeyboardArrowLeftRoundedIcon fontSize='large' sx={theme.custom.preview.icon} />} // Add icon
+                                icon={<KeyboardArrowLeftRoundedIcon fontSize='large' sx={{ fontSize: ICON_SIZE }} />} // Add icon
                             />
                         )}
                     </Box>
 
                     {/* Current Card with marginX */}
-                    <Box sx={theme.custom.preview.currentCard}>
+                    <Box
+                        sx={{
+                            flexGrow: 1,
+                            flexShrink: 1,
+                            width: PORTFOLIO_BOX_WIDTH,
+                            marginX: MARGIN_X, // Use constant for marginX
+                            transform: `scale(${CARD_SCALE})`, // Slightly scale the current card
+                            zIndex: 1, // Ensure the current card is on top
+                        }}
+                    >
                         {current && (
                             <PortfolioCard
                                 item={current}
@@ -162,12 +211,20 @@ function PortfolioPreview({ title, onItemClicked }) {
                     </Box>
 
                     {/* Next Card */}
-                    <Box sx={theme.custom.preview.prevNextCard}>
+                    <Box
+                        sx={{
+                            flexGrow: 1,
+                            flexShrink: 1,
+                            width: PORTFOLIO_BOX_WIDTH,
+                            transform: 'scale(0.9)', // Rotate the card 180 degrees
+
+                        }}
+                    >
                         {next && (
                             <PortfolioCard
                                 item={next}
                                 onClickCardClicked={() => moveForward()}
-                                icon={<KeyboardArrowRightRoundedIcon fontSize='large' sx={theme.custom.preview.icon} />} // Add icon
+                                icon={<KeyboardArrowRightRoundedIcon fontSize='large' sx={{ fontSize: ICON_SIZE }} />} // Add icon
                             />
                         )}
                     </Box>

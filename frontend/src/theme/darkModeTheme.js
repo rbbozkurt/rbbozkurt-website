@@ -1,4 +1,4 @@
-export const darkMode = {
+export const darkModeTheme = {
     palette: {
         mode: 'dark',
         primary: {
