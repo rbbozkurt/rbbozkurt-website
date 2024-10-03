@@ -38,6 +38,20 @@ const commonTheme = {
             color: '#fefefe',
         },
     },
+    custom: {
+        header: {
+            title: {
+                fontFamily: '"Playwrite CU", cursive',
+                fontWeight: 400,
+                fontSize: { xs: '1rem', sm: '2rem', md: '2rem' },
+            },
+            subtitle: {
+                fontFamily: '"Source Code Pro", monospace',
+                fontWeight: 600,
+                fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+            },
+        },
+    },
     components: {
         MuiButton: {
             styleOverrides: {
@@ -95,7 +109,7 @@ const lightMode = {
         menuItem: {
             fontSize: {
                 xs: '1.2rem',
-                sm: '1.4rem',
+                sm: '1.6rem',
                 selected: {
                     xs: '1.4rem',
                     sm: '1.8rem',
@@ -157,7 +171,7 @@ const darkMode = {
         menuItem: {
             fontSize: {
                 xs: '1.2rem',
-                sm: '1.4rem',
+                sm: '1.6rem',
                 selected: {
                     xs: '1.4rem',
                     sm: '1.8rem',

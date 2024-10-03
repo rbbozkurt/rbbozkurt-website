@@ -20,6 +20,8 @@ function HeaderTitle() {
                 sx={{
                     color: isDarkMode ? theme.palette.primary.contrastText : theme.palette.primary.dark,
                     fontFamily: theme.custom.header.title.fontFamily,
+                    fontWeight: theme.custom.header.title.fontWeight,
+                    fontSize: theme.typography.h4.fontSize,
                     px: 4,
                 }}
             >
@@ -28,8 +30,9 @@ function HeaderTitle() {
             <Typography
                 variant='h3'
                 sx={{
-                    fontStyle: 'bold',
+                    fontWeight: theme.custom.header.subtitle.fontWeight,
                     fontFamily: theme.custom.header.subtitle.fontFamily,
+                    fontSize: theme.typography.h3.fontSize,
                     '&:hover': {
                         color: theme.custom.header.subtitle.hoverColor,
                     }
