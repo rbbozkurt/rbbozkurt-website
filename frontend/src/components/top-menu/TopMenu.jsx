@@ -1,7 +1,6 @@
 import { Container, ListItemButton, ListItemText, Box } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import { useTheme } from '@mui/material/styles';
-import './TopMenu.css';  // Import the CSS for the top menu
 import { Link, useLocation } from 'react-router-dom';
 
 function TopMenu({ initialMenuItem, routes }) {
@@ -29,26 +28,15 @@ function TopMenu({ initialMenuItem, routes }) {
     };
 
     return (
-        <Container sx={{
-            width: '100%', height: 'auto', padding: 2,
-            paddingX: { xs: 1, sm: 2 }, // No horizontal padding on xs screens
-        }}>
-            <Box
-                sx={{
-                    display: 'flex', // Ensure flexbox layout for horizontal alignment
-                    justifyContent: 'center', // Space out the items
-                }}
-            >
+        <Container sx={theme.custom.topMenu.container}>
+            <Box sx={theme.custom.topMenu.box}>
                 {menuList.map((item, index) => {
                     const isSelected = selectedMenuItem === item;
                     return (
                         <ListItemButton
                             key={index}
                             onClick={() => handleMenuItemClick(item)}
-                            sx={{
-                                flexShrink: 0, // Ensure that the items do not shrink
-                                whiteSpace: 'nowrap' // Prevent text from wrapping
-                            }}
+                            sx={theme.custom.topMenuItem.button}
                             component={Link}
                             to={`${routes[item].path}`}
                         >
@@ -56,15 +44,14 @@ function TopMenu({ initialMenuItem, routes }) {
                                 primary={item}
                                 disableTypography
                                 sx={{
-                                    textAlign: 'center',
-                                    fontFamily: 'Source Code Pro, monospace', // Monospace font for all text
+                                    ...theme.custom.topMenuItem.text,
                                     fontSize: {
-                                        xs: isSelected ? theme.custom.menuItem.fontSize.selected.xs : theme.custom.menuItem.fontSize.xs,
-                                        sm: isSelected ? theme.custom.menuItem.fontSize.selected.sm : theme.custom.menuItem.fontSize.sm,
+                                        xs: isSelected ? theme.custom.topMenuItem.text.fontSize.selected.xs : theme.custom.topMenuItem.text.fontSize.xs,
+                                        sm: isSelected ? theme.custom.topMenuItem.text.fontSize.selected.sm : theme.custom.topMenuItem.text.fontSize.sm,
                                     },
-                                    color: isSelected ? theme.palette.primary.main : theme.custom.menuItem.color.default,
+                                    color: isSelected ? theme.palette.primary.main : theme.custom.topMenuItem.text.color.default,
                                     '&:hover': {
-                                        color: isSelected ? theme.palette.primary.main : theme.custom.menuItem.color.hover,
+                                        color: isSelected ? theme.palette.primary.main : theme.custom.topMenuItem.text.color.hover,
                                     },
                                 }}
                             />

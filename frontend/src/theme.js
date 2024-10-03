@@ -38,20 +38,6 @@ const commonTheme = {
             color: '#fefefe',
         },
     },
-    custom: {
-        header: {
-            title: {
-                fontFamily: '"Playwrite CU", cursive',
-                fontWeight: 400,
-                fontSize: { xs: '1rem', sm: '2rem', md: '2rem' },
-            },
-            subtitle: {
-                fontFamily: '"Source Code Pro", monospace',
-                fontWeight: 600,
-                fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-            },
-        },
-    },
     components: {
         MuiButton: {
             styleOverrides: {
@@ -124,10 +110,15 @@ const lightMode = {
             title: {
                 fontFamily: '"Playwrite CU", cursive',
                 color: 'primary.dark',
+                fontSize: { xs: '1.2rem', sm: '1.5rem', md: '1.5rem' },
             },
             subtitle: {
                 fontFamily: '"Source Code Pro", monospace',
-                hoverColor: '#FFC107',
+                color: '#6b6b6b',
+                '&:hover': {
+                    color: '#FFC107',
+                },
+                fontSize: { xs: '1.5rem', sm: '1.5rem', md: '1.8rem' },
             },
             darkModeToggle: {
                 color: {
@@ -138,6 +129,40 @@ const lightMode = {
             },
             socialMedia: {
                 color: 'primary.light',
+            },
+        },
+        topMenu: {
+            container: {
+                width: '100%',
+                height: 'auto',
+                padding: 2,
+                paddingX: { xs: 1, sm: 2 },
+            },
+            box: {
+                display: 'flex',
+                justifyContent: 'center',
+            },
+        },
+        topMenuItem: {
+            button: {
+                flexShrink: 0,
+                whiteSpace: 'nowrap',
+            },
+            text: {
+                textAlign: 'center',
+                fontFamily: 'Source Code Pro, monospace',
+                fontSize: {
+                    xs: '1.2rem',
+                    sm: '1.6rem',
+                    selected: {
+                        xs: '1.4rem',
+                        sm: '1.8rem',
+                    },
+                },
+                color: {
+                    default: '#6b6b6b',
+                    hover: '#FFC107',
+                },
             },
         },
     },
@@ -185,11 +210,14 @@ const darkMode = {
         header: {
             title: {
                 fontFamily: '"Playwrite CU", cursive',
-                color: 'primary.light',
+                color: 'primary.contrastText',
+                fontSize: { xs: '1.2rem', sm: '1.5rem', md: '2rem' },
             },
             subtitle: {
                 fontFamily: '"Source Code Pro", monospace',
                 hoverColor: '#FFC107',
+                fontSize: { xs: '1.2rem', sm: '1.5rem', md: '2rem' },
+                color: '#6b6b6b',
             },
             darkModeToggle: {
                 color: {
@@ -200,6 +228,40 @@ const darkMode = {
             },
             socialMedia: {
                 color: 'primary.light',
+            },
+        },
+        topMenu: {
+            container: {
+                width: '100%',
+                height: 'auto',
+                padding: 2,
+                paddingX: { xs: 1, sm: 2 },
+            },
+            box: {
+                display: 'flex',
+                justifyContent: 'center',
+            },
+        },
+        topMenuItem: {
+            button: {
+                flexShrink: 0,
+                whiteSpace: 'nowrap',
+            },
+            text: {
+                textAlign: 'center',
+                fontFamily: 'Source Code Pro, monospace',
+                fontSize: {
+                    xs: '1.2rem',
+                    sm: '1.6rem',
+                    selected: {
+                        xs: '1.4rem',
+                        sm: '1.8rem',
+                    },
+                },
+                color: {
+                    default: '#fefefe',
+                    hover: '#FFC107',
+                },
             },
         },
     },
