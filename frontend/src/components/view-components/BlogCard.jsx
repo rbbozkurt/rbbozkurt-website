@@ -4,7 +4,7 @@ import { useTheme } from '@mui/material/styles';
 import { Tags } from '../text-components';
 import { formatDate } from '../utils';
 
-function BlogCard({ item, onClickCardClicked, icon }) {
+function BlogCard({ item, onClickCardClicked, icon, sx }) {
     const theme = useTheme();
 
     return (
@@ -15,6 +15,7 @@ function BlogCard({ item, onClickCardClicked, icon }) {
                 '&:hover .overlay': {
                     opacity: 1,
                 },
+                ...sx
             }}
         >
             <Box sx={{ display: 'flex', flexDirection: 'row', height: '100%' }}>

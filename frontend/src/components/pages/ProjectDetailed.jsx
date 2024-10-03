@@ -32,7 +32,7 @@ const ProjectDetailed = () => {
     }
 
     return (
-        <Box sx={{ padding: '2rem' }}>
+        <Box sx={{ padding: '0rem' }}>
             <ProjectHeader
                 projectTitle={project.title}
                 createdAt={formatDate(project.date)}

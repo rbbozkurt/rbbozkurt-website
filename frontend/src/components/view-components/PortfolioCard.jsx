@@ -4,7 +4,7 @@ import { useTheme } from '@mui/material/styles';
 import { Tags } from '../text-components';
 import { formatDate } from '../utils';
 
-function PortfolioCard({ item, onClickCardClicked, icon }) {
+function PortfolioCard({ item, onClickCardClicked, icon, sx }) {
     const theme = useTheme();
 
     return (
@@ -15,6 +15,7 @@ function PortfolioCard({ item, onClickCardClicked, icon }) {
                 '&:hover .overlay': {
                     opacity: 1,
                 },
+                ...sx,
             }}
         >
             <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>

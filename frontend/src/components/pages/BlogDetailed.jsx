@@ -32,7 +32,7 @@ const BlogDetailed = () => {
 
 
     return (
-        <Box sx={{ padding: '2rem' }}>
+        <Box sx={{ padding: '0rem' }}>
             <BlogHeader
                 blogTitle={currentBlog.title}
                 author={currentBlog.author}
