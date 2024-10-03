@@ -45,14 +45,8 @@ function TopMenu({ initialMenuItem, routes }) {
                                 disableTypography
                                 sx={{
                                     ...theme.custom.topMenuItem.text,
-                                    fontSize: {
-                                        xs: isSelected ? theme.custom.topMenuItem.text.fontSize.selected.xs : theme.custom.topMenuItem.text.fontSize.xs,
-                                        sm: isSelected ? theme.custom.topMenuItem.text.fontSize.selected.sm : theme.custom.topMenuItem.text.fontSize.sm,
-                                    },
-                                    color: isSelected ? theme.custom.topMenuItem.text.color.selected : theme.custom.topMenuItem.text.color.default,
-                                    '&:hover': {
-                                        color: isSelected ? theme.palette.primary.main : theme.custom.topMenuItem.text.color.hover,
-                                    },
+                                    fontSize: isSelected ? theme.custom.topMenuItem.text.fontSize.selected : theme.custom.topMenuItem.text.fontSize,
+                                    fontStyle: isSelected ? theme.custom.topMenuItem.text.fontStyle.selected : theme.custom.topMenuItem.text.fontStyle,
                                 }}
                             />
                         </ListItemButton>

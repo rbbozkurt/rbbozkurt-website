@@ -159,11 +159,22 @@ const lightMode = {
                         sm: '1.8rem',
                     },
                 },
-                color: {
-                    selected : 'rgb(21, 21, 21)',
-                    default: '#6b6b6b',
-                    hover: '#FFC107',
+                fontWeight: {
+                    xs: 0,
+                    sm: 0,
+                    selected: {
+                        xs: 20,
+                        sm: 30,
+                    }
                 },
+                fontStyle : {
+                    xs : 'normal',
+                    selected : 'bold',
+                },
+                color:  'rgb(21, 21, 21)',
+                '&:hover': {
+                    color: '#FFC107',
+                }
             },
         },
         highlightedText: {
@@ -313,11 +324,22 @@ const darkMode = {
                         sm: '1.8rem',
                     },
                 },
-                color: {
-                    selected : '#fefefe',
-                    default: '#fefefe',
-                    hover: '#FFC107',
+                fontWeight: {
+                    xs: 0,
+                    sm: 0,
+                    selected: {
+                        xs: 20,
+                        sm: 30,
+                    }
                 },
+                fontStyle : {
+                    xs : 'normal',
+                    selected : 'bold',
+                },
+                color:  '#fefefe',
+                '&:hover': {
+                    color: '#FFC107',
+                }
             },
         },
         highlightedText: {
