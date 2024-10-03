@@ -70,23 +70,35 @@ export const lightModeTheme = {
             },
             infoContainer: {
                 display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
+                alignItems: {
+                    xs: 'flex-start',
+                    sm: 'center',
+                },
+                flexDirection: {
+                    xs: 'column',
+                    sm: 'row',
+                },
                 width: '100%',
             },
             readTimeViewContainer: {
-                display: 'flex',
-                alignItems: 'center',
+                flexDirection : {
+                    xs : 'row',
+                    sm : 'row',
+                },
+                display: 'flex', 
+                alignItems: {
+                    xs: 'flex-start',
+                    sm: 'center',
+                }
             },
             readTime: {
                 color: 'primary.dark',
                 textAlign: 'left',
-                variant: 'body1',
             },
             separator: {
                 color: 'primary.dark',
                 textAlign: 'left',
-                variant: 'body1',
+                paddingX: '12px',
             },
             views: {
                 color: 'primary.light',
@@ -94,10 +106,15 @@ export const lightModeTheme = {
                 variant: 'body1',
             },
             date: {
+                textAlign :{
+                    xs: 'left',
+                    sm: 'right',
+                },
                 color: 'primary.light',
-                marginLeft: 'auto',
-                textAlign: 'right',
-                variant: 'body1',
+                marginLeft: {
+                    xs : 0,
+                    sm : 'auto',
+                }
             },
             divider: {
                 backgroundColor: 'primary.light',
