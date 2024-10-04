@@ -369,21 +369,21 @@ export const lightModeTheme = {
                 marginBottom: '1rem',
             },
             link: {
-                fontSize :
+                fontSize:
                 {
-                    xs : '1rem',
-                    sm : '1.2rem',
-                    md : '1.5rem'
+                    xs: '1rem',
+                    sm: '1.2rem',
+                    md: '1.5rem'
                 },
                 '&:hover': {
-                    fontSize : {
-                        xs : '1.2rem',
-                        sm : '1.5rem',
-                        md : '1.8rem'
+                    fontSize: {
+                        xs: '1.2rem',
+                        sm: '1.5rem',
+                        md: '1.8rem'
                     }
-                } ,   
+                },
                 color: '#105ABF',
-                fontStyle : 'underline',
+                fontStyle: 'underline',
             },
             infoContainer: {
                 display: 'flex',
@@ -494,8 +494,8 @@ export const lightModeTheme = {
                     xs: '1.2rem',
                     sm: '1.6rem',
                     selected: {
-                        xs: '1.4rem',
-                        sm: '1.8rem',
+                        xs: '1.6rem',
+                        sm: '2rem',
                     },
                 },
                 fontWeight: {
@@ -510,7 +510,12 @@ export const lightModeTheme = {
                     xs: 'normal',
                     selected: 'bold',
                 },
-                color: 'rgb(21, 21, 21)',
+
+                color: {
+                    default: '#6b6b6b',
+                    selected: 'rgb(21, 21, 21)',
+                },
+
                 '&:hover': {
                     color: '#FFC107',
                 }
