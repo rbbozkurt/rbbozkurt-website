@@ -280,6 +280,7 @@ export const lightModeTheme = {
         portfolioCard: {
             width: '100%',
             height: { xs: 160, sm: 320, md: 360 },
+            position : 'relative',
             borderRadius: 2,
             boxShadow: {
                 xs: '0px 10px 10px rgba(0, 0, 0, 0.6)',
@@ -361,6 +362,7 @@ export const lightModeTheme = {
                 fontSize: '1.5rem',
                 fontWeight: 'bold',
             },
+            
         },
         projectHeader: {
             container: {

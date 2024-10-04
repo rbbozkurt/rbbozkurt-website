@@ -60,7 +60,7 @@ function Portfolio() {
                         filteredItems.map((item) => (
                             <Grid 
                                 item 
-                                key={item.id} 
+                                key={item._id} 
                                 xs={6} sm={6} md={4}
                                 sx={{ 
                                     display: 'flex', 

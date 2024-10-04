@@ -61,7 +61,7 @@ function Blog() {
                         filteredItems.map((item) => (
                             <Grid 
                                 item 
-                                key={item.id} 
+                                key={item._id} 
                                 xs={12} sm={12} md={12}
                                 sx={{ 
                                     display: 'flex', 

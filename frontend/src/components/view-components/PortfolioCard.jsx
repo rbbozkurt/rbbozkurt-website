@@ -9,7 +9,7 @@ function PortfolioCard({ item, onClickCardClicked, icon, sx }) {
 
     return (
         <Card
-            onClick={() => onClickCardClicked(item.id)}
+            onClick={() => onClickCardClicked(item._id)}
             sx={{
                 ...theme.custom.portfolioCard,
                 '&:hover .overlay': {
