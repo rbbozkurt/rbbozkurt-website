@@ -9,57 +9,44 @@ function BlogHeader({ blogTitle, author, createdAt, estimatedReadTime, image, ta
     return (
         <Box
             direction="column"
-            sx={{ padding: '0 0 16px 0' }}>
-
-            <Typography align="left" variant="h2">
+            sx={theme.custom.blogHeader.container}
+        >
+            <Typography
+                align="left"
+                variant="h2"
+                sx={theme.custom.blogHeader.title}
+            >
                 {blogTitle}
             </Typography>
             <Typography
                 variant="body1"
                 align='left'
-                sx={{
-                    color: theme.palette.primary.light,
-                    paddingBottom: '1rem'
-                }}
+                sx={theme.custom.blogHeader.author}
             >
                 {author}
             </Typography>
             
-            <Box
-                sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    flexDirection: 'row',
-                    width: '100%',
-                }}
-            >
+            <Box sx={theme.custom.blogHeader.infoContainer}>
                 {/* Group read time and views */}
-                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <Box sx={theme.custom.blogHeader.readTimeViewContainer}>
                     <Typography
                         variant="body1"
                         align='left'
-                        sx={{
-                            color: theme.palette.primary.dark,
-                        }}
+                        sx={theme.custom.blogHeader.readTime}
                     >
                         {`${estimatedReadTime} read `}
                     </Typography>
                     <Typography
                         variant="body1"
                         align='left'
-                        sx={{
-                            color: theme.palette.primary.light,
-                            paddingX : '12px',
-                        }}
+                        sx={theme.custom.blogHeader.separator}
                     >
                         {` • `}
                     </Typography>
                     <Typography
                         variant="body1"
                         align='left'
-                        sx={{
-                            color: theme.palette.primary.light,
-                        }}
+                        sx={theme.custom.blogHeader.views}
                     >
                         {` ${views} views`}
                     </Typography>
@@ -69,10 +56,7 @@ function BlogHeader({ blogTitle, author, createdAt, estimatedReadTime, image, ta
                 <Typography
                     variant="body1"
                     align='right'
-                    sx={{
-                        color: theme.palette.primary.light,
-                        marginLeft: 'auto',  // Pushes the date to the right
-                    }}
+                    sx={theme.custom.blogHeader.date}
                 >
                     {`${createdAt}`}
                 </Typography>
@@ -80,19 +64,14 @@ function BlogHeader({ blogTitle, author, createdAt, estimatedReadTime, image, ta
 
             <Divider
                 orientation='horizontal'
-                sx={{
-                    backgroundColor: theme.palette.primary.light,
-                    height: '1px',
-                    margin: '4px 0 16px 0',
-                }}
+                sx={theme.custom.blogHeader.divider}
             />
             
             <Tags tags={tags} />
 
-            <Box sx={{ marginBottom: '1rem', marginTop: '1rem' }}>
-                <img src={image} alt={blogTitle} style={{ width: '100%', height: 'auto', borderRadius: '8px' }} />
+            <Box sx={theme.custom.blogHeader.imageContainer}>
+                <img src={image} alt={blogTitle} style={theme.custom.blogHeader.image} />
             </Box>
-
         </Box>
     );
 }

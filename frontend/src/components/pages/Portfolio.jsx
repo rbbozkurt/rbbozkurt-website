@@ -3,9 +3,9 @@ import { Box, Typography, Grid, CircularProgress } from '@mui/material';
 import { SearchBar, PortfolioCard } from '../view-components';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import TocIcon from '@mui/icons-material/Toc';
 import { updateProjectView } from '../../actions/projects';
 import { useDispatch } from 'react-redux';
+import PreviewIcon from '@mui/icons-material/Preview';
 
 
 function Portfolio() {
@@ -61,14 +61,14 @@ function Portfolio() {
                             <Grid 
                                 item 
                                 key={item.id} 
-                                xs={12} sm={6} md={4}
+                                xs={6} sm={6} md={4}
                                 sx={{ 
                                     display: 'flex', 
                                     justifyContent: 'center', 
                                     alignItems: 'center' 
                                 }}
                             >
-                                <PortfolioCard item={item} onClickCardClicked={() => handleOnCardClick(item._id)} icon={<TocIcon fontSize='large' />} />
+                                <PortfolioCard item={item} onClickCardClicked={() => handleOnCardClick(item._id)} icon={<PreviewIcon fontSize='large' />} />
                             </Grid>
                         ))
                     ) : (

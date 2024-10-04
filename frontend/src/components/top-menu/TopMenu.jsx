@@ -1,9 +1,10 @@
 import { Container, ListItemButton, ListItemText, Box } from '@mui/material';
 import React, { useState, useEffect } from 'react';
-import './TopMenu.css';  // Import the CSS for the top menu
+import { useTheme } from '@mui/material/styles';
 import { Link, useLocation } from 'react-router-dom';
 
-function TopMenu({ darkMode = false, initialMenuItem, routes }) {
+function TopMenu({ initialMenuItem, routes }) {
+    const theme = useTheme();
     const location = useLocation();
     const menuList = Object.keys(routes).filter(item => item !== 'error'); // Exclude the error page
     const [selectedMenuItem, setSelectedMenuItem] = useState(() => {
@@ -27,41 +28,31 @@ function TopMenu({ darkMode = false, initialMenuItem, routes }) {
     };
 
     return (
-        <Container disableGutters={true} sx={{
-            width: '100%', height: 'auto', padding: 2,
-        }}>
-            <Box
-                sx={{
-                    display: 'flex', // Ensure flexbox layout for horizontal alignment
-                    justifyContent: 'center', // Space out the items
-                }}
-            >
-                {menuList.map((item, index) => (
-                    <ListItemButton
-                        key={index}
-                        onClick={() => handleMenuItemClick(item)}
-                        sx={{
-                            flexShrink: 0, // Ensure that the items do not shrink
-                            whiteSpace: 'nowrap' // Prevent text from wrapping
-                        }}
-                        component={Link}
-                        to={`${routes[item].path}`}
-                    >
-                        <ListItemText
-                            primary={item}
-                            disableTypography
-                            sx={{
-                                textAlign: 'center',
-                                fontFamily: 'Source Code Pro, monospace', // Monospace font for all text
-                                fontSize: (selectedMenuItem === item) ? '1.8rem' : '1.4rem',
-                                color: (selectedMenuItem === item) ? '' : '#6b6b6b',
-                                '&:hover': {
-                                    color: (selectedMenuItem === item) ? '' : '#FFC107',
-                                }
-                            }}
-                        />
-                    </ListItemButton>
-                ))}
+        <Container sx={theme.custom.topMenu.container}>
+            <Box sx={theme.custom.topMenu.box}>
+                {menuList.map((item, index) => {
+                    const isSelected = selectedMenuItem === item;
+                    return (
+                        <ListItemButton
+                            key={index}
+                            onClick={() => handleMenuItemClick(item)}
+                            sx={theme.custom.topMenuItem.button}
+                            component={Link}
+                            to={`${routes[item].path}`}
+                        >
+                            <ListItemText
+                                primary={item}
+                                disableTypography
+                                sx={{
+                                    ...theme.custom.topMenuItem.text,
+                                    color : isSelected ? theme.custom.topMenuItem.text.color.selected : theme.custom.topMenuItem.text.color.default,
+                                    fontSize: isSelected ? theme.custom.topMenuItem.text.fontSize.selected : theme.custom.topMenuItem.text.fontSize,
+                                    fontStyle: isSelected ? theme.custom.topMenuItem.text.fontStyle.selected : theme.custom.topMenuItem.text.fontStyle,
+                                }}
+                            />
+                        </ListItemButton>
+                    );
+                })}
             </Box>
         </Container>
     );

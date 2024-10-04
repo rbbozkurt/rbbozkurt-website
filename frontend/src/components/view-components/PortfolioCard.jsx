@@ -1,110 +1,74 @@
 import React from 'react';
-import { Typography, Box, Card, Icon } from '@mui/material';
+import { Typography, Box, Card } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { Tags } from '../text-components';
 import { formatDate } from '../utils';
-import TocIcon from '@mui/icons-material/Toc';
 
-function PortfolioCard({ item, onClickCardClicked, icon }) {
+function PortfolioCard({ item, onClickCardClicked, icon, sx }) {
     const theme = useTheme();
 
     return (
         <Card
             onClick={() => onClickCardClicked(item.id)}
             sx={{
-                width: '100%',
-                height: 300,
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'flex-end', // Align items towards the bottom of the card
-                boxShadow: 'none',
-                borderRadius: 2,
-                boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.6)', // Add a subtle shadow
-
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                transition: 'transform 0.3s, border 0.3s',
-                cursor: 'pointer',
-                position: 'relative', // Needed for overlay positioning
-                '&:hover': {
-                    transform: 'scale(1.02)',
-                },
+                ...theme.custom.portfolioCard,
                 '&:hover .overlay': {
                     opacity: 1,
                 },
+                ...sx,
+
             }}
         >
-            <Box sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'flex-end',
-                height: '100%',
-            }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                {/* Image Section */}
                 <Box
-                    component='img'
+                    component="img"
                     alt={item.title}
                     src={item.imageUrl}
                     sx={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
+                        ...theme.custom.portfolioCard.image,
                     }}
-                >
+                />
 
-                </Box>
+                {/* Content Section */}
                 <Box
                     sx={{
-                        padding: 1.5,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'flex-end',
-                        gap: 2, // Add some spacing between the items
+                        ...theme.custom.portfolioCard.content,
+                        backgroundColor: theme.palette.background.paper,
                     }}
                 >
                     <Typography
-                        variant="h6"
-                        sx={{ textAlign: 'left', color: theme.palette.secondary.dark }}
-                    >
-                        {item.title} {/* Title at the top */}
-                    </Typography>
-
-                    <Tags tags={item.tags} isColorized={false} isHorizontalScrollable={true} />
-
-                    <Typography
-                        variant="body2"
                         sx={{
-                            textAlign: 'left',
-                            color: theme.palette.primary.light,
+                            ...theme.custom.portfolioCard.title,
                         }}
                     >
-                        {`${item.views} views • ${formatDate(item.date)}`} {/* Date at the bottom */}
+                        {item.title} {/* Title */}
+                    </Typography>
+
+                    <Tags tags={item.tags} isColorized={false} isHorizontalScrollable={true} sx={{
+                        fontSize : theme.custom.portfolioCard.tag.fontSize}}/>
+                    <Typography
+                    sx = {theme.custom.portfolioCard.readTime}>
+                        {item.estimatedReadTime} {/* Description */}
+                    </Typography>
+                    <Typography
+                        sx={theme.custom.portfolioCard.views}
+                    >
+                        {`${item.views} views • ${formatDate(item.date)}`} {/* Date */}
                     </Typography>
                 </Box>
             </Box>
+
+            {/* Overlay on Hover */}
             <Box
                 className="overlay"
                 sx={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent black
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    opacity: 0,
-                    transition: 'opacity 0.3s',
-                    color: 'white',
-                    fontSize: '1.5rem',
-                    fontWeight: 'bold',
+                    ...theme.custom.portfolioCard.overlay,
                 }}
             >
-                {/* Icon and VIEW text for the overlay */}
+                {/* Icon and VIEW text */}
                 {icon}
-
             </Box>
-
         </Card>
     );
 }

@@ -7,16 +7,17 @@ import EmailIcon from '@mui/icons-material/Email';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import { HEADER_TITLE, HEADER_SUBTITLE } from '../../constants';
 import React from 'react';
+import { useTheme } from '@mui/material/styles';
 import './Header.css';
 
-function HeaderTitle({ darkMode }) {
+function HeaderTitle() {
+    const theme = useTheme();
     return (
         <Box py={2}>
             <Typography
                 variant='h4'
                 sx={{
-                    color: darkMode ? 'primary.dark' : 'primary.dark',
-                    fontFamily: "Playwrite CU",
+                    ...theme.custom.header.title,
                     px: 4,
                 }}
             >
@@ -25,11 +26,7 @@ function HeaderTitle({ darkMode }) {
             <Typography
                 variant='h3'
                 sx={{
-                    fontStyle: 'bold',
-                    fontFamily: 'Source Code Pro',
-                    '&:hover': {
-                        color: '#FFC107',
-                    }
+                    ...theme.custom.header.subtitle,
                 }}
             >
                 {HEADER_SUBTITLE}
@@ -38,25 +35,33 @@ function HeaderTitle({ darkMode }) {
     );
 }
 
-function DarkModeToggleButton({ darkMode, toggleDarkMode }) {
+function DarkModeToggleButton({ toggleDarkMode }) {
+    const theme = useTheme();
+    const isDarkMode = theme.palette.mode === 'dark';
     return (
         <Box>
             <IconButton
                 onClick={toggleDarkMode}
-                className= {darkMode ? 'light-mode-toggle' : 'dark-mode-toggle'}
+                sx={{
+                    color: isDarkMode ? theme.custom.header.darkModeToggle.color.dark : theme.custom.header.darkModeToggle.color.light,
+                    transition: theme.custom.header.darkModeToggle.transition,
+                    transform: isDarkMode ? 'rotate(180deg)' : 'rotate(0deg)',
+                }}
             >
-                {darkMode ? <LightModeIcon /> : <DarkModeIcon />}
+                {isDarkMode ? <LightModeIcon /> : <DarkModeIcon />}
             </IconButton>
         </Box>
     );
 }
 
 function SocialMediaButtons() {
+    const theme = useTheme();
+    const isDarkMode = theme.palette.mode === 'dark';
     const socialMediaData = [
-        { icon: GitHubIcon, link: 'https://github.com/rbbozkurt/', color : 'black' },
-        { icon: InstagramIcon, link: 'https://www.instagram.com/rbbozkurt/', color : '#FD00BA' },
-        { icon: LinkedInIcon, link: 'https://www.linkedin.com/in/resit-berkay-bozkurt/', color : '#0A66C2' },
-        { icon: EmailIcon, link: 'mailto:resitberkaybozkurt@gmail.com', color : '#C5221F' },
+        { icon: GitHubIcon, link: 'https://github.com/rbbozkurt/', color: 'black' },
+        { icon: InstagramIcon, link: 'https://www.instagram.com/rbbozkurt/', color: '#FD00BA' },
+        { icon: LinkedInIcon, link: 'https://www.linkedin.com/in/resit-berkay-bozkurt/', color: '#0A66C2' },
+        { icon: EmailIcon, link: 'mailto:resitberkaybozkurt@gmail.com', color: '#C5221F' }
     ];
 
     const handleButtonClick = (link) => {
@@ -64,13 +69,20 @@ function SocialMediaButtons() {
     };
 
     return (
-        <Box display="flex">
+        <Box
+            display="flex"
+            sx={{
+                justifyContent: { xs: 'space-between', sm: 'flex-start' },
+                width: '100%',
+                gap: { xs: 1.5, sm: 0.5 },
+            }}
+        >
             {socialMediaData.map((item, index) => (
                 <React.Fragment key={index}>
                     <IconButton
                         onClick={() => handleButtonClick(item.link)}
                         sx={{
-                            color: 'primary.light',
+                            color: { xs: `${item.color}`, sm: isDarkMode ? theme.palette.primary.light : theme.palette.primary.light },
                             '&:hover': {
                                 color: `${item.color}`,
                             }
@@ -87,12 +99,14 @@ function SocialMediaButtons() {
     );
 }
 
-function Header({ darkMode = false, toggleDarkMode }) {
+function Header({ toggleDarkMode }) {
+    const theme = useTheme();
+    const isDarkMode = theme.palette.mode === 'dark';
     return (
         <Box sx={{
             flexGrow: 1,
             display: 'flex',
-            backgroundColor: 'secondary.light',
+            backgroundColor: isDarkMode ? theme.palette.background.default : theme.palette.secondary.light,
             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Shadow on the bottom
         }}>
             <Container disableGutters={true} sx={{ width: '100%', height: 'auto' }}>
@@ -101,22 +115,24 @@ function Header({ darkMode = false, toggleDarkMode }) {
                         width: '100%', // Make header span full width
                         maxWidth: '100vw', // Avoid exceeding viewport width
                         display: 'flex',
+                        flexDirection: { xs: 'column', sm: 'row' },
                         justifyContent: 'space-between',
                         alignItems: 'center',
-                        color: 'text.primary',
-                        backgroundColor: 'secondary.light',
+                        color: theme.palette.text.primary,
+                        backgroundColor: isDarkMode ? theme.palette.background.default : theme.palette.secondary.light,
                         padding: 2,
                     }}
                 >
                     {/* Align Header Title to the Left */}
-                    <HeaderTitle darkMode={darkMode} />
+                    <HeaderTitle />
 
-                    {/* Align Dark Mode Toggle and Social Media Buttons to the Right */}
+                    {/* Align Dark Mode Toggle and Social Media Buttons */}
                     <Stack
                         spacing={2}
                         alignItems="center"
+                        sx={{ mt: { xs: 2, sm: 0 } }}
                     >
-                        <DarkModeToggleButton darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+                        <DarkModeToggleButton toggleDarkMode={toggleDarkMode} />
                         <SocialMediaButtons />
                     </Stack>
                 </Box>

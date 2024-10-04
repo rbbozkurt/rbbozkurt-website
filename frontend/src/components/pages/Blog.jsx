@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { updateBlogView } from '../../actions/blogs';
+import PreviewIcon from '@mui/icons-material/Preview';
 
 function Blog() {
     const [searchTerm, setSearchTerm] = useState('');
@@ -68,7 +69,7 @@ function Blog() {
                                     alignItems: 'center' 
                                 }}
                             >
-                                <BlogCard item={item} onClickCardClicked={() => handleOnCardClick(item._id)} />
+                                <BlogCard item={item} onClickCardClicked={() => handleOnCardClick(item._id)} icon={<PreviewIcon   fontSize='large' />} />
                             </Grid>
                         ))
                     ) : (
