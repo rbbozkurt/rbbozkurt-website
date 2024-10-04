@@ -56,11 +56,11 @@ function App() {
       <div className='App'>
         <Header toggleDarkMode={handleDarkMode} />
         <Container>
-          <Grid container spacing={5}>
+          <Grid container spacing={currentTheme.custom.mainContainer.spacing}>
             <Grid item xs={12} md={12}>
               <TopMenu initialMenuItem={INITIAL_PAGE} routes={PAGE_ROUTES} />
             </Grid>
-            <Grid item xs={12} md={12} marginBottom={4}>
+            <Grid item xs={12} md={12} marginBottom={2}>
               <Routes>
                 {Object.keys(PAGE_ROUTES).map((page) => (
                   <Route key={page} path={PAGE_ROUTES[page].path} element={PAGE_ROUTES[page].component} />

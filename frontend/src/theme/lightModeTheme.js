@@ -23,6 +23,13 @@ export const lightModeTheme = {
         },
     },
     custom: {
+        mainContainer: {
+            spacing: {
+                xs: 1,
+                sm: 4,
+                md: 6,
+            }
+        },
         previewTheme: {
             display: "flex",
             justifyContent: "center",
@@ -360,7 +367,12 @@ export const lightModeTheme = {
                 padding: '0 0 16px 0',
             },
             title: {
-                fontSize: '2rem',
+                fontSize: {
+                    xs: '1.5rem',
+                    sm: '1.8rem',
+                    md: '2rem'
+
+                },
                 marginBottom: '1rem',
             },
             linkContainer: {
@@ -553,10 +565,14 @@ export const lightModeTheme = {
             color: '#000',
         },
         section: {
-            padding: '64px 0 16px 0',
+            padding: {
+                xs : '16px 0 4px 0',
+                sm : '32px 0 8px 0',
+                md : '64px 0 16px 0',
+            },
             title: {
                 fontWeight: 600,
-                fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
+                fontSize: { xs: '1.4rem', sm: '2rem', md: '2.5rem' },
                 color: '#000',
             },
             divider: {
