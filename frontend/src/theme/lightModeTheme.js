@@ -469,16 +469,20 @@ export const lightModeTheme = {
 
         },
         projectHeader: {
+            flexDirection: 'column',
             container: {
                 padding: '0 0 16px 0',
             },
             title: {
+                textAlign: 'left',
                 fontSize: {
                     xs: '1.5rem',
                     sm: '1.8rem',
                     md: '2rem'
-
                 },
+                
+                    fontWeight: 600,
+                    color: '#3d3d3d',
                 marginBottom: '1rem',
             },
             linkContainer: {
@@ -526,29 +530,34 @@ export const lightModeTheme = {
                     sm: 'center',
                 }
             },
+        
             readTime: {
-                color: 'primary.dark',
+                color: 'rgb(21, 21, 21)',
+                fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             separator: {
-                color: 'primary.light',
+                color: '#6b6b6b',
                 paddingX: '12px',
+                fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             views: {
-                color: 'primary.light',
+                color: '#6b6b6b',
+                fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             date: {
                 textAlign: {
                     xs: 'left',
                     sm: 'right',
                 },
-                color: 'primary.light',
+                color: '#6b6b6b',
                 marginLeft: {
                     xs: 0,
                     sm: 'auto',
-                }
+                },
+                fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             divider: {
-                backgroundColor: 'primary.light',
+                backgroundColor: '#6b6b6b',
                 height: '1px',
                 margin: '4px 0 16px 0',
             },
