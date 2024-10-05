@@ -368,12 +368,18 @@ export const lightModeTheme = {
                 xs: '0px 10px 10px rgba(0, 0, 0, 0.6)',
                 sm: '0px 10px 20px rgba(0, 0, 0, 0.6)',
             },
+            '&:hover .overlay': {
+                opacity: 1,
+            },
             transition: 'transform 0.3s, border 0.3s',
             cursor: 'pointer',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             '&:hover': {
                 transform: 'scale(1.02)',
+            },
+            mainContainer : {
+                display: 'flex', flexDirection: 'column', height: '100%'
             },
             image: {
                 width: '100%',
@@ -385,6 +391,7 @@ export const lightModeTheme = {
                     xs: 0.6,
                     sm: 2
                 },
+                backgroundColor: '#fefefe',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'flex-end',
