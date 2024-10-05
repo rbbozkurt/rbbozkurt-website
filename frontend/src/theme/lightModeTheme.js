@@ -973,5 +973,36 @@ export const lightModeTheme = {
                 height: '100vh',
             }
         },
+        searchBar : {
+            paper : {
+                p: '2px 2px', 
+                display: 'flex', 
+                alignItems: 'center', 
+                width: '100%', 
+                marginBottom: '2rem', 
+                paddingLeft: '1rem', 
+                paddingRight: '1rem',
+                boxShadow: 'none', // Remove shadows
+                border: `1px solid #6b6b6b`, // Add outline
+                borderRadius: '4px', // Optional: add border radius for rounded corners
+                '&:focus-within': {
+                  border: `1.5px solid rgb(21, 21, 21)`, // Change border size and color on focus
+                  '& .MuiSvgIcon-root': {
+                    color: 'rgb(21, 21, 21)',
+                  }
+                }
+            },
+            inputBase : {
+                ml: 1, 
+                flex: 1,
+                color: 'rgb(21, 21, 21)',
+            },
+            iconButton : {
+                p: '10px',
+                searchButton : {
+                    color : '#6b6b6b',
+                }
+            }
+        }
     },
-};
+}; 
