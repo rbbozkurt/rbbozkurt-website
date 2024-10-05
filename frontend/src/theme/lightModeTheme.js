@@ -648,6 +648,10 @@ export const lightModeTheme = {
             padding: '0 4px',
             fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             color: '#000',
+            link: {
+                textDecoration: 'none',
+                color: 'inherit'
+            }
         },
         turkey: {
             backgroundColor: 'red',
@@ -665,34 +669,51 @@ export const lightModeTheme = {
             color: '#000',
         },
         paragraph: {
-            padding: '0 0 16px 0',
+            padding: '0 0 18px 0',
             fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             color: '#000',
+            textAlign: 'left',
         },
         section: {
-            padding: {
-                xs: '16px 0 4px 0',
-                sm: '32px 0 8px 0',
-                md: '64px 0 16px 0',
+            box: {
+                flexDirection: 'column',
+                padding: {
+                    xs: '16px 0 4px 0',
+                    sm: '32px 0 8px 0',
+                    md: '64px 0 16px 0',
+                },
             },
             title: {
+                textAlign: 'left',
                 fontWeight: 600,
                 fontSize: { xs: '1.4rem', sm: '2rem', md: '2.5rem' },
                 color: '#000',
             },
             divider: {
+                orientation: 'horizontal',
                 backgroundColor: '#6b6b6b',
                 height: '1px',
                 margin: '4px 0 16px 0',
             },
         },
         tags: {
-            borderRadius: '4px',
-            fontWeight: 'bold',
-            padding: '1px 4px',
-            fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-            color: '#000',
-            backgroundColor: '#E5E5E5',
+            box: {
+                display: 'flex',
+                gap: 1,
+                '&::-webkit-scrollbar': {
+                    display: 'none', // Hides the scrollbar for webkit browsers (Chrome, Safari)
+                },
+                '-ms-overflow-style': 'none',  // Hides scrollbar for Internet Explorer and Edge
+                'scrollbar-width': 'none',     // Hides scrollbar for Firefox
+            },
+            text: {
+                borderRadius: '4px',
+                fontWeight: 'bold',
+                padding: '1px 4px',
+                fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+                color:'rgb(21, 21, 21)',
+                backgroundColor: '#E5E5E5',
+            }
         },
 
         aboutPage: {
@@ -808,23 +829,23 @@ export const lightModeTheme = {
                 color: '#000',
                 marginBottom: '2rem',
             }
-        }, 
-        homePage : {
-            box : {
+        },
+        homePage: {
+            box: {
                 flexDirection: 'column',
             },
-            roleText : {
-                softwareDeveloper : {
+            roleText: {
+                softwareDeveloper: {
                     fontWeight: 'bold',
                     color: '#4CAF50',
                     backgroundColor: '#E8F5E9',
                 },
-                engineer : {
+                engineer: {
                     fontWeight: 'bold',
                     color: '#2196F3',
                     backgroundColor: '#E3F2FD',
                 },
-                coder : {
+                coder: {
                     fontWeight: 'bold',
                     color: '#FFC107',
                     backgroundColor: '#FFF8E1',

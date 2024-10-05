@@ -30,3 +30,8 @@ export function useVisibleItems(items) {
         moveBackward,
 ];
 }
+
+// this text is takes list of string and returns a string with # at the beginning of each item
+// uses RoleText for each list item and returns a Typography component
+export const hashtify = (list) => list.map((item) => `#${item}`).join(' ');
+

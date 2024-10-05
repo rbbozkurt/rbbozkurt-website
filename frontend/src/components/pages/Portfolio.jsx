@@ -64,7 +64,7 @@ function Portfolio() {
                                 key={item._id} 
                                 xs={6} sm={6} md={4}
                                 sx={theme.custom.portfolioPage.grid.item}>
-                                <PortfolioCard item={item} onClickCardClicked={() => handleOnCardClick(item._id)} icon={<PreviewIcon fontSize={theme.custom.portfolioPage.item.portfolioCard} />} />
+                                <PortfolioCard item={item} onClickCardClicked={() => handleOnCardClick(item._id)} icon={<PreviewIcon fontSize={theme.custom.portfolioPage.grid.item.portfolioCard} />} />
                             </Grid>
                         ))
                     ) : (
