@@ -34,13 +34,13 @@ const About = () => {
     const theme = useTheme();
 
     return (
-        <Box sx={theme.custom.about.box}>
+        <Box sx={theme.custom.aboutPage.box}>
             <SensitiveContent content={
                 <Box
                     component="img"
                     alt={'me'}
                     src={me}
-                    sx={theme.custom.about.sensitiveContent.box}
+                    sx={theme.custom.aboutPage.sensitiveContent.box}
                 />
             } />
             {sections.map((section, index) => (

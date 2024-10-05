@@ -6,9 +6,11 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { updateBlogView } from '../../actions/blogs';
 import PreviewIcon from '@mui/icons-material/Preview';
+import { useTheme } from '@mui/material/styles';
 
 function Blog() {
     const [searchTerm, setSearchTerm] = useState('');
+    const theme = useTheme();
     const { blogs, loading, error } = useSelector(state => state.blogs);
     const dispatch = useDispatch();
 
@@ -30,62 +32,54 @@ function Blog() {
 
     return (
         <Box
-            sx={{
-                width: '100%',  
-                maxWidth: '1200px',  
-                margin: '0 auto',  
-                paddingTop: '2rem',  
-            }}
+            sx={theme.custom.blogPage.box}
         >
             <SearchBar placeholderText={"Search Blog"} searchTerm={searchTerm} onSearchChange={handleSearchChange} />
-            
+
             {loading ? (
-                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+                <Box sx={theme.custom.blogPage.loadingBox}>
                     <CircularProgress />
                 </Box>
             ) : error ? (
-                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-                    <Typography variant="h6" color="error">
+                <Box sx={theme.custom.blogPage.errorBox}>
+                    <Typography sx={theme.custom.blogPage.errorBox}>
                         {error}
                     </Typography>
                 </Box>
             ) : blogs.length === 0 ? (
-                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-                    <Typography variant="h6" color="textSecondary">
+                <Box sx={theme.custom.blogPage.noBlogBox}>
+                    <Typography sx={theme.custom.blogPage.noBlogBox.text}>
                         No blogs found.
                     </Typography>
                 </Box>
             ) : (
-                <Grid container spacing={4} justifyContent="center" alignItems="stretch">
+                <Grid container
+                    spacing={theme.custom.grid.container.spacing}
+                    justifyContent={theme.custom.grid.container.justifyContent}
+                    alignItems={theme.custom.grid.container.alignItems}>
                     {filteredItems.length > 0 ? (
                         filteredItems.map((item) => (
-                            <Grid 
-                                item 
-                                key={item._id} 
+                            <Grid
+                                item
+                                key={item._id}
                                 xs={12} sm={12} md={12}
-                                sx={{ 
-                                    display: 'flex', 
-                                    justifyContent: 'center', 
-                                    alignItems: 'center' 
-                                }}
+                                sx={theme.custom.grid.item}
+
                             >
-                                <BlogCard item={item} onClickCardClicked={() => handleOnCardClick(item._id)} icon={<PreviewIcon   fontSize='large' />} />
+                                <BlogCard
+                                    item={item}
+                                    onClickCardClicked={() => handleOnCardClick(item._id)}
+                                    icon={<PreviewIcon fontSize={theme.custom.blogPage.grid.item.blogCard.fontSize} />}
+                                />
                             </Grid>
                         ))
                     ) : (
-                        <Typography 
-                            variant="h6" 
-                            color="textSecondary" 
-                            sx={{ 
-                                marginTop: '3rem', 
-                                textAlign: 'center', 
-                                width: '100%',
-                                textOverflow: 'ellipsis',
-                                overflow: 'hidden'
-                            }}
-                        >
-                            No blogs found with the search term "{searchTerm}"
-                        </Typography>
+                        <Box sx={theme.custom.blogPage.noMatchingBlog}>
+                            <Typography sx={theme.custom.blogPage.noMatchingBlog.text}>
+                                No blogs found with the search term "{searchTerm}"
+                            </Typography>
+                        </Box>
+
                     )}
                 </Grid>
             )}
