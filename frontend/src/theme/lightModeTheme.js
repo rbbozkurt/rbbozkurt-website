@@ -22,6 +22,70 @@ export const lightModeTheme = {
             secondary: 'rgb(199, 54, 89)',
         },
     },
+    typography: {
+        fontFamily: '"Source Code Pro", monospace',
+        h1: {
+            fontWeight: 700,
+            fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
+            color: 'rgb(21, 21, 21)',
+        },
+        h2: {
+            fontWeight: 600,
+            fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
+            color: '#3d3d3d',
+        },
+        h3: {
+            fontWeight: 600,
+            fontSize: { xs: '1.2rem', sm: '1.5rem', md: '2rem' },
+            color: '#6b6b6b',
+        },
+        h4: {
+            fontFamily: '"Playwrite CU", cursive',
+            fontWeight: 400,
+            fontSize: { xs: '1rem', sm: '1.2rem', md: '1.5rem' },
+            color: '#fefefe',
+        },
+        body1: {
+            fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+            color: '#000',
+        },
+        body2: {
+            fontSize: { xs: '0.7rem', sm: '0.8rem', md: '0.9rem' },
+            color: '#3d3d3d',
+        },
+        button: {
+            fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+            textTransform: 'none',
+            color: '#fefefe',
+        },
+    },
+    components: {
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: '#FFD700',
+                    color: '#fefefe',
+                    '&:hover': {
+                        backgroundColor: '#FFD700',
+                    },
+                },
+            },
+        },
+        MuiCircularProgress: {
+            styleOverrides: {
+                colorPrimary: {
+                    color: '#FFD700',
+                },
+            },
+        },
+        MuiAppBar: {
+            styleOverrides: {
+                colorPrimary: {
+                    backgroundColor: 'rgb(21, 21, 21)',
+                },
+            },
+        },
+    },
     custom: {
         mainContainer: {
             spacing: {
@@ -280,7 +344,7 @@ export const lightModeTheme = {
         portfolioCard: {
             width: '100%',
             height: { xs: 160, sm: 320, md: 360 },
-            position : 'relative',
+            position: 'relative',
             borderRadius: 2,
             boxShadow: {
                 xs: '0px 10px 10px rgba(0, 0, 0, 0.6)',
@@ -362,7 +426,7 @@ export const lightModeTheme = {
                 fontSize: '1.5rem',
                 fontWeight: 'bold',
             },
-            
+
         },
         projectHeader: {
             container: {
@@ -460,28 +524,67 @@ export const lightModeTheme = {
             },
         },
         header: {
+            outerBox: {
+                flexGrow: 1,
+                display: 'flex',
+                backgroundColor: '#fefefe',
+                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Shadow on the bottom
+            },
+            container: {
+                width: '100%', height: 'auto'
+            },
+            innerBox: {
+                width: '100%', // Make header span full width
+                maxWidth: '100vw', // Avoid exceeding viewport width
+                display: 'flex',
+                flexDirection: { xs: 'column', sm: 'row' },
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                color: '#000',
+                backgroundColor: '#fefefe',
+                padding: {
+                    xs: 2,
+                    sm: 2
+                }
+            },
+            stack: {
+                mt: { xs: 0, sm: 0 }
+            },
             title: {
+                box : {
+                    py : {
+                        xs: 1,
+                        sm: 2,
+                    }
+                },
                 fontFamily: '"Playwrite CU", cursive',
-                color: 'primary.dark',
-                fontSize: { xs: '1.2rem', sm: '1.5rem', md: '1.5rem' },
+                fontWeight: 400,
+                fontSize: { xs: '1.2rem', sm: '1.4rem', md: '1.5rem' },
+                color: 'rgb(21, 21, 21)',
+                px: 4,
             },
             subtitle: {
+                fontWeight: 600,
                 fontFamily: '"Source Code Pro", monospace',
                 color: '#6b6b6b',
                 '&:hover': {
                     color: '#FFC107',
                 },
-                fontSize: { xs: '1.5rem', sm: '1.5rem', md: '1.8rem' },
+                fontSize: { xs: '1.4rem', sm: '1.5rem', md: '2rem' },
             },
             darkModeToggle: {
-                color: {
-                    light: '#2D3242',
-                    dark: '#FB940B',
-                },
+                color:  '#2D3242',
                 transition: 'transform 0.5s',
+                transform: 'rotate(0deg)',
             },
             socialMedia: {
-                color: 'primary.light',
+                box: {
+                    justifyContent: { xs: 'space-between', sm: 'flex-start' },
+                    width: '100%',
+                    gap: { xs: 1.5, sm: 0.5 },
+                },
+
+                color: '#6b6b6b',
             },
         },
         topMenu: {
@@ -568,9 +671,9 @@ export const lightModeTheme = {
         },
         section: {
             padding: {
-                xs : '16px 0 4px 0',
-                sm : '32px 0 8px 0',
-                md : '64px 0 16px 0',
+                xs: '16px 0 4px 0',
+                sm: '32px 0 8px 0',
+                md: '64px 0 16px 0',
             },
             title: {
                 fontWeight: 600,

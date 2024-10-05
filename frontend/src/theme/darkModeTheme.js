@@ -14,54 +14,250 @@ export const darkModeTheme = {
             contrastText: '#fefefe',
         },
         background: {
-            default: 'rgb(21, 21, 21)',
+            default: '#fefefe',
             paper: '#fefefe',
         },
         text: {
-            primary: '#fefefe',
+            primary: '#000',
             secondary: 'rgb(199, 54, 89)',
         },
     },
+    typography: {
+        fontFamily: '"Source Code Pro", monospace',
+        h1: {
+            fontWeight: 700,
+            fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
+            color: 'rgb(21, 21, 21)',
+        },
+        h2: {
+            fontWeight: 600,
+            fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
+            color: '#3d3d3d',
+        },
+        h3: {
+            fontWeight: 600,
+            fontSize: { xs: '1.2rem', sm: '1.5rem', md: '2rem' },
+            color: '#6b6b6b',
+        },
+        h4: {
+            fontFamily: '"Playwrite CU", cursive',
+            fontWeight: 400,
+            fontSize: { xs: '1rem', sm: '1.2rem', md: '1.5rem' },
+            color: '#fefefe',
+        },
+        body1: {
+            fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+            color: '#000',
+        },
+        body2: {
+            fontSize: { xs: '0.7rem', sm: '0.8rem', md: '0.9rem' },
+            color: '#3d3d3d',
+        },
+        button: {
+            fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+            textTransform: 'none',
+            color: '#fefefe',
+        },
+    },
+    components: {
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: '#FFD700',
+                    color: '#fefefe',
+                    '&:hover': {
+                        backgroundColor: '#FFD700',
+                    },
+                },
+            },
+        },
+        MuiCircularProgress: {
+            styleOverrides: {
+                colorPrimary: {
+                    color: '#FFD700',
+                },
+            },
+        },
+        MuiAppBar: {
+            styleOverrides: {
+                colorPrimary: {
+                    backgroundColor: 'rgb(21, 21, 21)',
+                },
+            },
+        },
+    },
     custom: {
-
-        preview: {
+        mainContainer: {
+            spacing: {
+                xs: 1,
+                sm: 4,
+                md: 6,
+            }
+        },
+        previewTheme: {
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: '100%',
+            padding: {
+                xs: '1rem',
+                sm: '1.5rem',
+                md: '3rem',
+            }
+        },
+        blogPreviewTheme: {
+            container: {
+                width: '100%',
+                position: 'relative',
+            },
+            card: {
+                prevNextCard: {
+                    flexGrow: 1,
+                    flexShrink: 1,
+                    height: '80%',
+                    transform: 'scale(0.9)',
+                },
+                currentCard: {
+                    flexGrow: 1,
+                    flexShrink: 1,
+                    height: '80%',
+                    marginY: {
+                        xs: 2,
+                        sm: 4,
+                        md: 6,
+                    },
+                    transform: 'scale(1.2)',
+                    transition: 'transform 0.3s',
+                    zIndex: 1,
+                },
+                iconSize: 80,
+                transitionDuration: '0.3s',
+                scaleDuration: 5000,
+                cardScale: 1.2,
+            },
+        },
+        portfolioPreviewTheme: {
             container: {
                 padding: '2rem',
                 width: '100%',
                 position: 'relative',
             },
-            blogContainer: {
+            card: {
+                prevNextCard: {
+                    flexGrow: 1,
+                    flexShrink: 1,
+                    width: '40%',
+                    transform: 'scale(0.9)',
+                },
+                currentCard: {
+                    flexGrow: 1,
+                    flexShrink: 1,
+                    width: '40%',
+                    marginX: {
+                        xs: 2,
+                        sm: 4,
+                        md: 6,
+                    },
+
+                    transform: 'scale(1.2)',
+                    transition: 'transform 0.3s',
+                    zIndex: 1,
+                },
+                iconSize: 80,
+                transitionDuration: '0.3s',
+                scaleDuration: 5000,
+                cardScale: 1.2,
+            },
+        },
+        blogHeader: {
+            container: {
+                padding: '0 0 16px 0',
+            },
+            title: {
+                textAlign: 'left',
+                variant: 'h2',
+            },
+            author: {
+                color: 'primary.light',
+                paddingBottom: '1rem',
+                textAlign: 'left',
+                variant: 'body1',
+            },
+            infoContainer: {
+                display: 'flex',
+                alignItems: {
+                    xs: 'flex-start',
+                    sm: 'center',
+                },
+                flexDirection: {
+                    xs: 'column',
+                    sm: 'row',
+                },
                 width: '100%',
             },
-            portfolioContainer: {
+            readTimeViewContainer: {
+                flexDirection: {
+                    xs: 'row',
+                    sm: 'row',
+                },
+                display: 'flex',
+                alignItems: {
+                    xs: 'flex-start',
+                    sm: 'center',
+                }
+            },
+            readTime: {
+                color: 'primary.dark',
+                textAlign: 'left',
+            },
+            separator: {
+                color: 'primary.dark',
+                textAlign: 'left',
+                paddingX: '12px',
+            },
+            views: {
+                color: 'primary.light',
+                textAlign: 'left',
+                variant: 'body1',
+            },
+            date: {
+                textAlign: {
+                    xs: 'left',
+                    sm: 'right',
+                },
+                color: 'primary.light',
+                marginLeft: {
+                    xs: 0,
+                    sm: 'auto',
+                }
+            },
+            divider: {
+                backgroundColor: 'primary.light',
+                height: '1px',
+                margin: '4px 0 16px 0',
+            },
+            image: {
                 width: '100%',
-            },
-            prevNextCard: {
-                flexGrow: 1,
-                flexShrink: 1,
-                width: '80%',
-                transform: 'scale(0.9)', // Use constant for scale
-            },
-            currentCard: {
-                flexGrow: 1,
-                flexShrink: 1,
-                width: '80%',
-                marginY: 4, // Use constant for marginY
-                transform: 'scale(1.2)', // Slightly scale the current card
-                transition: 'transform 0.3s',
-                zIndex: 1, // Ensure the current card is on top
-            },
-            icon: {
-                fontSize: 80, // Use constant for icon size
+                height: 'auto',
+                borderRadius: '8px',
+                marginBottom: '1rem',
+                marginTop: '1rem',
             },
         },
         blogCard: {
             display: 'flex',
             flexDirection: 'column',
             width: '100%',
-            height: 200,
-            boxShadow: '0px 20px 20px rgba(0, 0, 0, 0.6)',
-            borderRadius: 2,
+            height: {
+                xs: 120,
+                sm: 160,
+                md: 200,
+            },
+            boxShadow: {
+                xs: '0px 10px 10px rgba(0, 0, 0, 0.6)',
+                sm: '0px 10px 20px rgba(0, 0, 0, 0.6)',
+            },
+            borderRadius: 1,
             transition: 'transform 0.3s, border 0.3s',
             cursor: 'pointer',
             position: 'relative',
@@ -86,20 +282,47 @@ export const darkModeTheme = {
                 gap: 1,
             },
             title: {
+                fontSize: {
+                    xs: '1rem',
+                    sm: '1.2rem',
+                    md: '1.6rem'
+                },
                 textAlign: 'left',
                 color: 'primary.dark',
             },
             author: {
+                fontSize: {
+                    xs: '0.8rem',
+                    sm: '1rem',
+                    md: '1.2rem'
+                },
                 textAlign: 'left',
                 color: 'primary.light',
             },
             readTime: {
+                fontSize: {
+                    xs: '0.5rem',
+                    sm: '0.8rem',
+                    md: '1rem'
+                },
                 textAlign: 'left',
                 color: 'primary.dark',
             },
             views: {
+                fontSize: {
+                    xs: '0.5rem',
+                    sm: '0.8rem',
+                    md: '1rem'
+                },
                 textAlign: 'left',
                 color: 'primary.light',
+            },
+            tag: {
+                fontSize: {
+                    xs: '0.5rem',
+                    sm: '0.8rem',
+                    md: '1rem'
+                }
             },
             overlay: {
                 position: 'absolute',
@@ -120,9 +343,13 @@ export const darkModeTheme = {
         },
         portfolioCard: {
             width: '100%',
-            height: { xs: 250, sm: 300, md: 350 },
+            height: { xs: 160, sm: 320, md: 360 },
+            position: 'relative',
             borderRadius: 2,
-            boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.6)',
+            boxShadow: {
+                xs: '0px 10px 10px rgba(0, 0, 0, 0.6)',
+                sm: '0px 10px 20px rgba(0, 0, 0, 0.6)',
+            },
             transition: 'transform 0.3s, border 0.3s',
             cursor: 'pointer',
             backgroundSize: 'cover',
@@ -130,56 +357,192 @@ export const darkModeTheme = {
             '&:hover': {
                 transform: 'scale(1.02)',
             },
-            overlay: {
-                backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                color: 'white',
-                fontSize: '1.5rem',
-                fontWeight: 'bold',
-                transition: 'opacity 0.3s',
+            image: {
+                width: '100%',
+                height: '50%',
+                objectFit: 'cover',
+            },
+            content: {
+                padding: {
+                    xs: 0.6,
+                    sm: 2
+                },
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'flex-end',
+                gap: {
+                    xs: 0.5,
+                    sm: 1,
+                    md: 2
+                }
             },
             title: {
+                fontSize: {
+                    xs: '0.7rem',
+                    sm: '1.2rem',
+                    md: '1.6rem'
+                },
                 textAlign: 'left',
                 color: 'secondary.dark',
             },
+            readTime: {
+                fontSize: {
+                    xs: '0.5rem',
+                    sm: '0.8rem',
+                    md: '1rem'
+                },
+                textAlign: 'left',
+                color: 'primary.dark',
+            },
             views: {
+                fontSize: {
+                    xs: '0.5rem',
+                    sm: '0.8rem',
+                    md: '1rem'
+                },
                 textAlign: 'left',
                 color: 'primary.light',
             },
-        },
-        menuItem: {
-            fontSize: {
-                xs: '1.2rem',
-                sm: '1.6rem',
-                selected: {
-                    xs: '1.4rem',
-                    sm: '1.8rem',
-                },
+            tag: {
+                fontSize: {
+                    xs: '0.5rem',
+                    sm: '0.8rem',
+                    md: '1rem'
+                }
             },
-            color: {
-                default: '#fefefe',
-                hover: '#FFC107',
+            overlay: {
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                opacity: 0,
+                transition: 'opacity 0.3s',
+                color: 'white',
+                fontSize: '1.5rem',
+                fontWeight: 'bold',
+            },
+
+        },
+        projectHeader: {
+            container: {
+                padding: '0 0 16px 0',
+            },
+            title: {
+                fontSize: {
+                    xs: '1.5rem',
+                    sm: '1.8rem',
+                    md: '2rem'
+
+                },
+                marginBottom: '1rem',
+            },
+            linkContainer: {
+                display: 'flex',
+                justifyContent: 'flex-start',
+                marginBottom: '1rem',
+            },
+            link: {
+                fontSize:
+                {
+                    xs: '1rem',
+                    sm: '1.2rem',
+                    md: '1.5rem'
+                },
+                '&:hover': {
+                    fontSize: {
+                        xs: '1.2rem',
+                        sm: '1.5rem',
+                        md: '1.8rem'
+                    }
+                },
+                color: '#105ABF',
+                fontStyle: 'underline',
+            },
+            infoContainer: {
+                display: 'flex',
+                alignItems: {
+                    xs: 'flex-start',
+                    sm: 'center',
+                },
+                flexDirection: {
+                    xs: 'column',
+                    sm: 'row',
+                },
+                width: '100%',
+            },
+            readTimeViewContainer: {
+                flexDirection: {
+                    xs: 'row',
+                    sm: 'row',
+                },
+                display: 'flex',
+                alignItems: {
+                    xs: 'flex-start',
+                    sm: 'center',
+                }
+            },
+            readTime: {
+                color: 'primary.dark',
+            },
+            separator: {
+                color: 'primary.light',
+                paddingX: '12px',
+            },
+            views: {
+                color: 'primary.light',
+            },
+            date: {
+                textAlign: {
+                    xs: 'left',
+                    sm: 'right',
+                },
+                color: 'primary.light',
+                marginLeft: {
+                    xs: 0,
+                    sm: 'auto',
+                }
+            },
+            divider: {
+                backgroundColor: 'primary.light',
+                height: '1px',
+                margin: '4px 0 16px 0',
+            },
+            imageContainer: {
+                marginBottom: '1rem',
+                marginTop: '1rem',
+            },
+            image: {
+                width: '100%',
+                height: 'auto',
+                borderRadius: '8px',
+
             },
         },
         header: {
             title: {
                 fontFamily: '"Playwrite CU", cursive',
-                color: '#fefefe',
-                fontSize: { xs: '1.2rem', sm: '1.5rem', md: '1.5rem' },
+                fontWeight: 400,
+                fontSize: { xs: '1.2rem', sm: '1.4rem', md: '1.5rem' },
+                color: 'primary.dark',
             },
             subtitle: {
+                fontWeight: 600,
                 fontFamily: '"Source Code Pro", monospace',
                 color: '#6b6b6b',
                 '&:hover': {
                     color: '#FFC107',
                 },
-                fontSize: { xs: '1.5rem', sm: '1.5rem', md: '1.8rem' },
+                fontSize: { xs: '1.2rem', sm: '1.5rem', md: '2rem' },
             },
             darkModeToggle: {
-                color: {
-                    light: '#2D3242',
-                    dark: '#FB940B',
-                },
+                color: '#FB940B',
                 transition: 'transform 0.5s',
+                transform: 'rotate(180deg)',
             },
             socialMedia: {
                 color: 'primary.light',
@@ -209,8 +572,8 @@ export const darkModeTheme = {
                     xs: '1.2rem',
                     sm: '1.6rem',
                     selected: {
-                        xs: '1.4rem',
-                        sm: '1.8rem',
+                        xs: '1.6rem',
+                        sm: '2rem',
                     },
                 },
                 fontWeight: {
@@ -225,7 +588,12 @@ export const darkModeTheme = {
                     xs: 'normal',
                     selected: 'bold',
                 },
-                color: '#fefefe',
+
+                color: {
+                    default: '#6b6b6b',
+                    selected: 'rgb(21, 21, 21)',
+                },
+
                 '&:hover': {
                     color: '#FFC107',
                 }
@@ -235,12 +603,12 @@ export const darkModeTheme = {
             padding: '0 4px',
             fontStyle: 'italic',
             fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-            color: '#fefefe',
+            color: '#000',
         },
         roleText: {
             padding: '0 4px',
             fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-            color: '#fefefe',
+            color: '#000',
         },
         turkey: {
             backgroundColor: 'red',
@@ -255,18 +623,23 @@ export const darkModeTheme = {
         subText: {
             fontStyle: 'italic',
             fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-            color: '#fefefe',
+            color: '#000',
         },
         paragraph: {
             padding: '0 0 16px 0',
             fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-            color: '#fefefe',
+            color: '#000',
         },
         section: {
-            padding: '64px 0 16px 0',
+            padding: {
+                xs: '16px 0 4px 0',
+                sm: '32px 0 8px 0',
+                md: '64px 0 16px 0',
+            },
             title: {
-                fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
-                color: '#fefefe',
+                fontWeight: 600,
+                fontSize: { xs: '1.4rem', sm: '2rem', md: '2.5rem' },
+                color: '#000',
             },
             divider: {
                 backgroundColor: '#6b6b6b',
@@ -279,7 +652,7 @@ export const darkModeTheme = {
             fontWeight: 'bold',
             padding: '1px 4px',
             fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-            color: '#fefefe',
+            color: '#000',
             backgroundColor: '#E5E5E5',
         },
     },
