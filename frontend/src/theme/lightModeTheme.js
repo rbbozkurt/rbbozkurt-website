@@ -172,16 +172,20 @@ export const lightModeTheme = {
         blogHeader: {
             container: {
                 padding: '0 0 16px 0',
+                flexDirection: 'column',
             },
             title: {
                 textAlign: 'left',
-                variant: 'h2',
+                fontWeight: 600,
+            fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
+            color: '#3d3d3d',
             },
             author: {
-                color: 'primary.light',
+                color: '#6b6b6b',
                 paddingBottom: '1rem',
                 textAlign: 'left',
-                variant: 'body1',
+                fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+            color: '#000',
             },
             infoContainer: {
                 display: 'flex',
@@ -207,32 +211,36 @@ export const lightModeTheme = {
                 }
             },
             readTime: {
-                color: 'primary.dark',
+                color: 'rgb(21, 21, 21)',
                 textAlign: 'left',
+                fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             separator: {
-                color: 'primary.dark',
+                color: 'rgb(21, 21, 21)',
                 textAlign: 'left',
                 paddingX: '12px',
+                fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             views: {
-                color: 'primary.light',
+                color: '#6b6b6b',
                 textAlign: 'left',
-                variant: 'body1',
+                fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             date: {
+                fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+                color: '#000',
                 textAlign: {
                     xs: 'left',
                     sm: 'right',
                 },
-                color: 'primary.light',
+                color: '#6b6b6b',
                 marginLeft: {
                     xs: 0,
                     sm: 'auto',
                 }
             },
             divider: {
-                backgroundColor: 'primary.light',
+                backgroundColor: '#6b6b6b',
                 height: '1px',
                 margin: '4px 0 16px 0',
             },

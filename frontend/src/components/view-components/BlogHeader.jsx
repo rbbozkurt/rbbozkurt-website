@@ -8,19 +8,14 @@ function BlogHeader({ blogTitle, author, createdAt, estimatedReadTime, image, ta
     const theme = useTheme();
     return (
         <Box
-            direction="column"
             sx={theme.custom.blogHeader.container}
         >
             <Typography
-                align="left"
-                variant="h2"
                 sx={theme.custom.blogHeader.title}
             >
                 {blogTitle}
             </Typography>
             <Typography
-                variant="body1"
-                align='left'
                 sx={theme.custom.blogHeader.author}
             >
                 {author}
@@ -30,22 +25,16 @@ function BlogHeader({ blogTitle, author, createdAt, estimatedReadTime, image, ta
                 {/* Group read time and views */}
                 <Box sx={theme.custom.blogHeader.readTimeViewContainer}>
                     <Typography
-                        variant="body1"
-                        align='left'
                         sx={theme.custom.blogHeader.readTime}
                     >
                         {`${estimatedReadTime} read `}
                     </Typography>
                     <Typography
-                        variant="body1"
-                        align='left'
                         sx={theme.custom.blogHeader.separator}
                     >
                         {` • `}
                     </Typography>
                     <Typography
-                        variant="body1"
-                        align='left'
                         sx={theme.custom.blogHeader.views}
                     >
                         {` ${views} views`}
@@ -54,8 +43,6 @@ function BlogHeader({ blogTitle, author, createdAt, estimatedReadTime, image, ta
 
                 {/* Right-aligned date */}
                 <Typography
-                    variant="body1"
-                    align='right'
                     sx={theme.custom.blogHeader.date}
                 >
                     {`${createdAt}`}
