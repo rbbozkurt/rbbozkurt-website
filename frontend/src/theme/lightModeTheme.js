@@ -551,8 +551,8 @@ export const lightModeTheme = {
                 mt: { xs: 0, sm: 0 }
             },
             title: {
-                box : {
-                    py : {
+                box: {
+                    py: {
                         xs: 1,
                         sm: 2,
                     }
@@ -573,7 +573,7 @@ export const lightModeTheme = {
                 fontSize: { xs: '1.4rem', sm: '1.5rem', md: '2rem' },
             },
             darkModeToggle: {
-                color:  '#2D3242',
+                color: '#2D3242',
                 transition: 'transform 0.5s',
                 transform: 'rotate(0deg)',
             },
@@ -693,6 +693,21 @@ export const lightModeTheme = {
             fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             color: '#000',
             backgroundColor: '#E5E5E5',
+        },
+
+        about: {
+            box: {
+                flexDirection: 'column',
+            },
+            sensitiveContent: {
+                box: {
+                    width: '100%',
+                    height: 300,
+                    objectFit: 'cover',
+                    borderRadius: 2,
+                    boxShadow: '0px 20px 20px rgba(0, 0, 0, 0.8)', // Add a subtle shadow
+                }
+            }
         },
     },
 };

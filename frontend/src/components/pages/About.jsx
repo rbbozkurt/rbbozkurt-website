@@ -3,6 +3,7 @@ import { Box } from '@mui/material';
 import {Paragraph, Section } from '../text-components';
 import { SensitiveContent } from '../view-components';
 import me from '../../images/me.jpeg';
+import { useTheme } from '@mui/material/styles';
 
 const title1 = "me";
 const title2 = "what I am working on";
@@ -30,28 +31,18 @@ const sections = [
 
 
 const About = () => {
+    const theme = useTheme();
 
     return (
-        <Box direction='column'>
+        <Box sx={theme.custom.about.box}>
             <SensitiveContent content={
                 <Box
-                component="img"
-                alt={'me'}
-                src={me}
-                sx={
-                    {
-                        width: '100%',
-                        height: 300,
-                        objectFit: 'cover',
-                        borderRadius: 2,
-                        boxShadow: '0px 20px 20px rgba(0, 0, 0, 0.8)', // Add a subtle shadow
-
-                    }
-                }
-               
-
-            />
-            }/>
+                    component="img"
+                    alt={'me'}
+                    src={me}
+                    sx={theme.custom.about.sensitiveContent.box}
+                />
+            } />
             {sections.map((section, index) => (
                 <Section key={index} title={section.title}>
                     {section.paragraphs.map((paragraph, index) => (
