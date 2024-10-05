@@ -106,12 +106,12 @@ export const lightModeTheme = {
             }
         },
         blogPreviewTheme: {
-            mainContaier : {
-                width : '100%',
-                display : 'flex',
-                flexDirection : 'column',
-                justifyContent : 'center',
-                alignItems : 'center',
+            mainContaier: {
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
             },
             container: {
                 width: '100%',
@@ -128,7 +128,7 @@ export const lightModeTheme = {
                     flexGrow: 1,
                     flexShrink: 1,
                     height: '80%',
-                    width : '100%',
+                    width: '100%',
                     marginY: {
                         xs: 2,
                         sm: 4,
@@ -145,12 +145,12 @@ export const lightModeTheme = {
             },
         },
         portfolioPreviewTheme: {
-            mainContaier : {
-                width : '100%',
-                display : 'flex',
-                flexDirection : 'row',
-                justifyContent : 'center',
-                alignItems : 'center',
+            mainContaier: {
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
             },
             container: {
                 padding: '2rem',
@@ -192,15 +192,15 @@ export const lightModeTheme = {
             title: {
                 textAlign: 'left',
                 fontWeight: 600,
-            fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
-            color: '#3d3d3d',
+                fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
+                color: '#3d3d3d',
             },
             author: {
                 color: '#6b6b6b',
                 paddingBottom: '1rem',
                 textAlign: 'left',
                 fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-            color: '#000',
+                color: '#000',
             },
             infoContainer: {
                 display: 'flex',
@@ -291,9 +291,9 @@ export const lightModeTheme = {
                 transform: 'scale(1.02)',
             },
             containerBox: {
-                display: 'flex', flexDirection: 'row', height: '100%' 
+                display: 'flex', flexDirection: 'row', height: '100%'
             },
-            tagContainerBox : {
+            tagContainerBox: {
                 flexGrow: 1, overflowY: 'auto', width: '100%'
             },
             image: {
@@ -393,7 +393,7 @@ export const lightModeTheme = {
             '&:hover': {
                 transform: 'scale(1.02)',
             },
-            mainContainer : {
+            mainContainer: {
                 display: 'flex', flexDirection: 'column', height: '100%'
             },
             image: {
@@ -480,9 +480,9 @@ export const lightModeTheme = {
                     sm: '1.8rem',
                     md: '2rem'
                 },
-                
-                    fontWeight: 600,
-                    color: '#3d3d3d',
+
+                fontWeight: 600,
+                color: '#3d3d3d',
                 marginBottom: '1rem',
             },
             linkContainer: {
@@ -530,7 +530,7 @@ export const lightModeTheme = {
                     sm: 'center',
                 }
             },
-        
+
             readTime: {
                 color: 'rgb(21, 21, 21)',
                 fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
@@ -660,17 +660,17 @@ export const lightModeTheme = {
                     xs: '1.2rem',
                     sm: '1.6rem',
                 },
-                selected : {
-                    fontSize : {
+                selected: {
+                    fontSize: {
                         xs: '1.6rem',
                         sm: '2rem',
                     },
-                    fontWeight : {
+                    fontWeight: {
                         xs: 20,
                         sm: 30,
                     },
-                    fontStyle : 'bold',
-                    color : 'rgb(21, 21, 21)',
+                    fontStyle: 'bold',
+                    color: 'rgb(21, 21, 21)',
                 },
                 fontWeight: {
                     xs: 0,
@@ -762,7 +762,7 @@ export const lightModeTheme = {
                 fontWeight: 'bold',
                 padding: '1px 4px',
                 fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-                color:'rgb(21, 21, 21)',
+                color: 'rgb(21, 21, 21)',
                 backgroundColor: '#E5E5E5',
             }
         },
@@ -823,7 +823,8 @@ export const lightModeTheme = {
                     justifyContent: 'center',
                     alignItems: 'center',
                     blogCard: {
-                        fontSize: 'large' }
+                        fontSize: 'large'
+                    }
                 },
                 noMatchingBlog: {
                     box: {
@@ -973,34 +974,88 @@ export const lightModeTheme = {
                 height: '100vh',
             }
         },
-        searchBar : {
-            paper : {
-                p: '2px 2px', 
-                display: 'flex', 
-                alignItems: 'center', 
-                width: '100%', 
-                marginBottom: '2rem', 
-                paddingLeft: '1rem', 
+        searchBar: {
+            paper: {
+                p: '2px 2px',
+                display: 'flex',
+                alignItems: 'center',
+                width: '100%',
+                marginBottom: '2rem',
+                paddingLeft: '1rem',
                 paddingRight: '1rem',
                 boxShadow: 'none', // Remove shadows
                 border: `1px solid #6b6b6b`, // Add outline
                 borderRadius: '4px', // Optional: add border radius for rounded corners
                 '&:focus-within': {
-                  border: `1.5px solid rgb(21, 21, 21)`, // Change border size and color on focus
-                  '& .MuiSvgIcon-root': {
-                    color: 'rgb(21, 21, 21)',
-                  }
+                    border: `1.5px solid rgb(21, 21, 21)`, // Change border size and color on focus
+                    '& .MuiSvgIcon-root': {
+                        color: 'rgb(21, 21, 21)',
+                    }
                 }
             },
-            inputBase : {
-                ml: 1, 
+            inputBase: {
+                ml: 1,
                 flex: 1,
                 color: 'rgb(21, 21, 21)',
             },
-            iconButton : {
+            iconButton: {
                 p: '10px',
-                searchButton : {
-                    color : '#6b6b6b',
+                searchButton: {
+                    color: '#6b6b6b',
+                }
+            }
+        },
+        sensitiveContent: {
+            container: {
+                borderRadius: 2,
+                '&:hover': {
+                    cursor: 'pointer'
+                },
+                position: "relative",
+                display: "inline-block"
+            },
+            contentContainer: {
+                borderRadius: 2,
+            },
+            cover: {
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                bgcolor: "rgba(0, 0, 0, 0.5)",
+                color: "white",
+                textAlign: "center",
+                zIndex: 1,
+                borderRadius: 2,
+                backdropFilter: 'blur(10px)', // Apply blur effect
+                backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
+                transition: 'opacity 0.3s ease', // Smooth transition for opacity change
+                '&:hover': {
+                    '& .MuiSvgIcon-root, & .MuiTypography-root': {
+                        color: '#FFD700', // Gold color for hover effect
+                        transition: 'color 0.3s ease', // Smooth transition for color change
+                    },
+                },
+                flexDirection: 'column',
+                gap: 1,
+                icon: {
+                    fontSize: 50,
+                    marginBottom: '10px',
+                    color: '#fefefe'
+                },
+                text: {
+                    fontSize: 20,
+                    color: '#fefefe'
+                },
+                pointerEvents : 'none',
+                opacity : 0,
+                hidden : {
+                    pointerEvents : 'auto',
+                    opacity : 1
                 }
             }
         }
