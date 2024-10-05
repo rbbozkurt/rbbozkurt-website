@@ -253,6 +253,9 @@ export const lightModeTheme = {
                 sm: 160,
                 md: 200,
             },
+            '&:hover .overlay': {
+                opacity: 1,
+            },
             boxShadow: {
                 xs: '0px 10px 10px rgba(0, 0, 0, 0.6)',
                 sm: '0px 10px 20px rgba(0, 0, 0, 0.6)',
@@ -263,6 +266,12 @@ export const lightModeTheme = {
             position: 'relative',
             '&:hover': {
                 transform: 'scale(1.02)',
+            },
+            containerBox: {
+                display: 'flex', flexDirection: 'row', height: '100%' 
+            },
+            tagContainerBox : {
+                flexGrow: 1, overflowY: 'auto', width: '100%'
             },
             image: {
                 width: '50%',
@@ -280,6 +289,7 @@ export const lightModeTheme = {
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 gap: 1,
+                backgroundColor: '#fefefe',
             },
             title: {
                 fontSize: {
