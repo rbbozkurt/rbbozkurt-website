@@ -709,12 +709,12 @@ export const lightModeTheme = {
                 }
             }
         },
-        blogPage : {
-            box : {
-                width: '100%',  
-                maxWidth: '1200px',  
-                margin: '0 auto',  
-                paddingTop: '2rem',  
+        blogPage: {
+            box: {
+                width: '100%',
+                maxWidth: '1200px',
+                margin: '0 auto',
+                paddingTop: '2rem',
             },
             loadingBox: {
                 display: 'flex',
@@ -722,56 +722,91 @@ export const lightModeTheme = {
                 alignItems: 'center',
                 height: '100vh',
             },
-            errorBox : {
+            errorBox: {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 height: '100vh',
-                text : {
+                text: {
                     color: 'red',
                 }
             },
-            noBlogBox : {
+            noBlogBox: {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 height: '100vh',
-                text : {
+                text: {
                     color: 'rgb(199, 54, 89)',
                 }
             },
-            grid : {
+            grid: {
                 container: {
                     spacing: 4,
                     justifyContent: 'center',
                     alignItems: 'stretch',
                 },
-                item : {
+                item: {
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    blogCard : {
-                        fontSize : {
-                            xs : 'large'
+                    blogCard: {
+                        fontSize: {
+                            xs: 'large'
                         }
                     }
                 },
-                noMatchingBlog : {
-                    box : {
+                noMatchingBlog: {
+                    box: {
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
                         height: '100vh',
                     },
-                    text : {
+                    text: {
                         marginTop: '3rem',
                         textAlign: 'center',
                         width: '100%',
                         textOverflow: 'ellipsis',
                         overflow: 'hidden',
-                        color : 'rgb(199, 54, 89)',
+                        color: 'rgb(199, 54, 89)',
                     }
                 }
+            }
+        },
+        blogDetailedPage: {
+            loadingBox: {
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100vh',
+            }
+        },
+        errorPage: {
+            box: {
+                flexDirection: 'column',
+            },
+            errorCode: {
+                text: {
+                    fontWeight: 700,
+
+                    fontSize: '6rem',
+                    fontWeight: 'bold',
+                    color: '#ff1744'
+                }
+            },
+            errorTitle: {
+                fontWeight: 600,
+                fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
+                fontFamily: "Playwrite CU",
+                px: 4,
+                marginBottom: '2rem',
+                color: 'rgb(21, 21, 21)',
+            },
+            errorSubtitle: {
+                fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+                color: '#000',
+                marginBottom: '2rem',
             }
         }
     },
