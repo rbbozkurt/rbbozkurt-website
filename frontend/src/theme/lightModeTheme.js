@@ -808,6 +808,28 @@ export const lightModeTheme = {
                 color: '#000',
                 marginBottom: '2rem',
             }
+        }, 
+        homePage : {
+            box : {
+                flexDirection: 'column',
+            },
+            roleText : {
+                softwareDeveloper : {
+                    fontWeight: 'bold',
+                    color: '#4CAF50',
+                    backgroundColor: '#E8F5E9',
+                },
+                engineer : {
+                    fontWeight: 'bold',
+                    color: '#2196F3',
+                    backgroundColor: '#E3F2FD',
+                },
+                coder : {
+                    fontWeight: 'bold',
+                    color: '#FFC107',
+                    backgroundColor: '#FFF8E1',
+                }
+            }
         }
     },
 };
