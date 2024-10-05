@@ -772,10 +772,7 @@ export const lightModeTheme = {
                     justifyContent: 'center',
                     alignItems: 'center',
                     blogCard: {
-                        fontSize: {
-                            xs: 'large'
-                        }
-                    }
+                        fontSize: 'large' }
                 },
                 noMatchingBlog: {
                     box: {
