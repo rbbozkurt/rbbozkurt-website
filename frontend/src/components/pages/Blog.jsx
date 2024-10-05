@@ -54,16 +54,16 @@ function Blog() {
                 </Box>
             ) : (
                 <Grid container
-                    spacing={theme.custom.grid.container.spacing}
-                    justifyContent={theme.custom.grid.container.justifyContent}
-                    alignItems={theme.custom.grid.container.alignItems}>
+                    spacing={theme.custom.blogPage.grid.container.spacing}
+                    justifyContent={theme.custom.blogPage.grid.container.justifyContent}
+                    alignItems={theme.custom.blogPage.grid.container.alignItems}>
                     {filteredItems.length > 0 ? (
                         filteredItems.map((item) => (
                             <Grid
                                 item
                                 key={item._id}
                                 xs={12} sm={12} md={12}
-                                sx={theme.custom.grid.item}
+                                sx={theme.custom.blogPage.grid.item}
 
                             >
                                 <BlogCard

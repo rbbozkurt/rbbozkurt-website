@@ -830,6 +830,71 @@ export const lightModeTheme = {
                     backgroundColor: '#FFF8E1',
                 }
             }
-        }
+        },
+        portfolioPage: {
+            box: {
+                width: '100%',
+                maxWidth: '1200px',
+                margin: '0 auto',
+                paddingTop: '2rem',
+            },
+            loadingBox: {
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100vh',
+            },
+            errorBox: {
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100vh',
+                text: {
+                    color: 'red',
+                }
+            },
+            noBlogBox: {
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100vh',
+                text: {
+                    color: 'rgb(199, 54, 89)',
+                }
+            },
+            grid: {
+                container: {
+                    spacing: 4,
+                    justifyContent: 'center',
+                    alignItems: 'stretch',
+                },
+                item: {
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    blogCard: {
+                        fontSize: {
+                            xs: 'large'
+                        }
+                    }
+                },
+                noMatchingBlog: {
+                    box: {
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        height: '100vh',
+                    },
+                    text: {
+                        marginTop: '3rem',
+                        textAlign: 'center',
+                        width: '100%',
+                        textOverflow: 'ellipsis',
+                        overflow: 'hidden',
+                        color: 'rgb(199, 54, 89)',
+                    }
+                }
+            }
+        },
     },
 };
