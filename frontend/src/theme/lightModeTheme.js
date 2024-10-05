@@ -106,6 +106,13 @@ export const lightModeTheme = {
             }
         },
         blogPreviewTheme: {
+            mainContaier : {
+                width : '100%',
+                display : 'flex',
+                flexDirection : 'column',
+                justifyContent : 'center',
+                alignItems : 'center',
+            },
             container: {
                 width: '100%',
                 position: 'relative',
@@ -121,12 +128,13 @@ export const lightModeTheme = {
                     flexGrow: 1,
                     flexShrink: 1,
                     height: '80%',
+                    width : '100%',
                     marginY: {
                         xs: 2,
                         sm: 4,
                         md: 6,
                     },
-                    transform: 'scale(1.2)',
+                    transform: 'scale(1.1)',
                     transition: 'transform 0.3s',
                     zIndex: 1,
                 },
@@ -137,6 +145,13 @@ export const lightModeTheme = {
             },
         },
         portfolioPreviewTheme: {
+            mainContaier : {
+                width : '100%',
+                display : 'flex',
+                flexDirection : 'row',
+                justifyContent : 'center',
+                alignItems : 'center',
+            },
             container: {
                 padding: '2rem',
                 width: '100%',
