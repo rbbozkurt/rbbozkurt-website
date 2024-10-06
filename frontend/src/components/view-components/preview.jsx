@@ -107,7 +107,7 @@ function PortfolioPreview({ title, onItemClicked }) {
             {error && <Typography>{MESSAGES.ERROR_PREFIX}{error}</Typography>}
             {!loading && !error && projects.length === 0 && <Typography>{MESSAGES.NO_PROJECTS}</Typography>}
             {!loading && !error && projects.length > 0 && (
-                <Box sx={theme.custom.portfolioPreviewTheme.mainContaier}>
+                <Box sx={theme.custom.portfolioPreviewTheme.mainContainer}>
                     <Box sx={theme.custom.portfolioPreviewTheme.card.prevNextCard}>
                         {prev && (
                             <PortfolioCard

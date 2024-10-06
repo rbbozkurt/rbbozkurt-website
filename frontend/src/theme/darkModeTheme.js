@@ -106,6 +106,13 @@ export const darkModeTheme = {
             }
         },
         blogPreviewTheme: {
+            mainContaier: {
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+            },
             container: {
                 width: '100%',
                 position: 'relative',
@@ -121,12 +128,13 @@ export const darkModeTheme = {
                     flexGrow: 1,
                     flexShrink: 1,
                     height: '80%',
+                    width: '100%',
                     marginY: {
                         xs: 2,
                         sm: 4,
                         md: 6,
                     },
-                    transform: 'scale(1.2)',
+                    transform: 'scale(1.1)',
                     transition: 'transform 0.3s',
                     zIndex: 1,
                 },
@@ -137,6 +145,13 @@ export const darkModeTheme = {
             },
         },
         portfolioPreviewTheme: {
+            mainContaier: {
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+            },
             container: {
                 padding: '2rem',
                 width: '100%',
@@ -172,16 +187,20 @@ export const darkModeTheme = {
         blogHeader: {
             container: {
                 padding: '0 0 16px 0',
+                flexDirection: 'column',
             },
             title: {
                 textAlign: 'left',
-                variant: 'h2',
+                fontWeight: 600,
+                fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
+                color: '#3d3d3d',
             },
             author: {
-                color: 'primary.light',
+                color: '#6b6b6b',
                 paddingBottom: '1rem',
                 textAlign: 'left',
-                variant: 'body1',
+                fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+                color: '#000',
             },
             infoContainer: {
                 display: 'flex',
@@ -207,32 +226,36 @@ export const darkModeTheme = {
                 }
             },
             readTime: {
-                color: 'primary.dark',
+                color: 'rgb(21, 21, 21)',
                 textAlign: 'left',
+                fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             separator: {
-                color: 'primary.dark',
+                color: 'rgb(21, 21, 21)',
                 textAlign: 'left',
                 paddingX: '12px',
+                fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             views: {
-                color: 'primary.light',
+                color: '#6b6b6b',
                 textAlign: 'left',
-                variant: 'body1',
+                fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             date: {
+                fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+                color: '#000',
                 textAlign: {
                     xs: 'left',
                     sm: 'right',
                 },
-                color: 'primary.light',
+                color: '#6b6b6b',
                 marginLeft: {
                     xs: 0,
                     sm: 'auto',
                 }
             },
             divider: {
-                backgroundColor: 'primary.light',
+                backgroundColor: '#6b6b6b',
                 height: '1px',
                 margin: '4px 0 16px 0',
             },
@@ -253,6 +276,9 @@ export const darkModeTheme = {
                 sm: 160,
                 md: 200,
             },
+            '&:hover .overlay': {
+                opacity: 1,
+            },
             boxShadow: {
                 xs: '0px 10px 10px rgba(0, 0, 0, 0.6)',
                 sm: '0px 10px 20px rgba(0, 0, 0, 0.6)',
@@ -263,6 +289,12 @@ export const darkModeTheme = {
             position: 'relative',
             '&:hover': {
                 transform: 'scale(1.02)',
+            },
+            containerBox: {
+                display: 'flex', flexDirection: 'row', height: '100%'
+            },
+            tagContainerBox: {
+                flexGrow: 1, overflowY: 'auto', width: '100%'
             },
             image: {
                 width: '50%',
@@ -280,6 +312,7 @@ export const darkModeTheme = {
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 gap: 1,
+                backgroundColor: '#fefefe',
             },
             title: {
                 fontSize: {
@@ -350,12 +383,18 @@ export const darkModeTheme = {
                 xs: '0px 10px 10px rgba(0, 0, 0, 0.6)',
                 sm: '0px 10px 20px rgba(0, 0, 0, 0.6)',
             },
+            '&:hover .overlay': {
+                opacity: 1,
+            },
             transition: 'transform 0.3s, border 0.3s',
             cursor: 'pointer',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             '&:hover': {
                 transform: 'scale(1.02)',
+            },
+            mainContainer: {
+                display: 'flex', flexDirection: 'column', height: '100%'
             },
             image: {
                 width: '100%',
@@ -367,6 +406,7 @@ export const darkModeTheme = {
                     xs: 0.6,
                     sm: 2
                 },
+                backgroundColor: '#fefefe',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'flex-end',
@@ -429,16 +469,20 @@ export const darkModeTheme = {
 
         },
         projectHeader: {
+            flexDirection: 'column',
             container: {
                 padding: '0 0 16px 0',
             },
             title: {
+                textAlign: 'left',
                 fontSize: {
                     xs: '1.5rem',
                     sm: '1.8rem',
                     md: '2rem'
-
                 },
+
+                fontWeight: 600,
+                color: '#3d3d3d',
                 marginBottom: '1rem',
             },
             linkContainer: {
@@ -486,29 +530,34 @@ export const darkModeTheme = {
                     sm: 'center',
                 }
             },
+
             readTime: {
-                color: 'primary.dark',
+                color: 'rgb(21, 21, 21)',
+                fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             separator: {
-                color: 'primary.light',
+                color: '#6b6b6b',
                 paddingX: '12px',
+                fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             views: {
-                color: 'primary.light',
+                color: '#6b6b6b',
+                fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             date: {
                 textAlign: {
                     xs: 'left',
                     sm: 'right',
                 },
-                color: 'primary.light',
+                color: '#6b6b6b',
                 marginLeft: {
                     xs: 0,
                     sm: 'auto',
-                }
+                },
+                fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             divider: {
-                backgroundColor: 'primary.light',
+                backgroundColor: '#6b6b6b',
                 height: '1px',
                 margin: '4px 0 16px 0',
             },
@@ -524,11 +573,44 @@ export const darkModeTheme = {
             },
         },
         header: {
+            outerBox: {
+                flexGrow: 1,
+                display: 'flex',
+                backgroundColor: '#fefefe',
+                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Shadow on the bottom
+            },
+            container: {
+                width: '100%', height: 'auto'
+            },
+            innerBox: {
+                width: '100%', // Make header span full width
+                maxWidth: '100vw', // Avoid exceeding viewport width
+                display: 'flex',
+                flexDirection: { xs: 'column', sm: 'row' },
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                color: '#000',
+                backgroundColor: '#fefefe',
+                padding: {
+                    xs: 2,
+                    sm: 2
+                }
+            },
+            stack: {
+                mt: { xs: 0, sm: 0 }
+            },
             title: {
+                box: {
+                    py: {
+                        xs: 1,
+                        sm: 2,
+                    }
+                },
                 fontFamily: '"Playwrite CU", cursive',
                 fontWeight: 400,
                 fontSize: { xs: '1.2rem', sm: '1.4rem', md: '1.5rem' },
-                color: 'primary.dark',
+                color: 'rgb(21, 21, 21)',
+                px: 4,
             },
             subtitle: {
                 fontWeight: 600,
@@ -537,15 +619,21 @@ export const darkModeTheme = {
                 '&:hover': {
                     color: '#FFC107',
                 },
-                fontSize: { xs: '1.2rem', sm: '1.5rem', md: '2rem' },
+                fontSize: { xs: '1.4rem', sm: '1.5rem', md: '2rem' },
             },
             darkModeToggle: {
-                color: '#FB940B',
+                color: '#2D3242',
                 transition: 'transform 0.5s',
-                transform: 'rotate(180deg)',
+                transform: 'rotate(0deg)',
             },
             socialMedia: {
-                color: 'primary.light',
+                box: {
+                    justifyContent: { xs: 'space-between', sm: 'flex-start' },
+                    width: '100%',
+                    gap: { xs: 1.5, sm: 0.5 },
+                },
+
+                color: '#6b6b6b',
             },
         },
         topMenu: {
@@ -571,27 +659,29 @@ export const darkModeTheme = {
                 fontSize: {
                     xs: '1.2rem',
                     sm: '1.6rem',
-                    selected: {
+                },
+                selected: {
+                    fontSize: {
                         xs: '1.6rem',
                         sm: '2rem',
                     },
+                    fontWeight: {
+                        xs: 20,
+                        sm: 30,
+                    },
+                    fontStyle: 'bold',
+                    color: 'rgb(21, 21, 21)',
                 },
                 fontWeight: {
                     xs: 0,
                     sm: 0,
-                    selected: {
-                        xs: 20,
-                        sm: 30,
-                    }
                 },
                 fontStyle: {
                     xs: 'normal',
-                    selected: 'bold',
                 },
 
                 color: {
                     default: '#6b6b6b',
-                    selected: 'rgb(21, 21, 21)',
                 },
 
                 '&:hover': {
@@ -609,6 +699,10 @@ export const darkModeTheme = {
             padding: '0 4px',
             fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             color: '#000',
+            link: {
+                textDecoration: 'none',
+                color: 'inherit'
+            }
         },
         turkey: {
             backgroundColor: 'red',
@@ -626,34 +720,344 @@ export const darkModeTheme = {
             color: '#000',
         },
         paragraph: {
-            padding: '0 0 16px 0',
+            padding: '0 0 18px 0',
             fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             color: '#000',
+            textAlign: 'left',
         },
         section: {
-            padding: {
-                xs: '16px 0 4px 0',
-                sm: '32px 0 8px 0',
-                md: '64px 0 16px 0',
+            box: {
+                flexDirection: 'column',
+                padding: {
+                    xs: '16px 0 4px 0',
+                    sm: '32px 0 8px 0',
+                    md: '64px 0 16px 0',
+                },
             },
             title: {
+                textAlign: 'left',
                 fontWeight: 600,
                 fontSize: { xs: '1.4rem', sm: '2rem', md: '2.5rem' },
                 color: '#000',
             },
             divider: {
+                orientation: 'horizontal',
                 backgroundColor: '#6b6b6b',
                 height: '1px',
                 margin: '4px 0 16px 0',
             },
         },
         tags: {
-            borderRadius: '4px',
-            fontWeight: 'bold',
-            padding: '1px 4px',
-            fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-            color: '#000',
-            backgroundColor: '#E5E5E5',
+            box: {
+                display: 'flex',
+                gap: 1,
+                '&::-webkit-scrollbar': {
+                    display: 'none', // Hides the scrollbar for webkit browsers (Chrome, Safari)
+                },
+                '-ms-overflow-style': 'none',  // Hides scrollbar for Internet Explorer and Edge
+                'scrollbar-width': 'none',     // Hides scrollbar for Firefox
+            },
+            text: {
+                borderRadius: '4px',
+                fontWeight: 'bold',
+                padding: '1px 4px',
+                fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+                color: 'rgb(21, 21, 21)',
+                backgroundColor: '#E5E5E5',
+            }
         },
+
+        aboutPage: {
+            box: {
+                flexDirection: 'column',
+            },
+            sensitiveContent: {
+                box: {
+                    width: '100%',
+                    height: 300,
+                    objectFit: 'cover',
+                    borderRadius: 2,
+                    boxShadow: '0px 20px 20px rgba(0, 0, 0, 0.8)', // Add a subtle shadow
+                }
+            }
+        },
+        blogPage: {
+            box: {
+                width: '100%',
+                maxWidth: '1200px',
+                margin: '0 auto',
+                paddingTop: '2rem',
+            },
+            loadingBox: {
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100vh',
+            },
+            errorBox: {
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100vh',
+                text: {
+                    color: 'red',
+                }
+            },
+            noBlogBox: {
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100vh',
+                text: {
+                    color: 'rgb(199, 54, 89)',
+                }
+            },
+            grid: {
+                container: {
+                    spacing: 4,
+                    justifyContent: 'center',
+                    alignItems: 'stretch',
+                },
+                item: {
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    blogCard: {
+                        fontSize: 'large'
+                    }
+                },
+                noMatchingBlog: {
+                    box: {
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        height: '100vh',
+                    },
+                    text: {
+                        marginTop: '3rem',
+                        textAlign: 'center',
+                        width: '100%',
+                        textOverflow: 'ellipsis',
+                        overflow: 'hidden',
+                        color: 'rgb(199, 54, 89)',
+                    }
+                }
+            }
+        },
+        blogDetailedPage: {
+            loadingBox: {
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100vh',
+            }
+        },
+        errorPage: {
+            box: {
+                flexDirection: 'column',
+            },
+            errorCode: {
+                text: {
+                    fontWeight: 700,
+
+                    fontSize: '6rem',
+                    fontWeight: 'bold',
+                    color: '#ff1744'
+                }
+            },
+            errorTitle: {
+                fontWeight: 600,
+                fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
+                fontFamily: "Playwrite CU",
+                px: 4,
+                marginBottom: '2rem',
+                color: 'rgb(21, 21, 21)',
+            },
+            errorSubtitle: {
+                fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+                color: '#000',
+                marginBottom: '2rem',
+            }
+        },
+        homePage: {
+            box: {
+                flexDirection: 'column',
+            },
+            roleText: {
+                softwareDeveloper: {
+                    fontWeight: 'bold',
+                    color: '#4CAF50',
+                    backgroundColor: '#E8F5E9',
+                },
+                engineer: {
+                    fontWeight: 'bold',
+                    color: '#2196F3',
+                    backgroundColor: '#E3F2FD',
+                },
+                coder: {
+                    fontWeight: 'bold',
+                    color: '#FFC107',
+                    backgroundColor: '#FFF8E1',
+                }
+            }
+        },
+        portfolioPage: {
+            box: {
+                width: '100%',
+                maxWidth: '1200px',
+                margin: '0 auto',
+                paddingTop: '2rem',
+            },
+            loadingBox: {
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100vh',
+            },
+            errorBox: {
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100vh',
+                text: {
+                    color: 'red',
+                }
+            },
+            noBlogBox: {
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100vh',
+                text: {
+                    color: 'rgb(199, 54, 89)',
+                }
+            },
+            grid: {
+                container: {
+                    spacing: 4,
+                    justifyContent: 'center',
+                    alignItems: 'stretch',
+                },
+                item: {
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    blogCard: {
+                        fontSize: {
+                            xs: 'large'
+                        }
+                    }
+                },
+                noMatchingBlog: {
+                    box: {
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        height: '100vh',
+                    },
+                    text: {
+                        marginTop: '3rem',
+                        textAlign: 'center',
+                        width: '100%',
+                        textOverflow: 'ellipsis',
+                        overflow: 'hidden',
+                        color: 'rgb(199, 54, 89)',
+                    }
+                }
+            }
+        },
+        projectDetailedPage: {
+            loadingBox: {
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100vh',
+            }
+        },
+        searchBar: {
+            paper: {
+                p: '2px 2px',
+                display: 'flex',
+                alignItems: 'center',
+                width: '100%',
+                marginBottom: '2rem',
+                paddingLeft: '1rem',
+                paddingRight: '1rem',
+                boxShadow: 'none', // Remove shadows
+                border: `1px solid #6b6b6b`, // Add outline
+                borderRadius: '4px', // Optional: add border radius for rounded corners
+                '&:focus-within': {
+                    border: `1.5px solid rgb(21, 21, 21)`, // Change border size and color on focus
+                    '& .MuiSvgIcon-root': {
+                        color: 'rgb(21, 21, 21)',
+                    }
+                }
+            },
+            inputBase: {
+                ml: 1,
+                flex: 1,
+                color: 'rgb(21, 21, 21)',
+            },
+            iconButton: {
+                p: '10px',
+                searchButton: {
+                    color: '#6b6b6b',
+                }
+            }
+        },
+        sensitiveContent: {
+            container: {
+                borderRadius: 2,
+                '&:hover': {
+                    cursor: 'pointer'
+                },
+                position: "relative",
+                display: "inline-block"
+            },
+            contentContainer: {
+                borderRadius: 2,
+            },
+            cover: {
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                bgcolor: "rgba(0, 0, 0, 0.5)",
+                color: "white",
+                textAlign: "center",
+                zIndex: 1,
+                borderRadius: 2,
+                backdropFilter: 'blur(10px)', // Apply blur effect
+                backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
+                transition: 'opacity 0.3s ease', // Smooth transition for opacity change
+                '&:hover': {
+                    '& .MuiSvgIcon-root, & .MuiTypography-root': {
+                        color: '#FFD700', // Gold color for hover effect
+                        transition: 'color 0.3s ease', // Smooth transition for color change
+                    },
+                },
+                flexDirection: 'column',
+                gap: 1,
+                icon: {
+                    fontSize: 50,
+                    marginBottom: '10px',
+                    color: '#fefefe'
+                },
+                text: {
+                    fontSize: 20,
+                    color: '#fefefe'
+                },
+                pointerEvents : 'none',
+                opacity : 0,
+                hidden : {
+                    pointerEvents : 'auto',
+                    opacity : 1
+                }
+            }
+        }
     },
-};
+}; 

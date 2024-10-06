@@ -106,35 +106,33 @@ export const lightModeTheme = {
             }
         },
         blogPreviewTheme: {
-            mainContaier: {
+            mainContainer: {
+                height: '100%',
                 width: '100%',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
             },
-            container: {
-                width: '100%',
-                position: 'relative',
-            },
             card: {
                 prevNextCard: {
                     flexGrow: 1,
                     flexShrink: 1,
-                    height: '80%',
+                    height: '40%',
+                    width: '100%',
                     transform: 'scale(0.9)',
                 },
                 currentCard: {
                     flexGrow: 1,
                     flexShrink: 1,
-                    height: '80%',
+                    height: '40%',
                     width: '100%',
                     marginY: {
                         xs: 2,
                         sm: 4,
                         md: 6,
                     },
-                    transform: 'scale(1.1)',
+                    transform: 'scale(1.2)',
                     transition: 'transform 0.3s',
                     zIndex: 1,
                 },
@@ -145,17 +143,12 @@ export const lightModeTheme = {
             },
         },
         portfolioPreviewTheme: {
-            mainContaier: {
+            mainContainer: {
                 width: '100%',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
                 alignItems: 'center',
-            },
-            container: {
-                padding: '2rem',
-                width: '100%',
-                position: 'relative',
             },
             card: {
                 prevNextCard: {
@@ -200,7 +193,6 @@ export const lightModeTheme = {
                 paddingBottom: '1rem',
                 textAlign: 'left',
                 fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-                color: '#000',
             },
             infoContainer: {
                 display: 'flex',
