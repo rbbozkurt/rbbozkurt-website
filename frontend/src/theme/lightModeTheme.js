@@ -654,15 +654,11 @@ export const lightModeTheme = {
                 },
                 selected: {
                     fontSize: {
-                        xs: '1.6rem',
-                        sm: '2rem',
+                        xs: '1.4rem',
+                        sm: '1.8rem',
                     },
-                    fontWeight: {
-                        xs: 20,
-                        sm: 30,
-                    },
-                    fontStyle: 'bold',
-                    color: 'rgb(21, 21, 21)',
+                    
+                    color: 'rgb(10, 21, 21)',
                 },
                 fontWeight: {
                     xs: 0,
@@ -672,10 +668,8 @@ export const lightModeTheme = {
                     xs: 'normal',
                 },
 
-                color: {
-                    default: '#6b6b6b',
-                },
-
+                color: '#6b6b6b',
+    
                 '&:hover': {
                     color: '#FFC107',
                 }
