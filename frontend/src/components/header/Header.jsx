@@ -37,7 +37,7 @@ function DarkModeToggleButton({ toggleDarkMode }) {
                 onClick={toggleDarkMode}
                 sx={theme.custom.header.darkModeToggle}
             >
-                {isDarkMode ? <LightModeIcon /> : <DarkModeIcon />}
+                {isDarkMode ? <LightModeIcon /> : <DarkModeIcon/>}
             </IconButton>
         </Box>
     );

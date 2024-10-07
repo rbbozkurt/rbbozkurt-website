@@ -68,8 +68,8 @@ function Portfolio() {
                             </Grid>
                         ))
                     ) : (
-                        <Box sx={theme.custom.portfolioPage.noMatchingBlog.box}>
-                        <Typography sx={theme.custom.portfolioPage.noMatchingBlog.text}>
+                        <Box sx={theme.custom.portfolioPage.grid.noMatchingBlog.box}>
+                        <Typography sx={theme.custom.portfolioPage.grid.noMatchingBlog.text}>
                             No projects found with the search term "{searchTerm}"
                         </Typography>
                     </Box>

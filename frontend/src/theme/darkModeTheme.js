@@ -2,71 +2,91 @@ export const darkModeTheme = {
     palette: {
         mode: 'dark',
         primary: {
-            main: 'rgb(169, 29, 58)',
-            light: '#6b6b6b',
-            dark: 'rgb(21, 21, 21)',
-            contrastText: '#fefefe',
+            main: '#FFC107',
+            light: '#b2b2b2',
+            dark: '#ededed',
+            contrastText: '#cccccc',
         },
         secondary: {
-            main: 'rgb(199, 54, 89)',
-            light: '#fefefe',
-            dark: 'rgb(21, 21, 21)',
-            contrastText: '#fefefe',
+            main:  '#03DAC6',
+            light: '#2b2a2a',
+            dark: '#b2b2b2',
+            contrastText: '#000000',
         },
         background: {
-            default: '#fefefe',
-            paper: '#fefefe',
+            default: '#121212',
+            paper: '#1E1E1E',
         },
         text: {
-            primary: '#000',
-            secondary: 'rgb(199, 54, 89)',
+            default :'#ededed',
+            primary: '#cccccc',
+            secondary:'#b2b2b2',
+            error : '#ff1744'
         },
+        roles : {
+            sofwareDeveloper: {
+                color: '#4CAF50',
+                backgroundColor: '#E8F5E9',
+            },
+            engineer: {
+                color: '#2196F3',
+                backgroundColor: '#E3F2FD',
+            },
+            coder: {
+                color: '#FFC107',
+                backgroundColor: '#FFF8E1',
+            }
+        },
+        toggle: {
+            iconColor : '#FFA500',
+        }
+
     },
     typography: {
         fontFamily: '"Source Code Pro", monospace',
         h1: {
             fontWeight: 700,
             fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
-            color: 'rgb(21, 21, 21)',
+            color: 'text.default',
         },
         h2: {
             fontWeight: 600,
             fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
-            color: '#3d3d3d',
+            color: 'text.primary',
         },
         h3: {
             fontWeight: 600,
             fontSize: { xs: '1.2rem', sm: '1.5rem', md: '2rem' },
-            color: '#6b6b6b',
+            color: 'text.primary',
         },
         h4: {
             fontFamily: '"Playwrite CU", cursive',
             fontWeight: 400,
             fontSize: { xs: '1rem', sm: '1.2rem', md: '1.5rem' },
-            color: '#fefefe',
+            color: 'text.primary',
         },
         body1: {
             fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-            color: '#000',
+            color: 'text.secondary',
         },
         body2: {
             fontSize: { xs: '0.7rem', sm: '0.8rem', md: '0.9rem' },
-            color: '#3d3d3d',
+            color: 'text.secondary',
         },
         button: {
             fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             textTransform: 'none',
-            color: '#fefefe',
+            color: 'primary.contrastText',
         },
     },
     components: {
         MuiButton: {
             styleOverrides: {
                 root: {
-                    backgroundColor: '#FFD700',
-                    color: '#fefefe',
+                    backgroundColor: 'primary.main',
+                    color: 'primary.contrastText',
                     '&:hover': {
-                        backgroundColor: '#FFD700',
+                        backgroundColor: 'primary.main',
                     },
                 },
             },
@@ -74,14 +94,14 @@ export const darkModeTheme = {
         MuiCircularProgress: {
             styleOverrides: {
                 colorPrimary: {
-                    color: '#FFD700',
+                    color: 'primary.main',
                 },
             },
         },
         MuiAppBar: {
             styleOverrides: {
                 colorPrimary: {
-                    backgroundColor: 'rgb(21, 21, 21)',
+                    backgroundColor: 'primary.dark',
                 },
             },
         },
@@ -106,35 +126,33 @@ export const darkModeTheme = {
             }
         },
         blogPreviewTheme: {
-            mainContaier: {
+            mainContainer: {
+                height: '100%',
                 width: '100%',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
             },
-            container: {
-                width: '100%',
-                position: 'relative',
-            },
             card: {
                 prevNextCard: {
                     flexGrow: 1,
                     flexShrink: 1,
-                    height: '80%',
+                    height: '40%',
+                    width: '100%',
                     transform: 'scale(0.9)',
                 },
                 currentCard: {
                     flexGrow: 1,
                     flexShrink: 1,
-                    height: '80%',
+                    height: '40%',
                     width: '100%',
                     marginY: {
                         xs: 2,
                         sm: 4,
                         md: 6,
                     },
-                    transform: 'scale(1.1)',
+                    transform: 'scale(1.2)',
                     transition: 'transform 0.3s',
                     zIndex: 1,
                 },
@@ -145,17 +163,12 @@ export const darkModeTheme = {
             },
         },
         portfolioPreviewTheme: {
-            mainContaier: {
+            mainContainer: {
                 width: '100%',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
                 alignItems: 'center',
-            },
-            container: {
-                padding: '2rem',
-                width: '100%',
-                position: 'relative',
             },
             card: {
                 prevNextCard: {
@@ -193,14 +206,13 @@ export const darkModeTheme = {
                 textAlign: 'left',
                 fontWeight: 600,
                 fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
-                color: '#3d3d3d',
+                color: 'text.primary',
             },
             author: {
-                color: '#6b6b6b',
+                color: 'text.secondary',
                 paddingBottom: '1rem',
                 textAlign: 'left',
                 fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-                color: '#000',
             },
             infoContainer: {
                 display: 'flex',
@@ -226,36 +238,35 @@ export const darkModeTheme = {
                 }
             },
             readTime: {
-                color: 'rgb(21, 21, 21)',
+                color: 'text.primary',
                 textAlign: 'left',
                 fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             separator: {
-                color: 'rgb(21, 21, 21)',
+                color: 'text.secondary',
                 textAlign: 'left',
                 paddingX: '12px',
                 fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             views: {
-                color: '#6b6b6b',
+                color: 'text.secondary',
                 textAlign: 'left',
                 fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             date: {
                 fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-                color: '#000',
                 textAlign: {
                     xs: 'left',
                     sm: 'right',
                 },
-                color: '#6b6b6b',
+                color: 'text.secondary',
                 marginLeft: {
                     xs: 0,
                     sm: 'auto',
                 }
             },
             divider: {
-                backgroundColor: '#6b6b6b',
+                backgroundColor: 'primary.dark',
                 height: '1px',
                 margin: '4px 0 16px 0',
             },
@@ -280,10 +291,10 @@ export const darkModeTheme = {
                 opacity: 1,
             },
             boxShadow: {
-                xs: '0px 10px 10px rgba(0, 0, 0, 0.6)',
-                sm: '0px 10px 20px rgba(0, 0, 0, 0.6)',
+                xs: '0px 10px 10px rgba(0, 0, 0, 0.0)',
+                sm: '0px 10px 20px rgba(0, 0, 0, 0.0)',
             },
-            borderRadius: 1,
+            borderRadius: 2,
             transition: 'transform 0.3s, border 0.3s',
             cursor: 'pointer',
             position: 'relative',
@@ -312,7 +323,7 @@ export const darkModeTheme = {
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 gap: 1,
-                backgroundColor: '#fefefe',
+                backgroundColor: 'background.paper',
             },
             title: {
                 fontSize: {
@@ -321,7 +332,7 @@ export const darkModeTheme = {
                     md: '1.6rem'
                 },
                 textAlign: 'left',
-                color: 'primary.dark',
+                color: 'text.primary',
             },
             author: {
                 fontSize: {
@@ -330,7 +341,7 @@ export const darkModeTheme = {
                     md: '1.2rem'
                 },
                 textAlign: 'left',
-                color: 'primary.light',
+                color:'text.secondary',
             },
             readTime: {
                 fontSize: {
@@ -339,7 +350,7 @@ export const darkModeTheme = {
                     md: '1rem'
                 },
                 textAlign: 'left',
-                color: 'primary.dark',
+                color: 'text.primary',
             },
             views: {
                 fontSize: {
@@ -348,7 +359,7 @@ export const darkModeTheme = {
                     md: '1rem'
                 },
                 textAlign: 'left',
-                color: 'primary.light',
+                color: 'text.secondary',
             },
             tag: {
                 fontSize: {
@@ -369,7 +380,7 @@ export const darkModeTheme = {
                 alignItems: 'center',
                 opacity: 0,
                 transition: 'opacity 0.3s',
-                color: 'white',
+                color: 'primary.contrastText',
                 fontSize: '1.5rem',
                 fontWeight: 'bold',
             },
@@ -380,8 +391,8 @@ export const darkModeTheme = {
             position: 'relative',
             borderRadius: 2,
             boxShadow: {
-                xs: '0px 10px 10px rgba(0, 0, 0, 0.6)',
-                sm: '0px 10px 20px rgba(0, 0, 0, 0.6)',
+                xs: '0px 10px 10px rgba(0, 0, 0, 0.0)',
+                sm: '0px 10px 20px rgba(0, 0, 0, 0.0)',
             },
             '&:hover .overlay': {
                 opacity: 1,
@@ -406,7 +417,7 @@ export const darkModeTheme = {
                     xs: 0.6,
                     sm: 2
                 },
-                backgroundColor: '#fefefe',
+                backgroundColor: 'background.paper',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'flex-end',
@@ -423,7 +434,7 @@ export const darkModeTheme = {
                     md: '1.6rem'
                 },
                 textAlign: 'left',
-                color: 'secondary.dark',
+                color: 'text.primary',
             },
             readTime: {
                 fontSize: {
@@ -432,7 +443,7 @@ export const darkModeTheme = {
                     md: '1rem'
                 },
                 textAlign: 'left',
-                color: 'primary.dark',
+                color: 'text.primary',
             },
             views: {
                 fontSize: {
@@ -441,7 +452,7 @@ export const darkModeTheme = {
                     md: '1rem'
                 },
                 textAlign: 'left',
-                color: 'primary.light',
+                color: 'text.secondary',
             },
             tag: {
                 fontSize: {
@@ -462,7 +473,7 @@ export const darkModeTheme = {
                 alignItems: 'center',
                 opacity: 0,
                 transition: 'opacity 0.3s',
-                color: 'white',
+                color: 'primary.contrastText',
                 fontSize: '1.5rem',
                 fontWeight: 'bold',
             },
@@ -482,7 +493,7 @@ export const darkModeTheme = {
                 },
 
                 fontWeight: 600,
-                color: '#3d3d3d',
+                color: 'text.primary',
                 marginBottom: '1rem',
             },
             linkContainer: {
@@ -504,7 +515,7 @@ export const darkModeTheme = {
                         md: '1.8rem'
                     }
                 },
-                color: '#105ABF',
+                color: '#3b8ef9',
                 fontStyle: 'underline',
             },
             infoContainer: {
@@ -532,16 +543,16 @@ export const darkModeTheme = {
             },
 
             readTime: {
-                color: 'rgb(21, 21, 21)',
+                color: 'text.primary',
                 fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             separator: {
-                color: '#6b6b6b',
+                color: 'text.secondary',
                 paddingX: '12px',
                 fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             views: {
-                color: '#6b6b6b',
+                color: 'text.secondary',
                 fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             date: {
@@ -549,7 +560,7 @@ export const darkModeTheme = {
                     xs: 'left',
                     sm: 'right',
                 },
-                color: '#6b6b6b',
+                color: 'text.secondary',
                 marginLeft: {
                     xs: 0,
                     sm: 'auto',
@@ -557,7 +568,7 @@ export const darkModeTheme = {
                 fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             divider: {
-                backgroundColor: '#6b6b6b',
+                backgroundColor: 'primary.dark',
                 height: '1px',
                 margin: '4px 0 16px 0',
             },
@@ -576,8 +587,8 @@ export const darkModeTheme = {
             outerBox: {
                 flexGrow: 1,
                 display: 'flex',
-                backgroundColor: '#fefefe',
-                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Shadow on the bottom
+                backgroundColor: 'background.paper',
+                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Shadow on the bottom
             },
             container: {
                 width: '100%', height: 'auto'
@@ -589,8 +600,8 @@ export const darkModeTheme = {
                 flexDirection: { xs: 'column', sm: 'row' },
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                color: '#000',
-                backgroundColor: '#fefefe',
+                color: 'text.default',
+                backgroundColor: 'background.paper',
                 padding: {
                     xs: 2,
                     sm: 2
@@ -609,22 +620,22 @@ export const darkModeTheme = {
                 fontFamily: '"Playwrite CU", cursive',
                 fontWeight: 400,
                 fontSize: { xs: '1.2rem', sm: '1.4rem', md: '1.5rem' },
-                color: 'rgb(21, 21, 21)',
+                color: 'text.default',
                 px: 4,
             },
             subtitle: {
                 fontWeight: 600,
                 fontFamily: '"Source Code Pro", monospace',
-                color: '#6b6b6b',
+                color: 'text.secondary',
                 '&:hover': {
-                    color: '#FFC107',
+                    color: 'primary.main',
                 },
                 fontSize: { xs: '1.4rem', sm: '1.5rem', md: '2rem' },
             },
             darkModeToggle: {
-                color: '#2D3242',
+                color: 'toggle.iconColor',
                 transition: 'transform 0.5s',
-                transform: 'rotate(0deg)',
+                transform: 'rotate(180deg)',
             },
             socialMedia: {
                 box: {
@@ -633,7 +644,7 @@ export const darkModeTheme = {
                     gap: { xs: 1.5, sm: 0.5 },
                 },
 
-                color: '#6b6b6b',
+                color: 'primary.light',
             },
         },
         topMenu: {
@@ -662,15 +673,11 @@ export const darkModeTheme = {
                 },
                 selected: {
                     fontSize: {
-                        xs: '1.6rem',
-                        sm: '2rem',
+                        xs: '1.4rem',
+                        sm: '1.8rem',
                     },
-                    fontWeight: {
-                        xs: 20,
-                        sm: 30,
-                    },
-                    fontStyle: 'bold',
-                    color: 'rgb(21, 21, 21)',
+                    
+                    color: 'text.default',
                 },
                 fontWeight: {
                     xs: 0,
@@ -680,12 +687,10 @@ export const darkModeTheme = {
                     xs: 'normal',
                 },
 
-                color: {
-                    default: '#6b6b6b',
-                },
-
+                color: 'text.secondary',
+    
                 '&:hover': {
-                    color: '#FFC107',
+                    color: 'text.primary',
                 }
             },
         },
@@ -693,12 +698,12 @@ export const darkModeTheme = {
             padding: '0 4px',
             fontStyle: 'italic',
             fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-            color: '#000',
+            color: 'text.primary',
         },
         roleText: {
             padding: '0 4px',
             fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-            color: '#000',
+            color: 'text.primary',
             link: {
                 textDecoration: 'none',
                 color: 'inherit'
@@ -706,23 +711,23 @@ export const darkModeTheme = {
         },
         turkey: {
             backgroundColor: 'red',
-            color: 'white',
+            color: 'primary.contrastText',
             fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
         },
         berlin: {
             backgroundImage: 'linear-gradient(90deg, black 33%, red 33%, red 66%, gold 66%)',
-            color: 'white',
+            color: 'primary.contrastText',
             fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
         },
         subText: {
             fontStyle: 'italic',
             fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-            color: '#000',
+            color: 'text.secondary',
         },
         paragraph: {
             padding: '0 0 18px 0',
             fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-            color: '#000',
+            color: 'text.primary',
             textAlign: 'left',
         },
         section: {
@@ -738,11 +743,11 @@ export const darkModeTheme = {
                 textAlign: 'left',
                 fontWeight: 600,
                 fontSize: { xs: '1.4rem', sm: '2rem', md: '2.5rem' },
-                color: '#000',
+                color: 'text.primary',
             },
             divider: {
                 orientation: 'horizontal',
-                backgroundColor: '#6b6b6b',
+                backgroundColor: 'primary.dark',
                 height: '1px',
                 margin: '4px 0 16px 0',
             },
@@ -762,8 +767,8 @@ export const darkModeTheme = {
                 fontWeight: 'bold',
                 padding: '1px 4px',
                 fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-                color: 'rgb(21, 21, 21)',
-                backgroundColor: '#E5E5E5',
+                color: 'secondary.dark',
+                backgroundColor: 'secondary.light',
             }
         },
 
@@ -777,7 +782,7 @@ export const darkModeTheme = {
                     height: 300,
                     objectFit: 'cover',
                     borderRadius: 2,
-                    boxShadow: '0px 20px 20px rgba(0, 0, 0, 0.8)', // Add a subtle shadow
+                    boxShadow: '0px 20px 20px rgba(0, 0, 0, 0.0)', // Add a subtle shadow
                 }
             }
         },
@@ -800,7 +805,7 @@ export const darkModeTheme = {
                 alignItems: 'center',
                 height: '100vh',
                 text: {
-                    color: 'red',
+                    color: 'text.error',
                 }
             },
             noBlogBox: {
@@ -809,7 +814,7 @@ export const darkModeTheme = {
                 alignItems: 'center',
                 height: '100vh',
                 text: {
-                    color: 'rgb(199, 54, 89)',
+                    color: 'text.error',
                 }
             },
             grid: {
@@ -839,7 +844,7 @@ export const darkModeTheme = {
                         width: '100%',
                         textOverflow: 'ellipsis',
                         overflow: 'hidden',
-                        color: 'rgb(199, 54, 89)',
+                        color: 'text.primary',
                     }
                 }
             }
@@ -862,7 +867,7 @@ export const darkModeTheme = {
 
                     fontSize: '6rem',
                     fontWeight: 'bold',
-                    color: '#ff1744'
+                    color: 'text.error'
                 }
             },
             errorTitle: {
@@ -871,11 +876,11 @@ export const darkModeTheme = {
                 fontFamily: "Playwrite CU",
                 px: 4,
                 marginBottom: '2rem',
-                color: 'rgb(21, 21, 21)',
+                color: 'text.primary',
             },
             errorSubtitle: {
                 fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-                color: '#000',
+                color: 'text.secondary',
                 marginBottom: '2rem',
             }
         },
@@ -886,18 +891,18 @@ export const darkModeTheme = {
             roleText: {
                 softwareDeveloper: {
                     fontWeight: 'bold',
-                    color: '#4CAF50',
-                    backgroundColor: '#E8F5E9',
+                    color: 'roles.sofwareDeveloper.color',
+                    backgroundColor: 'roles.sofwareDeveloper.backgroundColor',
                 },
                 engineer: {
                     fontWeight: 'bold',
-                    color: '#2196F3',
-                    backgroundColor: '#E3F2FD',
+                    color: 'roles.engineer.color',
+                    backgroundColor: 'roles.engineer.backgroundColor',
                 },
                 coder: {
                     fontWeight: 'bold',
-                    color: '#FFC107',
-                    backgroundColor: '#FFF8E1',
+                    color: 'roles.coder.color',
+                    backgroundColor: 'roles.coder.backgroundColor',
                 }
             }
         },
@@ -920,7 +925,7 @@ export const darkModeTheme = {
                 alignItems: 'center',
                 height: '100vh',
                 text: {
-                    color: 'red',
+                    color: 'text.error',
                 }
             },
             noBlogBox: {
@@ -929,7 +934,7 @@ export const darkModeTheme = {
                 alignItems: 'center',
                 height: '100vh',
                 text: {
-                    color: 'rgb(199, 54, 89)',
+                    color: 'text.error',
                 }
             },
             grid: {
@@ -961,7 +966,7 @@ export const darkModeTheme = {
                         width: '100%',
                         textOverflow: 'ellipsis',
                         overflow: 'hidden',
-                        color: 'rgb(199, 54, 89)',
+                        color: 'text.primary',
                     }
                 }
             }
@@ -984,24 +989,26 @@ export const darkModeTheme = {
                 paddingLeft: '1rem',
                 paddingRight: '1rem',
                 boxShadow: 'none', // Remove shadows
-                border: `1px solid #6b6b6b`, // Add outline
+                border: `1.5px solid`, // Add outline
+                borderColor : 'primary.light',
                 borderRadius: '4px', // Optional: add border radius for rounded corners
                 '&:focus-within': {
-                    border: `1.5px solid rgb(21, 21, 21)`, // Change border size and color on focus
+                    border: `2px solid`, // Change border size and color on focus
+                    borderColor: 'primary.dark',
                     '& .MuiSvgIcon-root': {
-                        color: 'rgb(21, 21, 21)',
+                        color: 'primary.dark',
                     }
                 }
             },
             inputBase: {
                 ml: 1,
                 flex: 1,
-                color: 'rgb(21, 21, 21)',
+                color: 'primary.dark',
             },
             iconButton: {
                 p: '10px',
                 searchButton: {
-                    color: '#6b6b6b',
+                    color: 'primary.light',
                 }
             }
         },
@@ -1027,7 +1034,7 @@ export const darkModeTheme = {
                 alignItems: "center",
                 justifyContent: "center",
                 bgcolor: "rgba(0, 0, 0, 0.5)",
-                color: "white",
+                color: "primary.contrastText",
                 textAlign: "center",
                 zIndex: 1,
                 borderRadius: 2,
@@ -1036,7 +1043,7 @@ export const darkModeTheme = {
                 transition: 'opacity 0.3s ease', // Smooth transition for opacity change
                 '&:hover': {
                     '& .MuiSvgIcon-root, & .MuiTypography-root': {
-                        color: '#FFD700', // Gold color for hover effect
+                        color: 'primary.main', // Gold color for hover effect
                         transition: 'color 0.3s ease', // Smooth transition for color change
                     },
                 },
@@ -1045,11 +1052,11 @@ export const darkModeTheme = {
                 icon: {
                     fontSize: 50,
                     marginBottom: '10px',
-                    color: '#fefefe'
+                    color: 'primary.contrastText'
                 },
                 text: {
                     fontSize: 20,
-                    color: '#fefefe'
+                    color: 'primary.contrastText'
                 },
                 pointerEvents : 'none',
                 opacity : 0,

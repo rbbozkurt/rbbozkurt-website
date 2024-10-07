@@ -35,15 +35,25 @@ const PAGE_ROUTES = {
 
 function App() {
   const dispatch = useDispatch();
-  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     dispatch(getBlogs()); // Dispatching action to fetch blogs
     dispatch(getProjects()); // Dispatching action to fetch projects
   }, [dispatch]);
 
+  // Load initial dark mode preference from localStorage
+  const [darkMode, setDarkMode] = useState(() => {
+    const savedMode = localStorage.getItem('darkMode');
+    return savedMode === 'true'; // Return true for dark mode, false for light mode
+  });
+
+  // Handle dark mode toggle and store preference in localStorage
   const handleDarkMode = () => {
-    setDarkMode(!darkMode);
+    setDarkMode((prevMode) => {
+      const newMode = !prevMode;
+      localStorage.setItem('darkMode', newMode);
+      return newMode;
+    });
   };
 
   const currentTheme = useMemo(() => theme(darkMode ? 'dark' : 'light'), [darkMode]);

@@ -74,8 +74,8 @@ function Blog() {
                             </Grid>
                         ))
                     ) : (
-                        <Box sx={theme.custom.blogPage.noMatchingBlog}>
-                            <Typography sx={theme.custom.blogPage.noMatchingBlog.text}>
+                        <Box sx={theme.custom.blogPage.grid.noMatchingBlog}>
+                            <Typography sx={theme.custom.blogPage.grid.noMatchingBlog.text}>
                                 No blogs found with the search term "{searchTerm}"
                             </Typography>
                         </Box>

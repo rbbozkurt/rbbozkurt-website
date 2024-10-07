@@ -2,71 +2,91 @@ export const lightModeTheme = {
     palette: {
         mode: 'light',
         primary: {
-            main: 'rgb(169, 29, 58)',
+            main: '#FFC107',
             light: '#6b6b6b',
             dark: 'rgb(21, 21, 21)',
             contrastText: '#fefefe',
         },
         secondary: {
-            main: 'rgb(199, 54, 89)',
-            light: '#fefefe',
+            main:  'rgb(199, 54, 89)',
+            light: '#E5E5E5',
             dark: 'rgb(21, 21, 21)',
             contrastText: '#fefefe',
         },
         background: {
-            default: '#fefefe',
-            paper: '#fefefe',
+            default: '#fafafa',
+            paper: '#fff',
         },
         text: {
-            primary: '#000',
-            secondary: 'rgb(199, 54, 89)',
+            default : '#000',
+            primary: '#3d3d3d',
+            secondary:'#6b6b6b',
+            error : '#ff1744'
         },
+        roles : {
+            sofwareDeveloper: {
+                color: '#4CAF50',
+                backgroundColor: '#E8F5E9',
+            },
+            engineer: {
+                color: '#2196F3',
+                backgroundColor: '#E3F2FD',
+            },
+            coder: {
+                color: '#FFC107',
+                backgroundColor: '#FFF8E1',
+            }
+        },
+        toggle: {
+            iconColor : '#2D3242',
+        }
+
     },
     typography: {
         fontFamily: '"Source Code Pro", monospace',
         h1: {
             fontWeight: 700,
             fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
-            color: 'rgb(21, 21, 21)',
+            color: 'text.default',
         },
         h2: {
             fontWeight: 600,
             fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
-            color: '#3d3d3d',
+            color: 'text.primary',
         },
         h3: {
             fontWeight: 600,
             fontSize: { xs: '1.2rem', sm: '1.5rem', md: '2rem' },
-            color: '#6b6b6b',
+            color: 'text.primary',
         },
         h4: {
             fontFamily: '"Playwrite CU", cursive',
             fontWeight: 400,
             fontSize: { xs: '1rem', sm: '1.2rem', md: '1.5rem' },
-            color: '#fefefe',
+            color: 'text.primary',
         },
         body1: {
             fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-            color: '#000',
+            color: 'text.secondary',
         },
         body2: {
             fontSize: { xs: '0.7rem', sm: '0.8rem', md: '0.9rem' },
-            color: '#3d3d3d',
+            color: 'text.secondary',
         },
         button: {
             fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             textTransform: 'none',
-            color: '#fefefe',
+            color: 'primary.contrastText',
         },
     },
     components: {
         MuiButton: {
             styleOverrides: {
                 root: {
-                    backgroundColor: '#FFD700',
-                    color: '#fefefe',
+                    backgroundColor: 'primary.main',
+                    color: 'primary.contrastText',
                     '&:hover': {
-                        backgroundColor: '#FFD700',
+                        backgroundColor: 'primary.main',
                     },
                 },
             },
@@ -74,14 +94,14 @@ export const lightModeTheme = {
         MuiCircularProgress: {
             styleOverrides: {
                 colorPrimary: {
-                    color: '#FFD700',
+                    color: 'primary.main',
                 },
             },
         },
         MuiAppBar: {
             styleOverrides: {
                 colorPrimary: {
-                    backgroundColor: 'rgb(21, 21, 21)',
+                    backgroundColor: 'primary.dark',
                 },
             },
         },
@@ -186,10 +206,10 @@ export const lightModeTheme = {
                 textAlign: 'left',
                 fontWeight: 600,
                 fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
-                color: '#3d3d3d',
+                color: 'text.primary',
             },
             author: {
-                color: '#6b6b6b',
+                color: 'text.secondary',
                 paddingBottom: '1rem',
                 textAlign: 'left',
                 fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
@@ -218,36 +238,35 @@ export const lightModeTheme = {
                 }
             },
             readTime: {
-                color: 'rgb(21, 21, 21)',
+                color: 'text.primary',
                 textAlign: 'left',
                 fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             separator: {
-                color: 'rgb(21, 21, 21)',
+                color: 'text.secondary',
                 textAlign: 'left',
                 paddingX: '12px',
                 fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             views: {
-                color: '#6b6b6b',
+                color: 'text.secondary',
                 textAlign: 'left',
                 fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             date: {
                 fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-                color: '#000',
                 textAlign: {
                     xs: 'left',
                     sm: 'right',
                 },
-                color: '#6b6b6b',
+                color: 'text.secondary',
                 marginLeft: {
                     xs: 0,
                     sm: 'auto',
                 }
             },
             divider: {
-                backgroundColor: '#6b6b6b',
+                backgroundColor: 'primary.dark',
                 height: '1px',
                 margin: '4px 0 16px 0',
             },
@@ -304,7 +323,7 @@ export const lightModeTheme = {
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 gap: 1,
-                backgroundColor: '#fefefe',
+                backgroundColor: 'background.paper',
             },
             title: {
                 fontSize: {
@@ -313,7 +332,7 @@ export const lightModeTheme = {
                     md: '1.6rem'
                 },
                 textAlign: 'left',
-                color: 'primary.dark',
+                color: 'text.primary',
             },
             author: {
                 fontSize: {
@@ -322,7 +341,7 @@ export const lightModeTheme = {
                     md: '1.2rem'
                 },
                 textAlign: 'left',
-                color: 'primary.light',
+                color:'text.secondary',
             },
             readTime: {
                 fontSize: {
@@ -331,7 +350,7 @@ export const lightModeTheme = {
                     md: '1rem'
                 },
                 textAlign: 'left',
-                color: 'primary.dark',
+                color: 'text.primary',
             },
             views: {
                 fontSize: {
@@ -340,7 +359,7 @@ export const lightModeTheme = {
                     md: '1rem'
                 },
                 textAlign: 'left',
-                color: 'primary.light',
+                color: 'text.secondary',
             },
             tag: {
                 fontSize: {
@@ -361,7 +380,7 @@ export const lightModeTheme = {
                 alignItems: 'center',
                 opacity: 0,
                 transition: 'opacity 0.3s',
-                color: 'white',
+                color: 'primary.contrastText',
                 fontSize: '1.5rem',
                 fontWeight: 'bold',
             },
@@ -398,7 +417,7 @@ export const lightModeTheme = {
                     xs: 0.6,
                     sm: 2
                 },
-                backgroundColor: '#fefefe',
+                backgroundColor: 'background.paper',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'flex-end',
@@ -415,7 +434,7 @@ export const lightModeTheme = {
                     md: '1.6rem'
                 },
                 textAlign: 'left',
-                color: 'secondary.dark',
+                color: 'text.primary',
             },
             readTime: {
                 fontSize: {
@@ -424,7 +443,7 @@ export const lightModeTheme = {
                     md: '1rem'
                 },
                 textAlign: 'left',
-                color: 'primary.dark',
+                color: 'text.primary',
             },
             views: {
                 fontSize: {
@@ -433,7 +452,7 @@ export const lightModeTheme = {
                     md: '1rem'
                 },
                 textAlign: 'left',
-                color: 'primary.light',
+                color: 'text.secondary',
             },
             tag: {
                 fontSize: {
@@ -454,7 +473,7 @@ export const lightModeTheme = {
                 alignItems: 'center',
                 opacity: 0,
                 transition: 'opacity 0.3s',
-                color: 'white',
+                color: 'primary.contrastText',
                 fontSize: '1.5rem',
                 fontWeight: 'bold',
             },
@@ -474,7 +493,7 @@ export const lightModeTheme = {
                 },
 
                 fontWeight: 600,
-                color: '#3d3d3d',
+                color: 'text.primary',
                 marginBottom: '1rem',
             },
             linkContainer: {
@@ -524,16 +543,16 @@ export const lightModeTheme = {
             },
 
             readTime: {
-                color: 'rgb(21, 21, 21)',
+                color: 'text.primary',
                 fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             separator: {
-                color: '#6b6b6b',
+                color: 'text.secondary',
                 paddingX: '12px',
                 fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             views: {
-                color: '#6b6b6b',
+                color: 'text.secondary',
                 fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             date: {
@@ -541,7 +560,7 @@ export const lightModeTheme = {
                     xs: 'left',
                     sm: 'right',
                 },
-                color: '#6b6b6b',
+                color: 'text.secondary',
                 marginLeft: {
                     xs: 0,
                     sm: 'auto',
@@ -549,7 +568,7 @@ export const lightModeTheme = {
                 fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
             },
             divider: {
-                backgroundColor: '#6b6b6b',
+                backgroundColor: 'primary.dark',
                 height: '1px',
                 margin: '4px 0 16px 0',
             },
@@ -568,7 +587,7 @@ export const lightModeTheme = {
             outerBox: {
                 flexGrow: 1,
                 display: 'flex',
-                backgroundColor: '#fefefe',
+                backgroundColor: 'background.paper',
                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Shadow on the bottom
             },
             container: {
@@ -581,8 +600,8 @@ export const lightModeTheme = {
                 flexDirection: { xs: 'column', sm: 'row' },
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                color: '#000',
-                backgroundColor: '#fefefe',
+                color: 'text.default',
+                backgroundColor: 'background.paper',
                 padding: {
                     xs: 2,
                     sm: 2
@@ -601,20 +620,20 @@ export const lightModeTheme = {
                 fontFamily: '"Playwrite CU", cursive',
                 fontWeight: 400,
                 fontSize: { xs: '1.2rem', sm: '1.4rem', md: '1.5rem' },
-                color: 'rgb(21, 21, 21)',
+                color: 'text.default',
                 px: 4,
             },
             subtitle: {
                 fontWeight: 600,
                 fontFamily: '"Source Code Pro", monospace',
-                color: '#6b6b6b',
+                color: 'text.secondary',
                 '&:hover': {
-                    color: '#FFC107',
+                    color: 'primary.main',
                 },
                 fontSize: { xs: '1.4rem', sm: '1.5rem', md: '2rem' },
             },
             darkModeToggle: {
-                color: '#2D3242',
+                color: 'toggle.iconColor',
                 transition: 'transform 0.5s',
                 transform: 'rotate(0deg)',
             },
@@ -625,7 +644,7 @@ export const lightModeTheme = {
                     gap: { xs: 1.5, sm: 0.5 },
                 },
 
-                color: '#6b6b6b',
+                color: 'primary.light',
             },
         },
         topMenu: {
@@ -658,7 +677,7 @@ export const lightModeTheme = {
                         sm: '1.8rem',
                     },
                     
-                    color: 'rgb(10, 21, 21)',
+                    color: 'text.default',
                 },
                 fontWeight: {
                     xs: 0,
@@ -668,10 +687,10 @@ export const lightModeTheme = {
                     xs: 'normal',
                 },
 
-                color: '#6b6b6b',
+                color: 'text.secondary',
     
                 '&:hover': {
-                    color: '#FFC107',
+                    color: 'text.primary',
                 }
             },
         },
@@ -679,12 +698,12 @@ export const lightModeTheme = {
             padding: '0 4px',
             fontStyle: 'italic',
             fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-            color: '#000',
+            color: 'text.primary',
         },
         roleText: {
             padding: '0 4px',
             fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-            color: '#000',
+            color: 'text.primary',
             link: {
                 textDecoration: 'none',
                 color: 'inherit'
@@ -692,23 +711,23 @@ export const lightModeTheme = {
         },
         turkey: {
             backgroundColor: 'red',
-            color: 'white',
+            color: 'primary.contrastText',
             fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
         },
         berlin: {
             backgroundImage: 'linear-gradient(90deg, black 33%, red 33%, red 66%, gold 66%)',
-            color: 'white',
+            color: 'primary.contrastText',
             fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
         },
         subText: {
             fontStyle: 'italic',
             fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-            color: '#000',
+            color: 'text.secondary',
         },
         paragraph: {
             padding: '0 0 18px 0',
             fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-            color: '#000',
+            color: 'text.primary',
             textAlign: 'left',
         },
         section: {
@@ -724,11 +743,11 @@ export const lightModeTheme = {
                 textAlign: 'left',
                 fontWeight: 600,
                 fontSize: { xs: '1.4rem', sm: '2rem', md: '2.5rem' },
-                color: '#000',
+                color: 'text.primary',
             },
             divider: {
                 orientation: 'horizontal',
-                backgroundColor: '#6b6b6b',
+                backgroundColor: 'primary.dark',
                 height: '1px',
                 margin: '4px 0 16px 0',
             },
@@ -748,8 +767,8 @@ export const lightModeTheme = {
                 fontWeight: 'bold',
                 padding: '1px 4px',
                 fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-                color: 'rgb(21, 21, 21)',
-                backgroundColor: '#E5E5E5',
+                color: 'secondary.dark',
+                backgroundColor: 'secondary.light',
             }
         },
 
@@ -786,7 +805,7 @@ export const lightModeTheme = {
                 alignItems: 'center',
                 height: '100vh',
                 text: {
-                    color: 'red',
+                    color: 'text.error',
                 }
             },
             noBlogBox: {
@@ -795,7 +814,7 @@ export const lightModeTheme = {
                 alignItems: 'center',
                 height: '100vh',
                 text: {
-                    color: 'rgb(199, 54, 89)',
+                    color: 'text.error',
                 }
             },
             grid: {
@@ -825,7 +844,7 @@ export const lightModeTheme = {
                         width: '100%',
                         textOverflow: 'ellipsis',
                         overflow: 'hidden',
-                        color: 'rgb(199, 54, 89)',
+                        color: 'text.primary',
                     }
                 }
             }
@@ -848,7 +867,7 @@ export const lightModeTheme = {
 
                     fontSize: '6rem',
                     fontWeight: 'bold',
-                    color: '#ff1744'
+                    color: 'text.error'
                 }
             },
             errorTitle: {
@@ -857,11 +876,11 @@ export const lightModeTheme = {
                 fontFamily: "Playwrite CU",
                 px: 4,
                 marginBottom: '2rem',
-                color: 'rgb(21, 21, 21)',
+                color: 'text.primary',
             },
             errorSubtitle: {
                 fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
-                color: '#000',
+                color: 'text.secondary',
                 marginBottom: '2rem',
             }
         },
@@ -872,18 +891,18 @@ export const lightModeTheme = {
             roleText: {
                 softwareDeveloper: {
                     fontWeight: 'bold',
-                    color: '#4CAF50',
-                    backgroundColor: '#E8F5E9',
+                    color: 'roles.sofwareDeveloper.color',
+                    backgroundColor: 'roles.sofwareDeveloper.backgroundColor',
                 },
                 engineer: {
                     fontWeight: 'bold',
-                    color: '#2196F3',
-                    backgroundColor: '#E3F2FD',
+                    color: 'roles.engineer.color',
+                    backgroundColor: 'roles.engineer.backgroundColor',
                 },
                 coder: {
                     fontWeight: 'bold',
-                    color: '#FFC107',
-                    backgroundColor: '#FFF8E1',
+                    color: 'roles.coder.color',
+                    backgroundColor: 'roles.coder.backgroundColor',
                 }
             }
         },
@@ -906,7 +925,7 @@ export const lightModeTheme = {
                 alignItems: 'center',
                 height: '100vh',
                 text: {
-                    color: 'red',
+                    color: 'text.error',
                 }
             },
             noBlogBox: {
@@ -915,7 +934,7 @@ export const lightModeTheme = {
                 alignItems: 'center',
                 height: '100vh',
                 text: {
-                    color: 'rgb(199, 54, 89)',
+                    color: 'text.error',
                 }
             },
             grid: {
@@ -947,7 +966,7 @@ export const lightModeTheme = {
                         width: '100%',
                         textOverflow: 'ellipsis',
                         overflow: 'hidden',
-                        color: 'rgb(199, 54, 89)',
+                        color: 'text.primary',
                     }
                 }
             }
@@ -970,24 +989,26 @@ export const lightModeTheme = {
                 paddingLeft: '1rem',
                 paddingRight: '1rem',
                 boxShadow: 'none', // Remove shadows
-                border: `1px solid #6b6b6b`, // Add outline
+                border: `1.5px solid`, // Add outline
+                borderColor : 'primary.light',
                 borderRadius: '4px', // Optional: add border radius for rounded corners
                 '&:focus-within': {
-                    border: `1.5px solid rgb(21, 21, 21)`, // Change border size and color on focus
+                    border: `2px solid`, // Change border size and color on focus
+                    borderColor: 'primary.dark',
                     '& .MuiSvgIcon-root': {
-                        color: 'rgb(21, 21, 21)',
+                        color: 'primary.dark',
                     }
                 }
             },
             inputBase: {
                 ml: 1,
                 flex: 1,
-                color: 'rgb(21, 21, 21)',
+                color: 'primary.dark',
             },
             iconButton: {
                 p: '10px',
                 searchButton: {
-                    color: '#6b6b6b',
+                    color: 'primary.light',
                 }
             }
         },
@@ -1013,7 +1034,7 @@ export const lightModeTheme = {
                 alignItems: "center",
                 justifyContent: "center",
                 bgcolor: "rgba(0, 0, 0, 0.5)",
-                color: "white",
+                color: "primary.contrastText",
                 textAlign: "center",
                 zIndex: 1,
                 borderRadius: 2,
@@ -1022,7 +1043,7 @@ export const lightModeTheme = {
                 transition: 'opacity 0.3s ease', // Smooth transition for opacity change
                 '&:hover': {
                     '& .MuiSvgIcon-root, & .MuiTypography-root': {
-                        color: '#FFD700', // Gold color for hover effect
+                        color: 'primary.main', // Gold color for hover effect
                         transition: 'color 0.3s ease', // Smooth transition for color change
                     },
                 },
@@ -1031,11 +1052,11 @@ export const lightModeTheme = {
                 icon: {
                     fontSize: 50,
                     marginBottom: '10px',
-                    color: '#fefefe'
+                    color: 'primary.contrastText'
                 },
                 text: {
                     fontSize: 20,
-                    color: '#fefefe'
+                    color: 'primary.contrastText'
                 },
                 pointerEvents : 'none',
                 opacity : 0,
