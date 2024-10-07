@@ -782,7 +782,6 @@ export const darkModeTheme = {
                     height: 300,
                     objectFit: 'cover',
                     borderRadius: 2,
-                    boxShadow: '0px 20px 20px rgba(0, 0, 0, 0.0)', // Add a subtle shadow
                 }
             }
         },
@@ -1030,16 +1029,20 @@ export const darkModeTheme = {
                 left: 0,
                 right: 0,
                 bottom: 0,
+                width: "100%",
+                height: "100%",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                bgcolor: "rgba(0, 0, 0, 0.5)",
                 color: "primary.contrastText",
                 textAlign: "center",
                 zIndex: 1,
                 borderRadius: 2,
-                backdropFilter: 'blur(10px)', // Apply blur effect
-                backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
+                backdropFilter: {
+                    xs : 'blur(20px)', // Apply blur effect
+                    sm : 'blur(10px)', // Apply blur effect
+                },
+                backgroundColor: 'rgba(0, 0, 0, 0.8)', // Semi-transparent background
                 transition: 'opacity 0.3s ease', // Smooth transition for opacity change
                 '&:hover': {
                     '& .MuiSvgIcon-root, & .MuiTypography-root': {

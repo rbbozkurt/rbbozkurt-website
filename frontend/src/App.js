@@ -58,7 +58,6 @@ function App() {
 
   const currentTheme = useMemo(() => theme(darkMode ? 'dark' : 'light'), [darkMode]);
 
-  console.log(`selectedMenuItem: ${INITIAL_PAGE}`);
 
   return (
     <ThemeProvider theme={currentTheme}>
