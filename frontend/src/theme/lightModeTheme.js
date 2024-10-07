@@ -1038,8 +1038,11 @@ export const lightModeTheme = {
                 textAlign: "center",
                 zIndex: 1,
                 borderRadius: 2,
-                backdropFilter: 'blur(10px)', // Apply blur effect
-                backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
+                backdropFilter: {
+                    xs : 'blur(20px)', // Apply blur effect
+                    sm : 'blur(10px)', // Apply blur effect
+                },
+                backgroundColor: 'rgba(0, 0, 0, 0.7)', // Semi-transparent background
                 transition: 'opacity 0.3s ease', // Smooth transition for opacity change
                 '&:hover': {
                     '& .MuiSvgIcon-root, & .MuiTypography-root': {

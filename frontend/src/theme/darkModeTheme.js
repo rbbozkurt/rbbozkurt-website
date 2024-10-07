@@ -1039,7 +1039,7 @@ export const darkModeTheme = {
                 zIndex: 1,
                 borderRadius: 2,
                 backdropFilter: 'blur(10px)', // Apply blur effect
-                backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
+                backgroundColor: 'rgba(0, 0, 0, 0.8)', // Semi-transparent background
                 transition: 'opacity 0.3s ease', // Smooth transition for opacity change
                 '&:hover': {
                     '& .MuiSvgIcon-root, & .MuiTypography-root': {
