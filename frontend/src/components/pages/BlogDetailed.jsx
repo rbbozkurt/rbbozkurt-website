@@ -5,10 +5,12 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { Paragraph, Section } from '../text-components';
 import { BlogHeader } from '../view-components';
+import { useTheme } from '@mui/material/styles';
 
 const BlogDetailed = () => {
     const { blogId } = useParams(); // Get the projectId from the route
     const { blogs, loading, error } = useSelector((state) => state.blogs);
+    const theme = useTheme();
     const navigate = useNavigate();
     // Handle error or invalid project
     if (error) {
@@ -18,7 +20,7 @@ const BlogDetailed = () => {
     // Show a loading indicator while data is being fetched
     if (loading) {
         return (
-            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+            <Box sx={theme.custom.blogDetailedPage.loadingBox}>
                 <CircularProgress />
             </Box>
         );
@@ -32,7 +34,7 @@ const BlogDetailed = () => {
 
 
     return (
-        <Box sx={{ padding: '0rem' }}>
+        <Box>
             <BlogHeader
                 blogTitle={currentBlog.title}
                 author={currentBlog.author}

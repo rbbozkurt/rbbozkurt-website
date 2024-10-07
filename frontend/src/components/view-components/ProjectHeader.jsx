@@ -7,9 +7,9 @@ import { Tags } from '../text-components';
 function ProjectHeader({ projectTitle, createdAt, estimatedReadTime, image, tags, link, views }) {
     const theme = useTheme();
     return (
-        <Box direction="column" sx={theme.custom.projectHeader.container}>
+        <Box sx={theme.custom.projectHeader.container}>
             {/* Project Title */}
-            <Typography align="left" variant="h2" sx={theme.custom.projectHeader.title}>
+            <Typography sx={theme.custom.projectHeader.title}>
                 {projectTitle}
             </Typography>
 
@@ -31,19 +31,19 @@ function ProjectHeader({ projectTitle, createdAt, estimatedReadTime, image, tags
             <Box sx={theme.custom.projectHeader.infoContainer}>
                 {/* Group read time and views */}
                 <Box sx={theme.custom.projectHeader.readTimeViewContainer}>
-                    <Typography variant="body1" align='left' sx={theme.custom.projectHeader.readTime}>
+                    <Typography  sx={theme.custom.projectHeader.readTime}>
                         {`${estimatedReadTime} read `}
                     </Typography>
-                    <Typography variant="body1" align='left' sx={theme.custom.projectHeader.separator}>
+                    <Typography  sx={theme.custom.projectHeader.separator}>
                         {` • `}
                     </Typography>
-                    <Typography variant="body1" align='left' sx={theme.custom.projectHeader.views}>
+                    <Typography   sx={theme.custom.projectHeader.views}>
                         {` ${views} views`}
                     </Typography>
                 </Box>
 
                 {/* Right-aligned date */}
-                <Typography variant="body1" align='right' sx={theme.custom.projectHeader.date}>
+                <Typography sx={theme.custom.projectHeader.date}>
                     {`${createdAt}`}
                 </Typography>
             </Box>

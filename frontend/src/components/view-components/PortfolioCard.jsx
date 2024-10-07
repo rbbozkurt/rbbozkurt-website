@@ -12,35 +12,24 @@ function PortfolioCard({ item, onClickCardClicked, icon, sx }) {
             onClick={() => onClickCardClicked(item._id)}
             sx={{
                 ...theme.custom.portfolioCard,
-                '&:hover .overlay': {
-                    opacity: 1,
-                },
-                ...sx,
-
+                ...sx
             }}
         >
-            <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+            <Box sx={theme.custom.portfolioCard.mainContainer}>
                 {/* Image Section */}
                 <Box
                     component="img"
                     alt={item.title}
                     src={item.imageUrl}
-                    sx={{
-                        ...theme.custom.portfolioCard.image,
-                    }}
+                    sx={theme.custom.portfolioCard.image}
                 />
 
                 {/* Content Section */}
                 <Box
-                    sx={{
-                        ...theme.custom.portfolioCard.content,
-                        backgroundColor: theme.palette.background.paper,
-                    }}
+                    sx={theme.custom.portfolioCard.content}
                 >
                     <Typography
-                        sx={{
-                            ...theme.custom.portfolioCard.title,
-                        }}
+                        sx={theme.custom.portfolioCard.title}
                     >
                         {item.title} {/* Title */}
                     </Typography>
@@ -62,9 +51,7 @@ function PortfolioCard({ item, onClickCardClicked, icon, sx }) {
             {/* Overlay on Hover */}
             <Box
                 className="overlay"
-                sx={{
-                    ...theme.custom.portfolioCard.overlay,
-                }}
+                sx={theme.custom.portfolioCard.overlay}
             >
                 {/* Icon and VIEW text */}
                 {icon}

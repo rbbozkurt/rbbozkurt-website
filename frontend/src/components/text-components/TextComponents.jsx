@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography, Box, Link, Divider } from '@mui/material';
 import PropTypes from 'prop-types';
 import { useTheme } from '@mui/material/styles';
-
+import { hashtify } from '../utils';
 const HighlightedText = ({ text, sx }) => {
     const theme = useTheme();
     return (
@@ -29,7 +29,7 @@ const RoleText = ({ text, link, sx }) => {
             }}
         >
             {link ? (
-                <Link href={link} target="_blank" sx={{ textDecoration: 'none', color: 'inherit' }}>
+                <Link href={link} target="_blank" sx={theme.custom.roleText.link}>
                     {text}
                 </Link>
             ) : (
@@ -73,8 +73,6 @@ const Paragraph = ({ children }) => {
     const theme = useTheme();
     return (
         <Typography
-            align="left"
-            gutterBottom
             sx={theme.custom.paragraph}
         >
             {children}
@@ -85,19 +83,16 @@ const Paragraph = ({ children }) => {
 const Section = ({ title, children }) => {
     const theme = useTheme();
     return (
-        <Box direction="column" sx={theme.custom.section}>
-            <Typography align="left" sx={theme.custom.section.title}>
+        <Box sx={theme.custom.section.box}>
+            <Typography sx={theme.custom.section.title}>
                 {title}
             </Typography>
-            <Divider orientation='horizontal' sx={theme.custom.section.divider} />
+            <Divider sx={theme.custom.section.divider} />
             {children}
         </Box>
     );
 };
 
-// this text is takes list of string and returns a string with # at the beginning of each item
-// uses RoleText for each list item and returns a Typography component
-const hashtify = (list) => list.map((item) => `#${item}`).join(' ');
 
 // Map of pastel color pairs
 const colorMap = {
@@ -119,18 +114,12 @@ const Tags = ({ tags, isColorized = true, isHorizontalScrollable = false, sx }) 
     const theme = useTheme();
     return (
         <Box 
-            sx={{ 
-                display: 'flex', 
-                flexWrap: isHorizontalScrollable ? 'nowrap' : 'wrap', 
-                gap: 1, 
+            sx={{
+                ...theme.custom.tags.box,
+                flexWrap: isHorizontalScrollable ? 'nowrap' : 'wrap',
                 overflowX: isHorizontalScrollable ? 'auto' : 'visible',
                 whiteSpace: isHorizontalScrollable ? 'nowrap' : 'normal', // Prevents wrapping in scrollable mode
-                '&::-webkit-scrollbar': {
-                    display: 'none', // Hides the scrollbar for webkit browsers (Chrome, Safari)
-                },
-                '-ms-overflow-style': 'none',  // Hides scrollbar for Internet Explorer and Edge
-                'scrollbar-width': 'none',     // Hides scrollbar for Firefox
-            }} 
+            } }
             role="text"
         >
             {hashtify(tags).split(' ').map((tag, index) => {
@@ -139,10 +128,10 @@ const Tags = ({ tags, isColorized = true, isHorizontalScrollable = false, sx }) 
                     <Typography
                         key={index}
                         sx={{
-                            ...theme.custom.tags,
+                            ...theme.custom.tags.text,
                             ...sx,
-                            color: isColorized ? color : theme.palette.secondary.dark,
-                            backgroundColor: isColorized ? backgroundColor : theme.custom.tags.backgroundColor,
+                            color: isColorized ? color : theme.custom.tags.text.color,
+                            backgroundColor: isColorized ? backgroundColor : theme.custom.tags.text.backgroundColor,
                             
                         }}
                     >

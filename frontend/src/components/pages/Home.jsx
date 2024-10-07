@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { updateBlogView } from '../../actions/blogs';
 import { updateProjectView } from '../../actions/projects';
+import { useTheme } from '@mui/material/styles';
 
 
 
@@ -28,6 +29,7 @@ const paragraphs2 = [
 const Home = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const theme = useTheme();
 
     const onBlogClick = (id, blog) => {
         dispatch(updateBlogView(id, blog));
@@ -41,38 +43,28 @@ const Home = () => {
     }
 
     return (
-        <Box direction="column">
+        <Box sx={theme.custom.homePage.box}>
             <Section title={title1}>
                 <Paragraph>
                     {paragraphs1[0]}
                     <RoleText
                         text="Software Developer"
                         link="https://simple.wikipedia.org/wiki/Software_developer"
-                        sx={{
-                            fontWeight: 'bold',
-                            color: '#4CAF50', // Green for development
-                            backgroundColor: '#E8F5E9', // Light green background
-                        }}
+                        sx={theme.custom.homePage.roleText.softwareDeveloper}
                     />
                     {"/ "}
                     <RoleText
                         text="Engineer"
                         link="https://simple.wikipedia.org/wiki/Software_engineering"
-                        sx={{
-                            fontWeight: 'bold',
-                            color: '#2196F3', // Blue for engineering
-                            backgroundColor: '#E3F2FD', // Light blue background
-                        }}
+                        sx={theme.custom.homePage.roleText.engineer}
+
                     />
                     {"/ "}
                     <RoleText
                         text="Coder"
                         link="https://en.wikipedia.org/wiki/Programmer"
-                        sx={{
-                            fontWeight: 'bold',
-                            color: '#FFC107', // Yellow for coding
-                            backgroundColor: '#FFF8E1', // Light yellow background
-                        }}
+                        sx={theme.custom.homePage.roleText.coder}
+
                     />
                     <SubText text=" —whatever you'd like to call it—" /> from <Turkey />, now calling <Berlin /> home for the past six years. I graduated with a degree in Computer Science from TU Berlin, where I’m currently pursuing my Master’s.
                 </Paragraph>

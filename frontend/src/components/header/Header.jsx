@@ -8,23 +8,16 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import { HEADER_TITLE, HEADER_SUBTITLE } from '../../constants';
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
-import './Header.css';
 
 function HeaderTitle() {
     const theme = useTheme();
     return (
-        <Box py={2}>
+        <Box sx={theme.custom.header.title.box}>
             <Typography
-                variant='h4'
-                sx={{
-                    ...theme.custom.header.title,
-                    px: 4,
-                }}
-            >
+                sx={theme.custom.header.title}>
                 {HEADER_TITLE}
             </Typography>
             <Typography
-                variant='h3'
                 sx={{
                     ...theme.custom.header.subtitle,
                 }}
@@ -42,13 +35,9 @@ function DarkModeToggleButton({ toggleDarkMode }) {
         <Box>
             <IconButton
                 onClick={toggleDarkMode}
-                sx={{
-                    color: isDarkMode ? theme.custom.header.darkModeToggle.color.dark : theme.custom.header.darkModeToggle.color.light,
-                    transition: theme.custom.header.darkModeToggle.transition,
-                    transform: isDarkMode ? 'rotate(180deg)' : 'rotate(0deg)',
-                }}
+                sx={theme.custom.header.darkModeToggle}
             >
-                {isDarkMode ? <LightModeIcon /> : <DarkModeIcon />}
+                {isDarkMode ? <LightModeIcon /> : <DarkModeIcon/>}
             </IconButton>
         </Box>
     );
@@ -71,18 +60,14 @@ function SocialMediaButtons() {
     return (
         <Box
             display="flex"
-            sx={{
-                justifyContent: { xs: 'space-between', sm: 'flex-start' },
-                width: '100%',
-                gap: { xs: 1.5, sm: 0.5 },
-            }}
-        >
+            sx={theme.custom.header.socialMedia.box}>
             {socialMediaData.map((item, index) => (
                 <React.Fragment key={index}>
                     <IconButton
                         onClick={() => handleButtonClick(item.link)}
                         sx={{
-                            color: { xs: `${item.color}`, sm: isDarkMode ? theme.palette.primary.light : theme.palette.primary.light },
+                            ...theme.custom.header.socialMedia.color,
+                            color: { xs: `${item.color}`, },
                             '&:hover': {
                                 color: `${item.color}`,
                             }
@@ -101,37 +86,18 @@ function SocialMediaButtons() {
 
 function Header({ toggleDarkMode }) {
     const theme = useTheme();
-    const isDarkMode = theme.palette.mode === 'dark';
     return (
-        <Box sx={{
-            flexGrow: 1,
-            display: 'flex',
-            backgroundColor: isDarkMode ? theme.palette.background.default : theme.palette.secondary.light,
-            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Shadow on the bottom
-        }}>
-            <Container disableGutters={true} sx={{ width: '100%', height: 'auto' }}>
+        <Box sx={theme.custom.header.outerBox}>
+            <Container disableGutters={true} sx={theme.custom.header.container}>
                 <Box
-                    sx={{
-                        width: '100%', // Make header span full width
-                        maxWidth: '100vw', // Avoid exceeding viewport width
-                        display: 'flex',
-                        flexDirection: { xs: 'column', sm: 'row' },
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                        color: theme.palette.text.primary,
-                        backgroundColor: isDarkMode ? theme.palette.background.default : theme.palette.secondary.light,
-                        padding: 2,
-                    }}
-                >
+                    sx={theme.custom.header.innerBox}>
                     {/* Align Header Title to the Left */}
                     <HeaderTitle />
-
                     {/* Align Dark Mode Toggle and Social Media Buttons */}
                     <Stack
                         spacing={2}
                         alignItems="center"
-                        sx={{ mt: { xs: 2, sm: 0 } }}
-                    >
+                        sx={theme.custom.header.stack}>
                         <DarkModeToggleButton toggleDarkMode={toggleDarkMode} />
                         <SocialMediaButtons />
                     </Stack>

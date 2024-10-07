@@ -12,29 +12,21 @@ function BlogCard({ item, onClickCardClicked, icon, sx }) {
             onClick={() => onClickCardClicked(item.id)}
             sx={{
                 ...theme.custom.blogCard,
-                '&:hover .overlay': {
-                    opacity: 1,
-                },
                 ...sx
             }}
         >
-            <Box sx={{ display: 'flex', flexDirection: 'row', height: '100%' }}>
+            <Box sx={theme.custom.blogCard.containerBox}>
                 {/* Image Section */}
                 <Box
                     component="img"
                     alt={item.title}
                     src={item.image}
-                    sx={{
-                        ...theme.custom.blogCard.image,
-                    }}
+                    sx={theme.custom.blogCard.image}
                 />
 
                 {/* Content Section */}
                 <Box
-                    sx={{
-                        ...theme.custom.blogCard.content,
-                        backgroundColor: theme.palette.background.paper,
-                    }}
+                    sx={theme.custom.blogCard.content}
                 >
                     <Box>
                         <Typography
@@ -49,7 +41,7 @@ function BlogCard({ item, onClickCardClicked, icon, sx }) {
                         </Typography>
                     </Box>
 
-                    <Box sx={{ flexGrow: 1, overflowY: 'auto', width: '100%' }}>
+                    <Box sx={theme.custom.blogCard.tagContainerBox}>
                         <Tags tags={item.tags} isColorized={false} isHorizontalScrollable={true} sx={theme.custom.portfolioCard.tag} />
                     </Box>
 
@@ -71,9 +63,7 @@ function BlogCard({ item, onClickCardClicked, icon, sx }) {
             {/* Overlay on Hover */}
             <Box
                 className="overlay"
-                sx={{
-                    ...theme.custom.blogCard.overlay,
-                }}
+                sx={theme.custom.blogCard.overlay}
             >
                 {/* Icon and VIEW text */}
                 {icon}

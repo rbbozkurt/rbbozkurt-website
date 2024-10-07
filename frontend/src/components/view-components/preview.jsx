@@ -52,7 +52,7 @@ function BlogPreview({ title, onItemClicked }) {
             {error && <Typography>{MESSAGES.ERROR_PREFIX}{error}</Typography>}
             {!loading && !error && blogs.length === 0 && <Typography>{MESSAGES.NO_BLOGS}</Typography>}
             {!loading && !error && blogs.length > 0 && (
-                <Box display="flex" justifyContent="center" flexDirection="column" alignItems="center" sx={{ width: '100%' }}>
+                <Box sx={theme.custom.blogPreviewTheme.mainContainer}>
                     <Box sx={theme.custom.blogPreviewTheme.card.prevNextCard}>
                         {prev && (
                             <BlogCard
@@ -107,7 +107,7 @@ function PortfolioPreview({ title, onItemClicked }) {
             {error && <Typography>{MESSAGES.ERROR_PREFIX}{error}</Typography>}
             {!loading && !error && projects.length === 0 && <Typography>{MESSAGES.NO_PROJECTS}</Typography>}
             {!loading && !error && projects.length > 0 && (
-                <Box display="flex" justifyContent="center" alignItems="center" sx={{ width: '100%' }}>
+                <Box sx={theme.custom.portfolioPreviewTheme.mainContainer}>
                     <Box sx={theme.custom.portfolioPreviewTheme.card.prevNextCard}>
                         {prev && (
                             <PortfolioCard

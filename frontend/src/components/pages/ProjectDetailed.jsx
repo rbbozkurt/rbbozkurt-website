@@ -6,10 +6,12 @@ import Box from '@mui/material/Box';
 import { Paragraph, Section } from '../text-components';
 import { ProjectHeader } from '../view-components';
 import { formatDate } from '../utils';
+import { useTheme } from '@emotion/react';
 
 const ProjectDetailed = () => {
     const { projectId } = useParams(); // Get the projectId from the route
     const { projects, loading, error } = useSelector((state) => state.projects);
+    const theme = useTheme();
     const navigate = useNavigate();
 ;
     // Handle error or invalid project
@@ -20,7 +22,7 @@ const ProjectDetailed = () => {
     // Show a loading indicator while data is being fetched
     if (loading) {
         return (
-            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+            <Box sx={theme.custom.projectDetailedPage.loadingBox}>
                 <CircularProgress />
             </Box>
         );
@@ -32,7 +34,7 @@ const ProjectDetailed = () => {
     }
 
     return (
-        <Box sx={{ padding: '0rem' }}>
+        <Box>
             <ProjectHeader
                 projectTitle={project.title}
                 createdAt={formatDate(project.date)}

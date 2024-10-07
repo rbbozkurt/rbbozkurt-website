@@ -1,30 +1,25 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { useTheme } from '@mui/material/styles';
 
-function Error( {darkMode} ) {
+function Error({ darkMode }) {
+  const theme = useTheme();
+
   return (
-    <Box
-      direction = "column"
-    >
-      <Typography variant="h1" component="h1" sx={{ fontSize: '6rem', fontWeight: 'bold', color: '#ff1744' }}>
+    <Box sx={theme.custom.errorPage.box}>
+      <Typography sx={theme.custom.errorPage.errorCode.text}>
         404
       </Typography>
-      <Typography  component="h2" variant='h4'
-                sx={{
-                    color: darkMode ? 'primary.dark' : 'primary.dark',
-                    fontFamily: "Playwrite CU",
-                    px: 4,
-                    marginBottom: '2rem'
-                }}>
+      <Typography sx={theme.custom.errorPage.errorTitle}>
         Page Not Found
       </Typography>
-      <Typography variant="body1" sx={{ marginBottom: '2rem' }}>
+      <Typography sx={theme.custom.errorPage.errorSubtitle}>
         The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
       </Typography>
-      <Typography variant="body1" sx={{ marginBottom: '2rem' }}>
+      <Typography sx={theme.custom.errorPage.errorSubtitle}>
         Please select a page from the menu above or return to the <Link to="/">homepage</Link>.
-        </Typography>
+      </Typography>
     </Box>
   );
 }
