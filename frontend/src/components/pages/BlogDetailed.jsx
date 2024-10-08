@@ -40,7 +40,7 @@ const BlogDetailed = () => {
                 author={currentBlog.author}
                 createdAt={formatDate(currentBlog.date)}
                 estimatedReadTime={currentBlog.estimatedReadTime}
-                image={currentBlog.image}
+                image={currentBlog.imageUrl}
                 tags={currentBlog.tags}
                 views={currentBlog.views}
             />

@@ -6,7 +6,8 @@ import {DetailsSchema} from './commonSchemaUtils.js';
 const BlogSchema = new mongoose.Schema({
     title: { type: String, required: true, maxlength: 100 },
     author: { type: String, required: true },
-    image: { type: String, required: true },
+    imageS3Key: { type: String, required: true },
+    imageUrl: { type: String, required: true },
     date: { type: Date, required: true },
     views : { type: Number, required: true },
     estimatedReadTime: { type: String, required: true },

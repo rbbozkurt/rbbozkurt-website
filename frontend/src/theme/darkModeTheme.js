@@ -327,7 +327,7 @@ export const darkModeTheme = {
             },
             title: {
                 fontSize: {
-                    xs: '1rem',
+                    xs: '0.6rem',
                     sm: '1.2rem',
                     md: '1.6rem'
                 },
@@ -336,7 +336,7 @@ export const darkModeTheme = {
             },
             author: {
                 fontSize: {
-                    xs: '0.8rem',
+                    xs: '0.5rem',
                     sm: '1rem',
                     md: '1.2rem'
                 },

@@ -20,8 +20,6 @@ export const getProjects = async (req, res) => {
             return clonedProject;
         }));
         
-
-        console.log('Fetched projects:', projectsWithPresignedUrls);
         // Send the projects with pre-signed URLs as a response
         res.status(200).json(projectsWithPresignedUrls);
     } catch (error) {
@@ -44,8 +42,6 @@ export const updateProject = async (req, res) => {
 
         // Update the project with the new data, preserving the S3 key
         const updatedProject = await ProjectMessage.findByIdAndUpdate(_id, { ...project, _id }, { new: true });
-        console.log("Updated project:", updatedProject);
-
         // Send the updated project as a response
         res.json(updatedProject);
     } catch (error) {

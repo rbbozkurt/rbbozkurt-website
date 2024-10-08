@@ -28,8 +28,10 @@ export async function fetchProject(id) {
 export async function fetchBlogs() {
     try {
         const response = await axios.get(`${config.api.baseUrl}${config.paths.blogs}`);
+        console.log('Fetched blogs:', response.data);
         return { data: response.data };
     } catch (error) {
+        console.error('Error fetching blogs:', error);
         return { data: [] };
     }
 }
