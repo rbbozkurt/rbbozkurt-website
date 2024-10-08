@@ -20,7 +20,7 @@ function BlogCard({ item, onClickCardClicked, icon, sx }) {
                 <Box
                     component="img"
                     alt={item.title}
-                    src={item.image}
+                    src={item.imageUrl}
                     sx={theme.custom.blogCard.image}
                 />
 

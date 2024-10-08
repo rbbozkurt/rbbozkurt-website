@@ -19,11 +19,11 @@ const createS3client = () => {
 
 export const generatePresignedUrl = async (key) => {
     const s3 = createS3client();  // Get the initialized S3 client here
+    console.log('Generating pre-signed URL for key:', key);
     const command = new GetObjectCommand({
         Bucket: process.env.S3_BUCKET_NAME,
         Key: key
     });
-
     try {
         const presignedUrl = await getSignedUrl(s3, command, { expiresIn: 3600 });
         return presignedUrl;
