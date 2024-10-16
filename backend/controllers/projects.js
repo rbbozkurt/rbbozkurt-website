@@ -64,7 +64,7 @@ export const deleteProject = async (req, res) => {
             return res.status(StatusCodes.BAD_REQUEST).send('Invalid project ID');
         }
         // Delete the project from the database
-        const deletedProject = await ProjectMessage.findByIdAndRemove(_id);
+        const deletedProject = await ProjectMessage.findByIdAndDelete(_id);
         if (!deletedProject) {
             return res.status(StatusCodes.NOT_FOUND).send('No project with that id');
         }

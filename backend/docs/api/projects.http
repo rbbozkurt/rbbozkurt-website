@@ -1,0 +1,68 @@
+### Get all projects
+GET http://localhost:5002/api/projects
+
+### Get a project by ID
+GET http://localhost:5002/api/projects/66f3dd6101f2850c30f930f9
+
+### Create a new project
+POST http://localhost:5002/api/projects
+Content-Type: application/json
+
+{
+  "title": "New Project Title",
+  "description": "This is the description of the new project.",
+  "imageS3Key": "image-key-in-s3",
+  "imageUrl": "https://example.com/project-image.jpg",
+  "date": "2024-10-15T10:00:00Z",
+  "views": 50,
+  "estimatedReadTime": "3 min",
+  "tags": ["tag1", "tag2"],
+  "details": {
+    "sections": [
+      {
+        "title": "Section 1",
+        "paragraphs": [
+          "This is the first paragraph of section 1.",
+          "This is the second paragraph of section 1."
+        ]
+      },
+      {
+        "title": "Section 2",
+        "paragraphs": [
+          "This is the first paragraph of section 2."
+        ]
+      }
+    ]
+  },
+  "link": "https://example.com/project-link"
+}
+
+### Update a project by ID
+PUT http://localhost:5002/api/projects/6710055e17e8095617a5da0f
+Content-Type: application/json
+
+{
+  "title": "Updated Project Title",
+  "description": "This is the updated description of the project.",
+  "imageS3Key": "updated-image-key-in-s3",
+  "imageUrl": "https://example.com/updated-project-image.jpg",
+  "date": "2024-10-15T12:00:00Z",
+  "views": 75,
+  "estimatedReadTime": "4 min",
+  "tags": ["tag1", "updatedTag"],
+  "details": {
+    "sections": [
+      {
+        "title": "Updated Section 1",
+        "paragraphs": [
+          "This is the updated first paragraph of section 1.",
+          "This is the updated second paragraph of section 1."
+        ]
+      }
+    ]
+  },
+  "link": "https://example.com/updated-project-link"
+}
+
+### Delete a project by ID
+DELETE http://localhost:5002/api/projects/6710055e17e8095617a5da0f

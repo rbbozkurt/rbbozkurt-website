@@ -59,17 +59,24 @@ export const createBlog = async (req, res) => {
 export const deleteBlog = async (req, res) => {
     try {
         const { id: _id } = req.params;
+
         // Check if the blog with the given ID exists
         if (!mongoose.Types.ObjectId.isValid(_id)) {
             return res.status(StatusCodes.NOT_FOUND).send('No blog with that id');
         }
+
         // Delete the blog with the given ID
-        await BlogMessage.findByIdAndRemove(_id);
+        const deletedBlog = await BlogMessage.findByIdAndDelete(_id);
+
+        if (!deletedBlog) {
+            return res.status(StatusCodes.NOT_FOUND).send('No blog with that id');
+        }
+
         res.status(StatusCodes.OK).json({ message: 'Blog deleted successfully' });
     } catch (error) {
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
     }
-}
+};
 
 export const updateBlog = async (req, res) => {
     try {
