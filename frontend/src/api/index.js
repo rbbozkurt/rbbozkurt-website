@@ -17,9 +17,45 @@ export async function fetchProjects() {
 export async function fetchProject(id) {
     try {
         const response = await axios.get(`${config.api.baseUrl}${config.paths.projects}/${id}`);
-        console.log('Fetched projects:', response.data);
+        console.log('Fetched project:', response.data);
         return { data: response.data };
     } catch (error) {
+        return { data: null };
+    }
+}
+
+// Create a new project
+export async function createProject(data) {
+    try {
+        const response = await axios.post(`${config.api.baseUrl}${config.paths.projects}`, data);
+        console.log('Created project:', response.data);
+        return { data: response.data };
+    } catch (error) {
+        console.error('Error creating project:', error);
+        return { data: null };
+    }
+}
+
+// Update an existing project
+export async function updateProject(id, data) {
+    try {
+        console.log('Updating project:', data);
+        const response = await axios.put(`${config.api.baseUrl}${config.paths.projects}/${id}`, data);
+        return { data: response.data };
+    } catch (error) {
+        console.error('Error updating project:', error);
+        return { data: data };
+    }
+}
+
+// Delete a project
+export async function deleteProject(id) {
+    try {
+        const response = await axios.delete(`${config.api.baseUrl}${config.paths.projects}/${id}`);
+        console.log('Deleted project:', response.data);
+        return { data: response.data };
+    } catch (error) {
+        console.error('Error deleting project:', error);
         return { data: null };
     }
 }
@@ -46,20 +82,37 @@ export async function fetchBlog(id) {
     }
 }
 
-export async function updateProject(id, data) {
+// Create a new blog
+export async function createBlog(data) {
     try {
-        console.log('Updating project:', data);
-        const response = await axios.put(`${config.api.baseUrl}${config.paths.projects}/${id}`, data);
+        const response = await axios.post(`${config.api.baseUrl}${config.paths.blogs}`, data);
+        console.log('Created blog:', response.data);
         return { data: response.data };
     } catch (error) {
-        return { data: data };
+        console.error('Error creating blog:', error);
+        return { data: null };
     }
-}   
+}
+
+// Update an existing blog
 export async function updateBlog(id, data) {
     try {
         const response = await axios.put(`${config.api.baseUrl}${config.paths.blogs}/${id}`, data);
         return { data: response.data };
     } catch (error) {
+        console.error('Error updating blog:', error);
         return { data: data };
+    }
+}
+
+// Delete a blog
+export async function deleteBlog(id) {
+    try {
+        const response = await axios.delete(`${config.api.baseUrl}${config.paths.blogs}/${id}`);
+        console.log('Deleted blog:', response.data);
+        return { data: response.data };
+    } catch (error) {
+        console.error('Error deleting blog:', error);
+        return { data: null };
     }
 }
