@@ -1,0 +1,66 @@
+### Get all blogs
+GET http://localhost:5002/api/blogs
+
+### Get a blog by ID
+GET http://localhost:5002/api/blogs/66f3dd2001f2850c30f930f8
+
+### Create a new blog
+POST http://localhost:5002/api/blogs
+Content-Type: application/json
+
+{
+  "title": "New Blog Title",
+  "author": "Author Name",
+  "imageS3Key": "image-key-in-s3",
+  "imageUrl": "https://example.com/image.jpg",
+  "date": "2024-10-15T10:00:00Z",
+  "views": 100,
+  "estimatedReadTime": "5 min",
+  "tags": ["tag1", "tag2"],
+  "details": {
+    "sections": [
+      {
+        "title": "Section 1",
+        "paragraphs": [
+          "This is the first paragraph of section 1.",
+          "This is the second paragraph of section 1."
+        ]
+      },
+      {
+        "title": "Section 2",
+        "paragraphs": [
+          "This is the first paragraph of section 2."
+        ]
+      }
+    ]
+  }
+}
+
+### Update a blog by ID
+PUT http://localhost:5002/api/blogs/6710033494453754a60db805
+Content-Type: application/json
+
+{
+  "title": "Updated Blog Title",
+  "author": "Updated Author Name",
+  "imageS3Key": "updated-image-key-in-s3",
+  "imageUrl": "https://example.com/updated-image.jpg",
+  "date": "2024-10-15T12:00:00Z",
+  "views": 150,
+  "estimatedReadTime": "6 min",
+  "tags": ["tag1", "updatedTag"],
+  "details": {
+    "sections": [
+      {
+        "title": "Updated Section 1",
+        "paragraphs": [
+          "This is the updated first paragraph of section 1.",
+          "This is the updated second paragraph of section 1."
+        ]
+      }
+    ]
+  }
+}
+
+### Delete a blog by ID
+DELETE http://localhost:5002/api/blogs/6710033494453754a60db805
